@@ -100,18 +100,24 @@ response.
 ## Caching
 
 All responses include an `ETag` (or Entity Tag) header, identifying the specific
-version of a returned resource. Use this value to check for changes to a
-resource by repeating the request and passing the `ETag` value in the
-`If-None-Match` header. If the resource has not changed, a `304 Not Modified`
-status will be returned with an empty body. If the resource has changed, the
-request will proceed normally. Web browser api clients should do this
-automatically via [HTTP Conditional Get](https://tools.ietf.org/html/rfc7232)
+version of a returned resource.
+
+Use this value to check for changes to a resource by repeating the request and
+passing the `ETag` value in the `If-None-Match` header.
+
+If the resource has not changed, a `304 Not Modified` status will be returned
+with an empty body. If the resource has changed, the request will proceed
+normally.
+
+Web browser api clients should do this automatically via [HTTP Conditional
+Get](https://tools.ietf.org/html/rfc7232)
 
 ## Clients
 
-Clients must address requests to `api.betternow.org` using HTTPS and specify the
-`Accept: application/vnd.betternow+json; version=1` Accept header. Non-browser
-clients should specify a User-Agent header to facilitate tracking and debugging.
+Clients **must** address requests to `api.betternow.org` using HTTPS and specify the
+`Accept: application/vnd.betternow+json; version=1` Accept header.
+
+Non-browser clients **should** specify a User-Agent header to facilitate tracking and debugging.
 
 ## CORS
 
@@ -121,8 +127,9 @@ browser-based clients.
 ## Rate Limits
 
 We continually monitor the health of our API and reserve the right to enforce
-rate limits. Rate-limited requests will receive a response with a `429 Too Many
-Requests` status.
+rate limits.
+
+Rate-limited requests will receive a response with a `429 Too Many Requests` status.
 
 ## Pagination via Ranges
 
@@ -152,6 +159,7 @@ Status: 206 Partial Content
 ```
 
 ### Subsequent request to paginated resource
+
 ```shell
 curl -n -sS -i -H 'Accept: application/vnd.betternow+json; version=1' \
   -H 'Range-Unit: items' \
@@ -170,16 +178,16 @@ The machine-readable version of this README is
 [schema.json](https://raw.githubusercontent.com/BetterNowOrg/api-documentation/master/schema.json). You
 can use tools like [committee](https://github.com/interagent/committee) with the
 schema to test and stub a local version of the api when you're developing your
-client. I'm sure there are other tools for other languages - feel free to submit
-a PR to add links for them.
+client.
 
 ## "Sub-resources"
 
 When resources are related to other resources (e.g. a list of projects embedded
 in an organisation), they will be represented as a reference to an url that can
-be dereferenced to return a list of the embedded resources. Clients should
-prefer following the url included in the parent resource rather then
-constructing their own urls.
+be dereferenced to return a list of the embedded resources.
+
+Clients should prefer following the url included in the parent resource rather
+then constructing their own urls.
 
 # Example Usage
 
@@ -194,7 +202,7 @@ machine api.betternow.org
 
 
 curl -n -sS -i -H 'Accept: application/vnd.betternow+json; version=1' \
-  https://api.betternow.org/fundraisers/<YOUR_FUNDRAISER_ID_OR_SLUG>
+  https://api.betternow.org/fundraisers/<REPLACE_WITH_YOUR_FUNDRAISER_ID_OR_SLUG>
 ```
 
 ```html
