@@ -1,0 +1,228 @@
+---
+title: API Reference
+
+language_tabs:
+  - shell
+  - html
+
+toc_footers:
+  - <a href="https://intl.betternow.org/developer-agreement" target="_blank">Developer Agreement</a>
+  - <a href="https://intl.betternow.org/terms" target="_blank">Terms
+    &amp; Conditions</a>
+  - <a href="https://help.betternow.org/hc/en-us/categories/200126293-For-Charities" target="_blank">BetterNow Charity Support</a>
+  - <a href="mailto:apisupport@betternow.org">apisupport@betternow.org</a>
+  - <a href="https://www.betternow.org">BetterNow Worldwide Aps</a>
+
+includes:
+  - webhooks
+
+search: true
+---
+
+# Welcome!
+
+The BetterNow API provides the building blocks that allow charities and event
+organizers to integrate their fundraising and donation activities on the
+BetterNow platform and Branded Sites with other information systems.
+
+Here are a few of the real-world integrations that use the API today:
+
+* Participants in a charity sports event automatically get a fundraiser created for
+  them when registering for the event, via an integration with the event's ticketing system.
+* A charity's CRM system is automatically updated in real-time as donations
+  and fundraisers are created on their BetterNow sites, via webhooks that push
+  activity on the BetterNow sites to the charity's system.
+* A charity's home page displays the top fundraiser for a specific project, with
+  donation amounts that are updated in real-time, and direct links to donate to
+  the fundraiser or create another fundraiser for the same cause.
+
+We ♥︎ helping our customers build new integrations. Contact us at <a
+href="mailto:apisupport@betternow.org">apisupport@betternow.org</a> if you have
+any questions.
+
+<aside class="success">
+Note that use of the API is governed by the <a
+href="https://intl.betternow.org/developer-agreement" target="_blank">Developer
+Agreement</a> and the general <a href="https://intl.betternow.org/terms"
+target="_blank">Terms &amp; Conditions</a>
+</aside>
+
+## Availablity
+
+The BetterNow API is available at no additional charge to charities with a
+Branded site. In addition, it can be enabled for charities on the BN platform
+sites or with a Branded Light site for an additional fee.
+
+If you have an **Integrations** section in your charity dashboard, you have
+access to the API. Note that you must have *Administrator* permissions in order
+to manage access to the API.
+
+To upgrade your plan to get access to the BetterNow API, please contact <a
+href="mailto:orgsupport@betternow.org">orgsupport@betternow.org</a>.
+
+## Setup
+
+In the **Integrations** section of your charity dashboard, you can create API
+keys that will grant you access to the API. If you don't see an **Integrations**
+section, please see the Availablity section above.
+
+<img src="/images/add-api-user.png">
+
+When you create an API user, you can decide if the keys should be limited to
+activity for only one Project, or for all present and future Projects for your
+charity.
+
+In addition, you can add an email address and a short description for each set
+of keys.
+## Authentication
+
+When you create an API user in your charity dashboard, we generate two API keys
+-- one `publishable` api key, that can be used in client-side integrations. The
+publishable key grants read-only access to the same publicly available information that is displayed on the BetterNow or Branded site.
+
+The second is a `secret` api key that gives write access and read access
+to private information.
+
+<aside class="warning">
+The <code>secret</code> key should <em>never</em> be exposed in client-side code, commited to source
+control, or saved/sent via an insecure channel.
+</aside>
+
+The secret key has all of the access rights of a publishable key, so if your
+integration is server-side only, you can use the secret key only.
+
+Both keys can be used via HTTP Basic-Auth.
+
+API keys grant access to specific resources such as Charities, Events, etc.
+Authenticated requests for other resources will return a `403 Forbidden`
+response.
+
+## Caching
+
+All responses include an `ETag` (or Entity Tag) header, identifying the specific
+version of a returned resource. Use this value to check for changes to a
+resource by repeating the request and passing the `ETag` value in the
+`If-None-Match` header. If the resource has not changed, a `304 Not Modified`
+status will be returned with an empty body. If the resource has changed, the
+request will proceed normally. Web browser api clients should do this
+automatically via [HTTP Conditional Get](https://tools.ietf.org/html/rfc7232)
+
+## Clients
+
+Clients must address requests to `api.betternow.org` using HTTPS and specify the
+`Accept: application/vnd.betternow+json; version=1` Accept header. Non-browser
+clients should specify a User-Agent header to facilitate tracking and debugging.
+
+## CORS
+
+The API fully supports cross-origin resource sharing (CORS) to enable
+browser-based clients.
+
+## Rate Limits
+
+We continually monitor the health of our API and reserve the right to enforce
+rate limits. Rate-limited requests will receive a response with a `429 Too Many
+Requests` status.
+
+## Pagination via Ranges
+
+List requests will return a `Content-Range` header indicating the range of values
+returned. Large lists may require additional requests to retrieve. If a list
+response has been truncated you will receive a `206 Partial Content` status and
+the `Next-Range` header will be set. 50 resources will be sent at a time.
+
+To retrieve the next range, repeat the request with the `Range` header set to
+the value of the previous request’s `Next-Range` header and the `Range-Unit:
+items` header, e.g:
+
+### Initial request to paginated resource
+
+```shell
+curl -n -sS -i -H 'Accept: application/vnd.betternow+json; version=1' \
+  https://api.betternow.org/fundraisers
+
+HTTP/1.1 206 Partial Content
+#... ommitted headers
+Accept-Ranges: items
+Content-Range: 0-49/7167
+Link: <https://api.betternow.org/fundraisers>; rel="next"; items="50-7216", <https://api.betternow.org/fundraisers>; rel="last"; items="7150-14316"
+Next-Range: 50-7216
+Range-Unit: items
+Status: 206 Partial Content
+```
+
+### Subsequent request to paginated resource
+```shell
+curl -n -sS -i -H 'Accept: application/vnd.betternow+json; version=1' \
+  -H 'Range-Unit: items' \
+  -H 'Range: 50-7216' \
+  https://api.betternow.org/fundraisers
+```
+
+The `rel=next` relation in the `Link` header may also be used.
+
+If the list is empty, a `204 No Content` status with the correct range headers
+and an empty request body will be returned.
+
+## JSON Schema
+
+The machine-readable version of this README is
+[schema.json](https://raw.githubusercontent.com/BetterNowOrg/api-documentation/master/schema.json). You
+can use tools like [committee](https://github.com/interagent/committee) with the
+schema to test and stub a local version of the api when you're developing your
+client. I'm sure there are other tools for other languages - feel free to submit
+a PR to add links for them.
+
+## "Sub-resources"
+
+When resources are related to other resources (e.g. a list of projects embedded
+in an organisation), they will be represented as a reference to an url that can
+be dereferenced to return a list of the embedded resources. Clients should
+prefer following the url included in the parent resource rather then
+constructing their own urls.
+
+# Example Usage
+
+On the right you can see two examples for how to retrieve a fundraiser via the
+API.
+
+```shell
+cat > ~/.netrc
+machine api.betternow.org
+  login your_email
+  password <YOUR API KEY>
+
+
+curl -n -sS -i -H 'Accept: application/vnd.betternow+json; version=1' \
+  https://api.betternow.org/fundraisers/<YOUR_FUNDRAISER_ID_OR_SLUG>
+```
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>CORS test page</title>
+    <script>
+      var Base64={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",encode:function(e){var t="";var n,r,i,s,o,u,a;var f=0;e=Base64._utf8_encode(e);while(f<e.length){n=e.charCodeAt(f++);r=e.charCodeAt(f++);i=e.charCodeAt(f++);s=n>>2;o=(n&3)<<4|r>>4;u=(r&15)<<2|i>>6;a=i&63;if(isNaN(r)){u=a=64}else if(isNaN(i)){a=64}t=t+this._keyStr.charAt(s)+this._keyStr.charAt(o)+this._keyStr.charAt(u)+this._keyStr.charAt(a)}return t},decode:function(e){var t="";var n,r,i;var s,o,u,a;var f=0;e=e.replace(/[^A-Za-z0-9\+\/\=]/g,"");while(f<e.length){s=this._keyStr.indexOf(e.charAt(f++));o=this._keyStr.indexOf(e.charAt(f++));u=this._keyStr.indexOf(e.charAt(f++));a=this._keyStr.indexOf(e.charAt(f++));n=s<<2|o>>4;r=(o&15)<<4|u>>2;i=(u&3)<<6|a;t=t+String.fromCharCode(n);if(u!=64){t=t+String.fromCharCode(r)}if(a!=64){t=t+String.fromCharCode(i)}}t=Base64._utf8_decode(t);return t},_utf8_encode:function(e){e=e.replace(/\r\n/g,"\n");var t="";for(var n=0;n<e.length;n++){var r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r)}else if(r>127&&r<2048){t+=String.fromCharCode(r>>6|192);t+=String.fromCharCode(r&63|128)}else{t+=String.fromCharCode(r>>12|224);t+=String.fromCharCode(r>>6&63|128);t+=String.fromCharCode(r&63|128)}}return t},_utf8_decode:function(e){var t="";var n=0;var r=c1=c2=0;while(n<e.length){r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r);n++}else if(r>191&&r<224){c2=e.charCodeAt(n+1);t+=String.fromCharCode((r&31)<<6|c2&63);n+=2}else{c2=e.charCodeAt(n+1);c3=e.charCodeAt(n+2);t+=String.fromCharCode((r&15)<<12|(c2&63)<<6|c3&63);n+=3}}return t}}
+
+      var yourEmailAddress   = "<REPLACE WITH YOUR EMAIL>"
+      var publishableKey     = "<REPLACE WITH YOUR API KEY>";
+      var fundraiserSlugOrId = "<REPLACE WITH A FUNDRAISER ID or SLUG>";
+
+      var xhr = new XMLHttpRequest();
+      xhr.open("get", "https://api.betternow.org/fundraisers/" + fundraiserSlugOrId, true);
+      xhr.setRequestHeader("Authorization", "Bearer " + Base64.encode(yourEmailAddress + ":" + publishableKey))
+      xhr.setRequestHeader("Accept", "application/vnd.betternow+json; version=1");
+      xhr.onload = function() {
+        alert(this.responseText);
+      }
+      xhr.send();
+    </script>
+  </head>
+  <body>
+    <p>If you don't get an alert something is wrong...</p>
+  </body>
+</html>
+```
+
