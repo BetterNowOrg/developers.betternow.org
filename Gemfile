@@ -7,6 +7,7 @@ gem 'middleman', '~>4.1.0'
 gem "middleman-sprockets", "~> 4.0.0"
 gem 'middleman-autoprefixer', '~> 2.7.0'
 gem 'middleman-livereload'
+gem 'middleman-s3_sync'
 gem 'middleman-syntax', '~> 3.0.0'
 gem 'prmd', '0.7.0'
 gem 'rake', '10.0.1'
