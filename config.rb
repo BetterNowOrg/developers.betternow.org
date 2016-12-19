@@ -44,6 +44,12 @@ configure :build do
   # activate :gzip
 end
 
+activate :s3_sync do |s3_sync|
+  s3_sync.bucket = 'developer-betternow-site'
+  s3_sync.region = 'eu-west-1'
+  s3_sync.version_bucket = true
+end
+
 # Deploy Configuration
 # If you want Middleman to listen on a different port, you can set that below
 set :port, 4567
