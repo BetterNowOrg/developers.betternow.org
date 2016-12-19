@@ -3,7 +3,6 @@ title: API Reference
 
 language_tabs:
   - shell
-  - html
 
 toc_footers:
   - <a href="https://intl.betternow.org/developer-agreement" target="_blank">Developer Agreement</a>
@@ -14,6 +13,7 @@ toc_footers:
   - <a href="https://www.betternow.org">BetterNow Worldwide Aps</a>
 
 includes:
+  - resources
   - webhooks
 
 search: true
@@ -175,7 +175,7 @@ and an empty request body will be returned.
 ## JSON Schema
 
 The machine-readable version of this README is
-[schema.json](https://raw.githubusercontent.com/BetterNowOrg/api-documentation/master/schema.json). You
+[schema.json](/schema.json). You
 can use tools like [committee](https://github.com/interagent/committee) with the
 schema to test and stub a local version of the api when you're developing your
 client.
