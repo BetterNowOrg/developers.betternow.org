@@ -10,6 +10,16 @@ only one specific project.
 All activities for the project(s) configured for the webhook are sent to the
 endpoint. You can decide if you want to act on the activity or ignore it.
 
+## Webhooks Availabilty
+
+If you have access to the API, you also have access to webhooks. For more
+information, see [the Availablity section above](/#availablity).
+
+## Webhooks Setup
+
+You can add a webhook endpoint in the **Integrations** section of your charity
+dashboard.
+
 ## Activity Types
 
 The following activities will trigger a notification to your endpoint:
