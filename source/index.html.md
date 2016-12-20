@@ -74,6 +74,7 @@ charity.
 
 In addition, you can add an email address and a short description for each set
 of keys.
+
 ## Authentication
 
 When you create an API user in your charity dashboard, we generate two API keys
@@ -195,9 +196,10 @@ On the right you can see two examples for how to retrieve a fundraiser via the
 API.
 
 ```shell
-cat > ~/.netrc
+# save api credentials in .netrc, for use with 'curl -n'
+cat >> ~/.netrc
 machine api.betternow.org
-  login your_email
+  login <YOUR EMAIL ADDRESS>
   password <YOUR API KEY>
 
 
