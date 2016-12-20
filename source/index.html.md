@@ -197,8 +197,9 @@ client.
 
 ## "Sub-resources"
 
-When resources are related to other resources (e.g. a list of projects embedded
-in an organisation), they will be represented as a reference to an url that can
+When resources are related to other resources (e.g. a list of Projects that can
+be supported for one Organisation, or a list of fundraising pages that are
+members of one Team), they will be represented as a reference to an url that can
 be dereferenced to return a list of the embedded resources.
 
 Clients should prefer following the url included in the parent resource rather
