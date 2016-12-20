@@ -79,12 +79,15 @@ of keys.
 
 ## Authentication
 
-When you create an API user in your charity dashboard, we generate two API keys
--- one `publishable` api key, that can be used in client-side integrations. The
-publishable key grants read-only access to the same publicly available information that is displayed on the BetterNow or Branded site.
+When you create an API user in your charity dashboard, we generate a
+`publishable` key and a `secret` key.
 
-The second is a `secret` api key that gives write access and read access
-to private information.
+The publishable key can be used in client-side integrations, as shown in the
+[HTML example](/#html-javascript-browser-example) below. The publishable key
+grants read-only access to the same publicly available information that is
+displayed on the BetterNow or Branded site.
+
+The secret key grants write access to some resources and read access to private information.
 
 <aside class="warning">
 The <code>secret</code> key should <em>never</em> be exposed in client-side code, commited to source
@@ -94,9 +97,14 @@ control, or saved/sent via an insecure channel.
 The secret key has all of the access rights of a publishable key, so if your
 integration is server-side only, you can use the secret key only.
 
-Both keys can be used via HTTP Basic-Auth.
+Both keys can be used via HTTP Basic-Auth, or in the browser as shown in our
+[HTML example](/#html-javascript-browser-example).
 
-API keys grant access to specific resources such as Charities, Events, etc.
+API keys grant access to specific resources such as
+[Organisations/Charities](/#organisation), [Events](/#event), etc. and all of
+their associated "sub-resources", such as [Fundraising
+Pages](/#fundraising-page) and [Teams](/#team).
+
 Authenticated requests for other resources will return a `403 Forbidden`
 response.
 
