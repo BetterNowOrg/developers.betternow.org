@@ -134,6 +134,10 @@ rate limits.
 
 Rate-limited requests will receive a response with a `429 Too Many Requests` status.
 
+We encourage you to add something like [exponential
+back-off](https://en.wikipedia.org/wiki/Exponential_backoff) to your API client,
+periodically retrying your requests if you receive a `429` status code.
+
 ## Pagination via Ranges
 
 List requests will return a `Content-Range` header indicating the range of values
