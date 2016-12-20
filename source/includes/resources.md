@@ -14,7 +14,8 @@ Info for existing event.
 `GET /events/{event_id_or_slug}`
 
 ```shell
-$ curl -n -X GET https://api.betternow.org/events/$EVENT_ID_OR_SLUG
+$ curl -n -H 'Accept: application/vnd.betternow+json; version=1' \
+https://api.betternow.org/events/$EVENT_ID_OR_SLUG
 
 ```
 
@@ -70,7 +71,8 @@ List existing events.
 `GET /events`
 
 ```shell
-$ curl -n -X GET https://api.betternow.org/events
+$ curl -n -H 'Accept: application/vnd.betternow+json; version=1' \
+https://api.betternow.org/events
 
 ```
 
@@ -128,7 +130,8 @@ List all Projects associated with an Event
 `GET /events/{event_id_or_slug}/projects`
 
 ```shell
-$ curl -n -X GET https://api.betternow.org/events/$EVENT_ID_OR_SLUG/projects
+$ curl -n -H 'Accept: application/vnd.betternow+json; version=1' \
+https://api.betternow.org/events/$EVENT_ID_OR_SLUG/projects
 
 ```
 
@@ -187,7 +190,8 @@ List all Fundraisers associated with an Event
 `GET /events/{event_id_or_slug}/fundraisers`
 
 ```shell
-$ curl -n -X GET https://api.betternow.org/events/$EVENT_ID_OR_SLUG/fundraisers
+$ curl -n -H 'Accept: application/vnd.betternow+json; version=1' \
+https://api.betternow.org/events/$EVENT_ID_OR_SLUG/fundraisers
 
 ```
 
@@ -270,7 +274,8 @@ List all Teams associated with an Event
 `GET /events/{event_id_or_slug}/teams`
 
 ```shell
-$ curl -n -X GET https://api.betternow.org/events/$EVENT_ID_OR_SLUG/teams
+$ curl -n -H 'Accept: application/vnd.betternow+json; version=1' \
+https://api.betternow.org/events/$EVENT_ID_OR_SLUG/teams
 
 ```
 
@@ -368,7 +373,8 @@ Info for existing fundraiser.
 `GET /fundraisers/{fundraiser_id_or_slug}`
 
 ```shell
-$ curl -n -X GET https://api.betternow.org/fundraisers/$FUNDRAISER_ID_OR_SLUG
+$ curl -n -H 'Accept: application/vnd.betternow+json; version=1' \
+https://api.betternow.org/fundraisers/$FUNDRAISER_ID_OR_SLUG
 
 ```
 
@@ -449,7 +455,8 @@ List existing fundraisers.
 `GET /fundraisers`
 
 ```shell
-$ curl -n -X GET https://api.betternow.org/fundraisers
+$ curl -n -H 'Accept: application/vnd.betternow+json; version=1' \
+https://api.betternow.org/fundraisers
 
 ```
 
@@ -532,7 +539,8 @@ List the donations for existing fundraiser. Donations will always be returned in
 `GET /fundraisers/{fundraiser_id_or_slug}/donations`
 
 ```shell
-$ curl -n -X GET https://api.betternow.org/fundraisers/$FUNDRAISER_ID_OR_SLUG/donations
+$ curl -n -H 'Accept: application/vnd.betternow+json; version=1' \
+https://api.betternow.org/fundraisers/$FUNDRAISER_ID_OR_SLUG/donations
 
 ```
 
@@ -559,7 +567,8 @@ List the updates for existing fundraiser.
 `GET /fundraisers/{fundraiser_id_or_slug}/updates`
 
 ```shell
-$ curl -n -X GET https://api.betternow.org/fundraisers/$FUNDRAISER_ID_OR_SLUG/updates
+$ curl -n -H 'Accept: application/vnd.betternow+json; version=1' \
+https://api.betternow.org/fundraisers/$FUNDRAISER_ID_OR_SLUG/updates
 
 ```
 
@@ -648,7 +657,8 @@ Info for existing organisation.
 `GET /organisations/{organisation_id_or_slug}`
 
 ```shell
-$ curl -n -X GET https://api.betternow.org/organisations/$ORGANISATION_ID_OR_SLUG
+$ curl -n -H 'Accept: application/vnd.betternow+json; version=1' \
+https://api.betternow.org/organisations/$ORGANISATION_ID_OR_SLUG
 
 ```
 
@@ -702,7 +712,8 @@ List all Projects for an existing Organisation. Projects will be ordered by acti
 `GET /organisations/{organisation_id_or_slug}/projects`
 
 ```shell
-$ curl -n -X GET https://api.betternow.org/organisations/$ORGANISATION_ID_OR_SLUG/projects
+$ curl -n -H 'Accept: application/vnd.betternow+json; version=1' \
+https://api.betternow.org/organisations/$ORGANISATION_ID_OR_SLUG/projects
 
 ```
 
@@ -761,7 +772,8 @@ List all Fundraisers for an existing Organisation. Fundraisers will be ordered b
 `GET /organisations/{organisation_id_or_slug}/fundraisers`
 
 ```shell
-$ curl -n -X GET https://api.betternow.org/organisations/$ORGANISATION_ID_OR_SLUG/fundraisers
+$ curl -n -H 'Accept: application/vnd.betternow+json; version=1' \
+https://api.betternow.org/organisations/$ORGANISATION_ID_OR_SLUG/fundraisers
 
 ```
 
@@ -844,7 +856,8 @@ List the donations for an existing Organisation. Donations will always be return
 `GET /organisations/{organisation_id_or_slug}/donations`
 
 ```shell
-$ curl -n -X GET https://api.betternow.org/organisations/$ORGANISATION_ID_OR_SLUG/donations
+$ curl -n -H 'Accept: application/vnd.betternow+json; version=1' \
+https://api.betternow.org/organisations/$ORGANISATION_ID_OR_SLUG/donations
 
 ```
 
@@ -902,7 +915,8 @@ Info for existing project.
 `GET /projects/{project_id_or_slug}`
 
 ```shell
-$ curl -n -X GET https://api.betternow.org/projects/$PROJECT_ID_OR_SLUG
+$ curl -n -H 'Accept: application/vnd.betternow+json; version=1' \
+https://api.betternow.org/projects/$PROJECT_ID_OR_SLUG
 
 ```
 
@@ -959,7 +973,8 @@ List all Fundraisers for an existing Project. Fundraisers will be ordered by act
 `GET /projects/{project_id_or_slug}/fundraisers`
 
 ```shell
-$ curl -n -X GET https://api.betternow.org/projects/$PROJECT_ID_OR_SLUG/fundraisers
+$ curl -n -H 'Accept: application/vnd.betternow+json; version=1' \
+https://api.betternow.org/projects/$PROJECT_ID_OR_SLUG/fundraisers
 
 ```
 
@@ -1042,7 +1057,8 @@ List the donations for existing project. Donations will always be returned in re
 `GET /projects/{project_id_or_slug}/donations`
 
 ```shell
-$ curl -n -X GET https://api.betternow.org/projects/$PROJECT_ID_OR_SLUG/donations
+$ curl -n -H 'Accept: application/vnd.betternow+json; version=1' \
+https://api.betternow.org/projects/$PROJECT_ID_OR_SLUG/donations
 
 ```
 
@@ -1103,7 +1119,8 @@ Info for existing team.
 `GET /teams/{team_id_or_slug}`
 
 ```shell
-$ curl -n -X GET https://api.betternow.org/teams/$TEAM_ID_OR_SLUG
+$ curl -n -H 'Accept: application/vnd.betternow+json; version=1' \
+https://api.betternow.org/teams/$TEAM_ID_OR_SLUG
 
 ```
 
@@ -1166,7 +1183,8 @@ List existing teams.
 `GET /teams`
 
 ```shell
-$ curl -n -X GET https://api.betternow.org/teams
+$ curl -n -H 'Accept: application/vnd.betternow+json; version=1' \
+https://api.betternow.org/teams
 
 ```
 
@@ -1231,7 +1249,8 @@ List all Fundraisers that are members of this Team. Fundraisers will be ordered 
 `GET /teams/{team_id_or_slug}/fundraisers`
 
 ```shell
-$ curl -n -X GET https://api.betternow.org/teams/$TEAM_ID_OR_SLUG/fundraisers
+$ curl -n -H 'Accept: application/vnd.betternow+json; version=1' \
+https://api.betternow.org/teams/$TEAM_ID_OR_SLUG/fundraisers
 
 ```
 
@@ -1314,7 +1333,8 @@ List all donations given via this Team
 `GET /teams/{team_id_or_slug}/donations`
 
 ```shell
-$ curl -n -X GET https://api.betternow.org/teams/$TEAM_ID_OR_SLUG/donations
+$ curl -n -H 'Accept: application/vnd.betternow+json; version=1' \
+https://api.betternow.org/teams/$TEAM_ID_OR_SLUG/donations
 
 ```
 
@@ -1341,7 +1361,8 @@ List all Projects that team members are fundraising for
 `GET /teams/{team_id_or_slug}/projects`
 
 ```shell
-$ curl -n -X GET https://api.betternow.org/teams/$TEAM_ID_OR_SLUG/projects
+$ curl -n -H 'Accept: application/vnd.betternow+json; version=1' \
+https://api.betternow.org/teams/$TEAM_ID_OR_SLUG/projects
 
 ```
 
