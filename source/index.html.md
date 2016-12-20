@@ -30,7 +30,7 @@ Here are a few of the real-world integrations that use the API today:
 * Participants in a charity sports event automatically get a fundraiser created for
   them when registering for the event, via an integration with the event's ticketing system.
 * A charity's CRM system is automatically updated in real-time as donations
-  and fundraisers are created on their BetterNow sites, via webhooks that push
+  and fundraisers are created on their BetterNow sites, via [webhooks](#webhooks) that push
   activity on the BetterNow sites to the charity's system.
 * A charity's home page displays the top fundraiser for a specific project, with
   donation amounts that are updated in real-time, and direct links to donate to
@@ -195,6 +195,8 @@ then constructing their own urls.
 On the right you can see two examples for how to retrieve a fundraiser via the
 API.
 
+## curl example
+
 ```shell
 # save api credentials in .netrc, for use with 'curl -n'
 cat >> ~/.netrc
@@ -206,6 +208,8 @@ machine api.betternow.org
 curl -n -sS -i -H 'Accept: application/vnd.betternow+json; version=1' \
   https://api.betternow.org/fundraisers/<REPLACE_WITH_YOUR_FUNDRAISER_ID_OR_SLUG>
 ```
+
+## HTML/Javascript (browser) example
 
 ```html
 <!doctype html>
