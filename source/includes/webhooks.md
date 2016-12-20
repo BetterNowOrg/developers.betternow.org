@@ -155,6 +155,8 @@ We strongly encourage you to verify the integrity and authenticity of the
 request by computing your own checksum using the shared secret and comparing it
 with the value in the header before processing the request.
 
+To the right is an example of verifying a webhook request using PHP.
+
 ```php
 <?php
 
