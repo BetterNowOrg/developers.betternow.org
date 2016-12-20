@@ -106,12 +106,12 @@ Here is an example notification request body for a `donation_payment_captured` a
 }
 ```
 
-A unique id for the activity, a timestamp in ISO8601 format and the activity
-type are sent with all notifications.
+A unique `id` for the activity, a timestamp in ISO8601 format (`occurred_at`) and the `activity_type` are sent with all notifications.
 
 In addition, the resources that have been changed by the activity, which varies
-depending on the activity type, are included. You can use the API to request the
-full representation of these resources and update your systems.
+depending on the activity type, are included. You can use the
+[API](/#api-resources) to request the full representation of these resources and
+update your systems.
 
 The example donation above was received by a fundraiser that is participating in
 an event and is part of a team, so the Event and Team resources are included.
