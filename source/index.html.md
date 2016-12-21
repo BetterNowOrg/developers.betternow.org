@@ -189,11 +189,10 @@ and an empty request body will be returned.
 
 ## JSON Schema
 
-The machine-readable version of this README is
-[schema.json](/schema.json). You
-can use tools like [committee](https://github.com/interagent/committee) with the
-schema to test and stub a local version of the api when you're developing your
-client.
+The machine-readable version of the API documentation is
+[schema.json](/schema.json). You can use tools like
+[committee](https://github.com/interagent/committee) with the schema to test and
+stub a local version of the api when you're developing your client.
 
 ## "Sub-resources"
 
