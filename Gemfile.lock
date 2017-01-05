@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/prognostikos/prmd.git
-  revision: 043b97a286b75bcb8530e67cec6fc681b66c9876
+  revision: 0876312c5167579a391117d4ba8a90b86791748f
   branch: bn-templates
   specs:
     prmd (0.7.0)
