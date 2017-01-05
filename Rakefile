@@ -15,6 +15,7 @@ namespace :schema do
 
   Prmd::RakeTasks::Doc.new do |t|
     t.options[:prepend] = ['schema/preface.md']
+    t.options[:http_header] = {'Accept' => 'application/vnd.betternow+json; version=1'}
     t.files = { 'source/schema.json' => 'source/includes/resources.md' }
   end
 end
