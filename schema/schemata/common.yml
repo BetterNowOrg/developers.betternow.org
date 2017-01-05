@@ -3,7 +3,7 @@
 title: Common definitions
 definitions:
   partner_data:
-    description: An object contaning data from partner systems. Structure varies depending on the partner.
+    description: An object containing data from partner systems. Structure varies depending on the partner.
     type:
       - object
   id:
