@@ -31,6 +31,9 @@ definitions:
   url:
     example: 'https://api.betternow.org/projects/1234567'
     "$ref": "/schemata/common#/definitions/url"
+  state:
+    description: The state of this project
+    "$ref": "/schemata/common#/definitions/state"
   html_url:
     description: The current url to view the project page on BetterNow. This can, and does, change. Requests to old urls will be redirect to the current url.
     example: 'https://www.betternow.org/dk/helpnow-projekt'
@@ -149,6 +152,8 @@ properties:
     "$ref": "/schemata/project#/definitions/recipient"
   slug:
     "$ref": "/schemata/project#/definitions/slug"
+  state:
+    "$ref": "/schemata/project#/definitions/state"
 type:
 - object
 id: schemata/project

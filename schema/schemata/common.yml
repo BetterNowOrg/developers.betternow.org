@@ -2,6 +2,11 @@
 "$schema": http://json-schema.org/draft-04/hyper-schema
 title: Common definitions
 definitions:
+  state:
+    description: The state of the resource
+    example: published
+    type:
+      - string
   partner_data:
     description: An object containing data from partner systems. Structure varies depending on the partner.
     type:

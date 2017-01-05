@@ -44,6 +44,9 @@ definitions:
   goal:
     description: The monetary goal for this fundraiser
     "$ref": "/schemata/common#/definitions/amount"
+  state:
+    description: The state of this fundraiser
+    "$ref": "/schemata/common#/definitions/state"
   headline:
     description: The headline for this fundraising page
     example: "Firstname Lastname's Fundraiser for HelpNow"
@@ -159,6 +162,8 @@ properties:
     "$ref": "/schemata/project#/definitions/project_summary"
   event:
     "$ref": "/schemata/event#/definitions/event_summary"
+  state:
+    "$ref": "/schemata/fundraiser#/definitions/state"
   slug:
     "$ref": "/schemata/fundraiser#/definitions/slug"
   updated_at:

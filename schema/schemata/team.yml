@@ -22,6 +22,9 @@ definitions:
   url:
     example: 'https://api.betternow.org/team/1234567'
     "$ref": "/schemata/common#/definitions/url"
+  state:
+    description: The state of this team
+    "$ref": "/schemata/common#/definitions/state"
   html_url:
     description: The url to the Team page on BetterNow
     example: 'https://www.betternow.org/dk/teams/team-novo'
@@ -175,6 +178,8 @@ properties:
     "$ref": "/schemata/team#/definitions/partner_data"
   slug:
     "$ref": "/schemata/team#/definitions/slug"
+  state:
+    "$ref": "/schemata/team#/definitions/state"
   updated_at:
     "$ref": "/schemata/team#/definitions/updated_at"
   url:
