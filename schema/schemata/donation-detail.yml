@@ -10,7 +10,7 @@ definitions:
     "$ref": "/schemata/donation#/definitions/id"
   created_at:
     "$ref": "/schemata/donation#/definitions/created_at"
-  name:
+  name_shown:
     "$ref": "/schemata/donation#/definitions/name"
   comment:
     "$ref": "/schemata/donation#/definitions/comment"
@@ -18,7 +18,7 @@ definitions:
     "$ref": "/schemata/user#/definitions/avatar_url"
   url:
     "$ref": "/schemata/donation#/definitions/url"
-  private_details_url:
+  url:
     "$ref": "/schemata/donation#/definitions/private_details_url"
   updated_at:
     "$ref": "/schemata/donation#/definitions/updated_at"
@@ -32,6 +32,77 @@ definitions:
     "$ref": "/schemata/event#/definitions/event_summary"
   project:
     "$ref": "/schemata/project#/definitions/project_summary"
+  email:
+    "$ref": "/schemata/person#/definitions/email"
+  phone:
+    "$ref": "/schemata/person#/definitions/phone"
+  company_name:
+    example: BetterNow Worldwide ApS
+    type:
+      - string
+  legal_name:
+    example: BetterNow LTD
+    type:
+      - string
+  donor_type:
+    example: company
+    type:
+      - string
+    enum:
+      - personal
+      - company
+  first_name:
+    "$ref": "/schemata/person#/definitions/first_name"
+  last_name:
+    "$ref": "/schemata/person#/definitions/last_name"
+  tax_id:
+    description: country-specific tax identification number
+    type:
+      - string
+  donor_ip_address:
+    example: 127.0.0.1
+    type:
+      - string
+  allow_organisation_contact:
+    description: Has the donor given permission for the recipient of the donation to contact them?
+    type:
+      - boolean
+  allow_site_contact:
+    description: Has the donor given permission for the operator of the site on which the donation was given to contact them?
+    type:
+      - boolean
+  hidden_name:
+    description: Has the donor requested to hide their name (donate anonymously on the public site)?
+    type:
+      - boolean
+  address:
+    type:
+      - object
+    properties:
+      street_line_1:
+        example: Danneskiold-Samsøes Allé 41
+        type:
+          - string
+      street_line_2:
+        example: Suite 103
+        type:
+          - string
+      city:
+        example: Copenhagen K
+        type:
+          - string
+      postal_code:
+        example: 1434
+        type:
+          - string
+      province:
+        example: Region Hovedstaden
+        type:
+          - string
+      country:
+        example: DK
+        type:
+          - string
 description: The private details about a donation. Includes Personally Identifieable Information. A secret key is required to access this information.
 links:
 - description: Info for existing donation.
@@ -44,16 +115,28 @@ properties:
     "$ref": "/schemata/donation-detail#/definitions/amount"
   comment:
     "$ref": "/schemata/donation-detail#/definitions/comment"
+  name_shown:
+    "$ref": "/schemata/donation-detail#/definitions/name_shown"
+  first_name:
+    "$ref": "/schemata/donation-detail#/definitions/first_name"
+  last_name:
+    "$ref": "/schemata/donation-detail#/definitions/last_name"
+  company_name:
+    "$ref": "/schemata/donation-detail#/definitions/company_name"
+  legal_name:
+    "$ref": "/schemata/donation-detail#/definitions/legal_name"
+  donor_type:
+    "$ref": "/schemata/donation-detail#/definitions/donor_type"
+  tax_id:
+    "$ref": "/schemata/donation-detail#/definitions/tax_id"
   created_at:
     "$ref": "/schemata/donation-detail#/definitions/created_at"
   id:
     "$ref": "/schemata/donation-detail#/definitions/id"
-  private_details_url:
-    "$ref": "/schemata/donation-detail#/definitions/private_details_url"
-  name:
-    "$ref": "/schemata/donation-detail#/definitions/name"
   updated_at:
     "$ref": "/schemata/donation-detail#/definitions/updated_at"
+  address:
+    "$ref": "/schemata/donation-detail#/definitions/address"
   fundraiser:
     "$ref": "/schemata/donation-detail#/definitions/recipient"
   recipient:
@@ -64,6 +147,16 @@ properties:
     "$ref": "/schemata/donation-detail#/definitions/project"
   event:
     "$ref": "/schemata/donation-detail#/definitions/event"
+  donor_ip_address:
+    "$ref": "/schemata/donation-detail#/definitions/donor_ip_address"
+  allow_organisation_contact:
+    "$ref": "/schemata/donation-detail#/definitions/allow_organisation_contact"
+  allow_site_contact:
+    "$ref": "/schemata/donation-detail#/definitions/allow_site_contact"
+  url:
+    "$ref": "/schemata/donation-detail#/definitions/url"
+  donor:
+    "$ref": "/schemata/person"
 type:
 - object
 id: schemata/donation-detail
