@@ -1,0 +1,69 @@
+---
+"$schema": http://json-schema.org/draft-04/hyper-schema
+title: Donation Details
+definitions:
+  amount:
+    "$ref": "/schemata/donation#/definitions/amount"
+  id:
+    "$ref": "/schemata/donation#/definitions/id"
+  identity:
+    "$ref": "/schemata/donation#/definitions/id"
+  created_at:
+    "$ref": "/schemata/donation#/definitions/created_at"
+  name:
+    "$ref": "/schemata/donation#/definitions/name"
+  comment:
+    "$ref": "/schemata/donation#/definitions/comment"
+  avatar_url:
+    "$ref": "/schemata/user#/definitions/avatar_url"
+  url:
+    "$ref": "/schemata/donation#/definitions/url"
+  private_details_url:
+    "$ref": "/schemata/donation#/definitions/private_details_url"
+  updated_at:
+    "$ref": "/schemata/donation#/definitions/updated_at"
+  fundraiser:
+    "$ref": "/schemata/fundraiser#/definitions/fundraiser_summary"
+  recipient:
+    "$ref": "/schemata/common#/definitions/recipient"
+  team:
+    "$ref": "/schemata/team#/definitions/team_summary"
+  event:
+    "$ref": "/schemata/event#/definitions/event_summary"
+  project:
+    "$ref": "/schemata/project#/definitions/project_summary"
+description: The private details about a donation. Includes Personally Identifieable Information. A secret key is required to access this information.
+links:
+- description: Info for existing donation.
+  href: "/donation-detail/{(%2Fschemata%2Fdonation%23%2Fdefinitions%2Fidentity)}"
+  method: GET
+  rel: self
+  title: Info
+properties:
+  amount:
+    "$ref": "/schemata/donation-detail#/definitions/amount"
+  comment:
+    "$ref": "/schemata/donation-detail#/definitions/comment"
+  created_at:
+    "$ref": "/schemata/donation-detail#/definitions/created_at"
+  id:
+    "$ref": "/schemata/donation-detail#/definitions/id"
+  private_details_url:
+    "$ref": "/schemata/donation-detail#/definitions/private_details_url"
+  name:
+    "$ref": "/schemata/donation-detail#/definitions/name"
+  updated_at:
+    "$ref": "/schemata/donation-detail#/definitions/updated_at"
+  fundraiser:
+    "$ref": "/schemata/donation-detail#/definitions/recipient"
+  recipient:
+    "$ref": "/schemata/donation-detail#/definitions/recipient"
+  team:
+    "$ref": "/schemata/donation-detail#/definitions/team"
+  project:
+    "$ref": "/schemata/donation-detail#/definitions/project"
+  event:
+    "$ref": "/schemata/donation-detail#/definitions/event"
+type:
+- object
+id: schemata/donation-detail
