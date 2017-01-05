@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/prognostikos/prmd.git
+  revision: 043b97a286b75bcb8530e67cec6fc681b66c9876
+  branch: bn-templates
+  specs:
+    prmd (0.7.0)
+      erubis (~> 2.7)
+      json_schema (~> 0.3, >= 0.3.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -135,9 +144,6 @@ GEM
     padrino-support (0.13.3.1)
       activesupport (>= 3.1)
     parallel (1.9.0)
-    prmd (0.7.0)
-      erubis (~> 2.7)
-      json_schema (~> 0.3, >= 0.3.1)
     rack (1.6.4)
     rack-livereload (0.3.16)
       rack
@@ -176,7 +182,7 @@ DEPENDENCIES
   middleman-sprockets (~> 4.0.0)
   middleman-syntax (~> 3.0.0)
   mime-types
-  prmd (= 0.7.0)
+  prmd!
   rake (= 10.0.1)
   redcarpet (~> 3.3.2)
   rouge (~> 2.0.5)
