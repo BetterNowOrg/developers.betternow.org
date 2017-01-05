@@ -27,6 +27,12 @@ definitions:
     format: uri
     type:
       - string
+  private_person_url:
+    description: The URL to retreive private information about the user. A secret key is required for this URL
+    example: "https://api.betternow.org/people/3e9344ff-69be-4ab5-a254-07b067325ebe"
+    format: uri
+    type:
+      - string
   first_name:
     description: The first name of the user
     example: Firstname
@@ -48,6 +54,8 @@ definitions:
         "$ref": "/schemata/user#/definitions/first_name"
       last_name:
         "$ref": "/schemata/user#/definitions/last_name"
+      private_person_url:
+        "$ref": "/schemata/user#/definitions/private_person_url"
 description: A BetterNow user
 # links:
 # - description: Create a new user.
