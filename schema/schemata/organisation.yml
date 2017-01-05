@@ -21,7 +21,7 @@ definitions:
     "$ref": "/schemata/common#/definitions/name"
   html_url:
     description: The current url to view the organisation page on BetterNow. This can, and does, change. Requests to old urls will be redirect to the current url.
-    example: 'https://www.betternow.org/dk/helpnow'
+    example: 'https://dk.betternow.org/charities/helpnow'
     "$ref": "/schemata/common#/definitions/html_url"
   url:
     example: 'https://api.betternow.org/organisations/1234567'

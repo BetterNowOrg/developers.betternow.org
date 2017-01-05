@@ -27,7 +27,7 @@ definitions:
     "$ref": "/schemata/common#/definitions/state"
   html_url:
     description: The url to the Team page on BetterNow
-    example: 'https://www.betternow.org/dk/teams/team-novo'
+    example: 'https://dk.betternow.org/teams/team-novo'
     "$ref": "/schemata/common#/definitions/url"
   cover_media:
     description: The image or video to be displayed for this Team. On the BetterNow site, if a video is present it takes precedence.

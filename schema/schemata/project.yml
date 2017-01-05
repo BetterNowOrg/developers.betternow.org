@@ -36,7 +36,7 @@ definitions:
     "$ref": "/schemata/common#/definitions/state"
   html_url:
     description: The current url to view the project page on BetterNow. This can, and does, change. Requests to old urls will be redirect to the current url.
-    example: 'https://www.betternow.org/dk/helpnow-projekt'
+    example: 'https://dk.betternow.org/projects/helpnow-projekt'
     "$ref": "/schemata/common#/definitions/html_url"
   fundraisers:
     description: Information about the fundraisers for this project

@@ -56,7 +56,7 @@ definitions:
     "$ref": "/schemata/common#/definitions/url"
   html_url:
     description: The url to the Event page on BetterNow
-    example: 'https://www.betternow.org/dk/events/copenhagen-marathon-2013'
+    example: 'https://dk.betternow.org/events/copenhagen-marathon-2013'
     "$ref": "/schemata/common#/definitions/url"
   choose_project_to_fundraise_for_url:
     description: The url on BetterNow for people who want to fundraise in connection with an event
