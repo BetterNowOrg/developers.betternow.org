@@ -1,0 +1,169 @@
+---
+"$schema": http://json-schema.org/draft-04/hyper-schema
+title: Person
+definitions:
+  id:
+    description: unique identifier of person
+    example: fdb6cd2a-3ca7-40db-8fae-135daebecdab
+    type:
+     - string
+  identity:
+    "$ref": "/schemata/person#/definitions/id"
+  first_name:
+    "$ref": "/schemata/user#/definitions/first_name"
+  last_name:
+    "$ref": "/schemata/user#/definitions/last_name"
+  email:
+    example: user@example.com
+    type:
+      - string
+  phone:
+    description: Phone number in E.164 format
+    example: "+4510101010"
+    type:
+      - string
+  title:
+    example: Director of Personal Fundraising
+    type:
+      - string
+  created_at:
+    "$ref": "/schemata/user#/definitions/created_at"
+  birth_month:
+    example: 1
+    type:
+      - integer
+    minimum: 1
+    maximum: 12
+  birth_day:
+    example: 1
+    type:
+      - integer
+    minimum: 1
+    maximum: 31
+  locale:
+    description: ISO 639-1 locale code
+    example: "en"
+    type:
+      - string
+  allow_site_contact:
+    description: true if the user has agreed to be contacted by the site they either donated via or signed up on.
+    type:
+      - boolean
+  partner_reference:
+    description: This is an external identifier that is intended to be used in linking partner systems to BetterNow. The partner reference can be supplied when creating a user.
+    type:
+      - string
+  url:
+    "$ref": "/schemata/user#/definitions/private_person_url"
+  donations:
+    description: Information about the donations made by this person
+    type:
+      - object
+    properties:
+      count:
+        description: The count of all donations made by this person
+        example: 123
+        type:
+          - integer
+      total_donated:
+        description: The monetary total of all donations
+        "$ref": "/schemata/common#/definitions/amount"
+      url:
+        description: The url to retrieve details on all donations made by this person
+        example: 'https://api.betternow.org/people/fdb6cd2a-3ca7-40db-8fae-135daebecdab/donations'
+        "$ref": "/schemata/common#/definitions/url"
+  fundraisers:
+    description: Information about the fundraiser pages owned by this person
+    type:
+      - object
+    properties:
+      count:
+        description: The number of active fundraisers
+        example: 12
+        type:
+          - integer
+      url:
+        description: The url to retrieve all fundraisers
+        example: 'https://api.betternow.org/people/fdb6cd2a-3ca7-40db-8fae-135daebecdab/fundraisers'
+        "$ref": "/schemata/common#/definitions/url"
+  teams:
+    description: Information about the teams this person is a member of
+    type:
+      - object
+    properties:
+      count:
+        description: The number of teams
+        example: 12
+        type:
+          - integer
+      url:
+        description: The url to retrieve all teams
+        example: 'https://api.betternow.org/people/fdb6cd2a-3ca7-40db-8fae-135daebecdab/teams'
+        "$ref": "/schemata/common#/definitions/url"
+description: Private (personally identifiable) information about a BetterNow user (donor, fundraiser owner, team captain, etc.) Requires a secret key.
+links:
+- description: Info for existing person.
+  href: "/people/{(%2Fschemata%2Fperson%23%2Fdefinitions%2Fidentity)}"
+  method: GET
+  rel: self
+  title: Info
+- description: List this person's donations. Donations will always be returned in reverse-chronological order (newest first).
+  href: "/people/{(%2Fschemata%2Fperson%23%2Fdefinitions%2Fidentity)}/donations"
+  method: GET
+  rel: donation
+  title: List Donations
+  targetSchema:
+    items:
+      "$ref": "/schemata/donation"
+- description: List all of this persons Fundraising Pages. Fundraisers will be ordered by activity score, descending.
+  href: "/people/{(%2Fschemata%2Fperson%23%2Fdefinitions%2Fidentity)}/fundraisers"
+  method: GET
+  rel: fundraiser
+  title: List Fundraisers
+  targetSchema:
+    items:
+      "$ref": "/schemata/fundraiser"
+- description: List all Teams this person is a member of
+  href: "/people/{(%2Fschemata%2Fperson%23%2Fdefinitions%2Fidentity)}/teams"
+  method: GET
+  rel: team
+  title: List Teams
+  targetSchema:
+    items:
+      "$ref": "/schemata/team"
+properties:
+  id:
+    "$ref": "/schemata/person#/definitions/id"
+  first_name:
+    "$ref": "/schemata/person#/definitions/first_name"
+  last_name:
+    "$ref": "/schemata/person#/definitions/last_name"
+  email:
+    "$ref": "/schemata/person#/definitions/email"
+  phone:
+    "$ref": "/schemata/person#/definitions/phone"
+  title:
+    "$ref": "/schemata/person#/definitions/title"
+  created_at:
+    "$ref": "/schemata/person#/definitions/created_at"
+  birth_month:
+    "$ref": "/schemata/person#/definitions/birth_month"
+  birth_day:
+    "$ref": "/schemata/person#/definitions/birth_day"
+  locale:
+    "$ref": "/schemata/person#/definitions/locale"
+  allow_site_contact:
+    "$ref": "/schemata/person#/definitions/allow_site_contact"
+  partner_reference:
+    "$ref": "/schemata/person#/definitions/partner_reference"
+  url:
+    "$ref": "/schemata/person#/definitions/url"
+  donations:
+    "$ref": "/schemata/person#/definitions/donations"
+  fundraisers:
+    "$ref": "/schemata/person#/definitions/fundraisers"
+  teams:
+    "$ref": "/schemata/person#/definitions/teams"
+type:
+- object
+id: schemata/person
