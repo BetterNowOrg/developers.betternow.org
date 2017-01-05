@@ -5,8 +5,15 @@
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "title": "Common definitions",
       "definitions": {
+        "state": {
+          "description": "The state of the resource",
+          "example": "published",
+          "type": [
+            "string"
+          ]
+        },
         "partner_data": {
-          "description": "An object contaning data from partner systems. Structure varies depending on the partner.",
+          "description": "An object containing data from partner systems. Structure varies depending on the partner.",
           "type": [
             "object"
           ]
@@ -177,6 +184,245 @@
         "object"
       ]
     },
+    "donation-detail": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "title": "Donation Details",
+      "definitions": {
+        "amount": {
+          "$ref": "#/definitions/donation/definitions/amount"
+        },
+        "id": {
+          "$ref": "#/definitions/donation/definitions/id"
+        },
+        "identity": {
+          "$ref": "#/definitions/donation/definitions/id"
+        },
+        "created_at": {
+          "$ref": "#/definitions/donation/definitions/created_at"
+        },
+        "name_shown": {
+          "$ref": "#/definitions/donation/definitions/name"
+        },
+        "comment": {
+          "$ref": "#/definitions/donation/definitions/comment"
+        },
+        "avatar_url": {
+          "$ref": "#/definitions/user/definitions/avatar_url"
+        },
+        "url": {
+          "$ref": "#/definitions/donation/definitions/private_details_url"
+        },
+        "updated_at": {
+          "$ref": "#/definitions/donation/definitions/updated_at"
+        },
+        "fundraiser": {
+          "$ref": "#/definitions/fundraiser/definitions/fundraiser_summary"
+        },
+        "recipient": {
+          "$ref": "#/definitions/common/definitions/recipient"
+        },
+        "team": {
+          "$ref": "#/definitions/team/definitions/team_summary"
+        },
+        "event": {
+          "$ref": "#/definitions/event/definitions/event_summary"
+        },
+        "project": {
+          "$ref": "#/definitions/project/definitions/project_summary"
+        },
+        "email": {
+          "$ref": "#/definitions/person/definitions/email"
+        },
+        "phone": {
+          "$ref": "#/definitions/person/definitions/phone"
+        },
+        "company_name": {
+          "example": "BetterNow Worldwide ApS",
+          "type": [
+            "string"
+          ]
+        },
+        "legal_name": {
+          "example": "BetterNow LTD",
+          "type": [
+            "string"
+          ]
+        },
+        "donor_type": {
+          "example": "company",
+          "type": [
+            "string"
+          ],
+          "enum": [
+            "personal",
+            "company"
+          ]
+        },
+        "first_name": {
+          "$ref": "#/definitions/person/definitions/first_name"
+        },
+        "last_name": {
+          "$ref": "#/definitions/person/definitions/last_name"
+        },
+        "tax_id": {
+          "description": "country-specific tax identification number",
+          "type": [
+            "string"
+          ]
+        },
+        "donor_ip_address": {
+          "example": "127.0.0.1",
+          "type": [
+            "string"
+          ]
+        },
+        "allow_organisation_contact": {
+          "description": "Has the donor given permission for the recipient of the donation to contact them?",
+          "type": [
+            "boolean"
+          ]
+        },
+        "allow_site_contact": {
+          "description": "Has the donor given permission for the operator of the site on which the donation was given to contact them?",
+          "type": [
+            "boolean"
+          ]
+        },
+        "hidden_name": {
+          "description": "Has the donor requested to hide their name (donate anonymously on the public site)?",
+          "type": [
+            "boolean"
+          ]
+        },
+        "address": {
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "street_line_1": {
+              "example": "Danneskiold-Samsøes Allé 41",
+              "type": [
+                "string"
+              ]
+            },
+            "street_line_2": {
+              "example": "Suite 103",
+              "type": [
+                "string"
+              ]
+            },
+            "city": {
+              "example": "Copenhagen K",
+              "type": [
+                "string"
+              ]
+            },
+            "postal_code": {
+              "example": 1434,
+              "type": [
+                "string"
+              ]
+            },
+            "province": {
+              "example": "Region Hovedstaden",
+              "type": [
+                "string"
+              ]
+            },
+            "country": {
+              "example": "DK",
+              "type": [
+                "string"
+              ]
+            }
+          }
+        }
+      },
+      "description": "The private details about a donation. Includes Personally Identifieable Information. A secret key is required to access this information.",
+      "links": [
+        {
+          "description": "Info for existing donation.",
+          "href": "/donation-detail/{(%23%2Fdefinitions%2Fdonation%2Fdefinitions%2Fidentity)}",
+          "method": "GET",
+          "rel": "self",
+          "title": "Info"
+        }
+      ],
+      "properties": {
+        "amount": {
+          "$ref": "#/definitions/donation-detail/definitions/amount"
+        },
+        "comment": {
+          "$ref": "#/definitions/donation-detail/definitions/comment"
+        },
+        "name_shown": {
+          "$ref": "#/definitions/donation-detail/definitions/name_shown"
+        },
+        "first_name": {
+          "$ref": "#/definitions/donation-detail/definitions/first_name"
+        },
+        "last_name": {
+          "$ref": "#/definitions/donation-detail/definitions/last_name"
+        },
+        "company_name": {
+          "$ref": "#/definitions/donation-detail/definitions/company_name"
+        },
+        "legal_name": {
+          "$ref": "#/definitions/donation-detail/definitions/legal_name"
+        },
+        "donor_type": {
+          "$ref": "#/definitions/donation-detail/definitions/donor_type"
+        },
+        "tax_id": {
+          "$ref": "#/definitions/donation-detail/definitions/tax_id"
+        },
+        "created_at": {
+          "$ref": "#/definitions/donation-detail/definitions/created_at"
+        },
+        "id": {
+          "$ref": "#/definitions/donation-detail/definitions/id"
+        },
+        "updated_at": {
+          "$ref": "#/definitions/donation-detail/definitions/updated_at"
+        },
+        "address": {
+          "$ref": "#/definitions/donation-detail/definitions/address"
+        },
+        "fundraiser": {
+          "$ref": "#/definitions/donation-detail/definitions/recipient"
+        },
+        "recipient": {
+          "$ref": "#/definitions/donation-detail/definitions/recipient"
+        },
+        "team": {
+          "$ref": "#/definitions/donation-detail/definitions/team"
+        },
+        "project": {
+          "$ref": "#/definitions/donation-detail/definitions/project"
+        },
+        "event": {
+          "$ref": "#/definitions/donation-detail/definitions/event"
+        },
+        "donor_ip_address": {
+          "$ref": "#/definitions/donation-detail/definitions/donor_ip_address"
+        },
+        "allow_organisation_contact": {
+          "$ref": "#/definitions/donation-detail/definitions/allow_organisation_contact"
+        },
+        "allow_site_contact": {
+          "$ref": "#/definitions/donation-detail/definitions/allow_site_contact"
+        },
+        "url": {
+          "$ref": "#/definitions/donation-detail/definitions/url"
+        },
+        "donor": {
+          "$ref": "#/definitions/person"
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
     "donation": {
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "title": "Donation",
@@ -239,6 +485,22 @@
         "avatar_url": {
           "$ref": "#/definitions/user/definitions/avatar_url"
         },
+        "url": {
+          "description": "An url where publicly displayable information about the donationcan be retreived.",
+          "example": "https://api.betternow.org/donations/542e5f3b-7d8e-475c-8d25-5a2c0742672d",
+          "format": "uri",
+          "type": [
+            "string"
+          ]
+        },
+        "private_details_url": {
+          "description": "An url where private information about the donation and donor can be retreived. Requires a secret key.",
+          "example": "https://api.betternow.org/donation-details/542e5f3b-7d8e-475c-8d25-5a2c0742672d",
+          "format": "uri",
+          "type": [
+            "string"
+          ]
+        },
         "updated_at": {
           "description": "when donation was updated",
           "example": "2012-01-01T12:00:00Z",
@@ -246,9 +508,65 @@
           "type": [
             "string"
           ]
+        },
+        "fundraiser": {
+          "$ref": "#/definitions/fundraiser/definitions/fundraiser_summary"
+        },
+        "recipient": {
+          "$ref": "#/definitions/common/definitions/recipient"
+        },
+        "team": {
+          "$ref": "#/definitions/team/definitions/team_summary"
+        },
+        "event": {
+          "$ref": "#/definitions/event/definitions/event_summary"
+        },
+        "project": {
+          "$ref": "#/definitions/project/definitions/project_summary"
+        },
+        "donation_summary": {
+          "description": "A summarized version of the donation for use in other resources",
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "amount": {
+              "$ref": "#/definitions/donation/definitions/amount"
+            },
+            "comment": {
+              "$ref": "#/definitions/donation/definitions/comment"
+            },
+            "created_at": {
+              "$ref": "#/definitions/donation/definitions/created_at"
+            },
+            "id": {
+              "$ref": "#/definitions/donation/definitions/id"
+            },
+            "name": {
+              "$ref": "#/definitions/donation/definitions/name"
+            },
+            "updated_at": {
+              "$ref": "#/definitions/donation/definitions/updated_at"
+            },
+            "url": {
+              "$ref": "#/definitions/donation/definitions/url"
+            },
+            "private_details_url": {
+              "$ref": "#/definitions/donation/definitions/private_details_url"
+            }
+          }
         }
       },
-      "description": "A single donation",
+      "description": "The publicly available details about a donation",
+      "links": [
+        {
+          "description": "Info for existing donation.",
+          "href": "/donation/{(%23%2Fdefinitions%2Fdonation%2Fdefinitions%2Fidentity)}",
+          "method": "GET",
+          "rel": "self",
+          "title": "Info"
+        }
+      ],
       "properties": {
         "amount": {
           "$ref": "#/definitions/donation/definitions/amount"
@@ -262,11 +580,29 @@
         "id": {
           "$ref": "#/definitions/donation/definitions/id"
         },
+        "private_details_url": {
+          "$ref": "#/definitions/donation/definitions/private_details_url"
+        },
         "name": {
           "$ref": "#/definitions/donation/definitions/name"
         },
         "updated_at": {
           "$ref": "#/definitions/donation/definitions/updated_at"
+        },
+        "fundraiser": {
+          "$ref": "#/definitions/donation/definitions/recipient"
+        },
+        "recipient": {
+          "$ref": "#/definitions/donation/definitions/recipient"
+        },
+        "team": {
+          "$ref": "#/definitions/donation/definitions/team"
+        },
+        "project": {
+          "$ref": "#/definitions/donation/definitions/project"
+        },
+        "event": {
+          "$ref": "#/definitions/donation/definitions/event"
         }
       },
       "type": [
@@ -354,7 +690,7 @@
         },
         "html_url": {
           "description": "The url to the Event page on BetterNow",
-          "example": "https://www.betternow.org/dk/events/copenhagen-marathon-2013",
+          "example": "https://dk.betternow.org/events/copenhagen-marathon-2013",
           "$ref": "#/definitions/common/definitions/url"
         },
         "choose_project_to_fundraise_for_url": {
@@ -611,6 +947,10 @@
           "description": "The monetary goal for this fundraiser",
           "$ref": "#/definitions/common/definitions/amount"
         },
+        "state": {
+          "description": "The state of this fundraiser",
+          "$ref": "#/definitions/common/definitions/state"
+        },
         "headline": {
           "description": "The headline for this fundraising page",
           "example": "Firstname Lastname's Fundraiser for HelpNow",
@@ -618,7 +958,7 @@
         },
         "html_url": {
           "description": "The current url to view the fundraising page on BetterNow. This can, and does, change. Requests to old urls will be redirect to the current url.",
-          "example": "https://www.betternow.org/dk/firstname-lastnames-fundraiser-for-helpnow",
+          "example": "https://dk.betternow.org/fundraisers/firstname-lastnames-fundraiser-for-helpnow",
           "$ref": "#/definitions/common/definitions/html_url"
         },
         "id": {
@@ -714,7 +1054,7 @@
           "title": "List Donations",
           "targetSchema": {
             "items": {
-              "$ref": "#/definitions/donation"
+              "$ref": "#/definitions/donation/definitions/donation_summary"
             }
           }
         },
@@ -782,6 +1122,9 @@
         },
         "event": {
           "$ref": "#/definitions/event/definitions/event_summary"
+        },
+        "state": {
+          "$ref": "#/definitions/fundraiser/definitions/state"
         },
         "slug": {
           "$ref": "#/definitions/fundraiser/definitions/slug"
@@ -900,7 +1243,7 @@
         },
         "html_url": {
           "description": "The current url to view the organisation page on BetterNow. This can, and does, change. Requests to old urls will be redirect to the current url.",
-          "example": "https://www.betternow.org/dk/helpnow",
+          "example": "https://dk.betternow.org/charities/helpnow",
           "$ref": "#/definitions/common/definitions/html_url"
         },
         "url": {
@@ -1095,6 +1438,251 @@
         "object"
       ]
     },
+    "person": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "title": "Person",
+      "definitions": {
+        "id": {
+          "description": "unique identifier of person",
+          "example": "fdb6cd2a-3ca7-40db-8fae-135daebecdab",
+          "type": [
+            "string"
+          ]
+        },
+        "identity": {
+          "$ref": "#/definitions/person/definitions/id"
+        },
+        "first_name": {
+          "$ref": "#/definitions/user/definitions/first_name"
+        },
+        "last_name": {
+          "$ref": "#/definitions/user/definitions/last_name"
+        },
+        "email": {
+          "example": "user@example.com",
+          "type": [
+            "string"
+          ]
+        },
+        "phone": {
+          "description": "Phone number in E.164 format",
+          "example": "+4510101010",
+          "type": [
+            "string"
+          ]
+        },
+        "title": {
+          "example": "Director of Personal Fundraising",
+          "type": [
+            "string"
+          ]
+        },
+        "created_at": {
+          "$ref": "#/definitions/user/definitions/created_at"
+        },
+        "birth_month": {
+          "example": 1,
+          "type": [
+            "integer"
+          ],
+          "minimum": 1,
+          "maximum": 12
+        },
+        "birth_day": {
+          "example": 1,
+          "type": [
+            "integer"
+          ],
+          "minimum": 1,
+          "maximum": 31
+        },
+        "locale": {
+          "description": "ISO 639-1 locale code",
+          "example": "en",
+          "type": [
+            "string"
+          ]
+        },
+        "allow_site_contact": {
+          "description": "true if the user has agreed to be contacted by the site they either donated via or signed up on.",
+          "type": [
+            "boolean"
+          ]
+        },
+        "partner_reference": {
+          "description": "This is an external identifier that is intended to be used in linking partner systems to BetterNow. The partner reference can be supplied when creating a user.",
+          "type": [
+            "string"
+          ]
+        },
+        "url": {
+          "$ref": "#/definitions/user/definitions/private_person_url"
+        },
+        "donations": {
+          "description": "Information about the donations made by this person",
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "count": {
+              "description": "The count of all donations made by this person",
+              "example": 123,
+              "type": [
+                "integer"
+              ]
+            },
+            "total_donated": {
+              "description": "The monetary total of all donations",
+              "$ref": "#/definitions/common/definitions/amount"
+            },
+            "url": {
+              "description": "The url to retrieve details on all donations made by this person",
+              "example": "https://api.betternow.org/people/fdb6cd2a-3ca7-40db-8fae-135daebecdab/donations",
+              "$ref": "#/definitions/common/definitions/url"
+            }
+          }
+        },
+        "fundraisers": {
+          "description": "Information about the fundraiser pages owned by this person",
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "count": {
+              "description": "The number of active fundraisers",
+              "example": 12,
+              "type": [
+                "integer"
+              ]
+            },
+            "url": {
+              "description": "The url to retrieve all fundraisers",
+              "example": "https://api.betternow.org/people/fdb6cd2a-3ca7-40db-8fae-135daebecdab/fundraisers",
+              "$ref": "#/definitions/common/definitions/url"
+            }
+          }
+        },
+        "teams": {
+          "description": "Information about the teams this person is a member of",
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "count": {
+              "description": "The number of teams",
+              "example": 12,
+              "type": [
+                "integer"
+              ]
+            },
+            "url": {
+              "description": "The url to retrieve all teams",
+              "example": "https://api.betternow.org/people/fdb6cd2a-3ca7-40db-8fae-135daebecdab/teams",
+              "$ref": "#/definitions/common/definitions/url"
+            }
+          }
+        }
+      },
+      "description": "Private (personally identifiable) information about a BetterNow user (donor, fundraiser owner, team captain, etc.) Requires a secret key.",
+      "links": [
+        {
+          "description": "Info for existing person.",
+          "href": "/people/{(%23%2Fdefinitions%2Fperson%2Fdefinitions%2Fidentity)}",
+          "method": "GET",
+          "rel": "self",
+          "title": "Info"
+        },
+        {
+          "description": "List this person's donations. Donations will always be returned in reverse-chronological order (newest first).",
+          "href": "/people/{(%23%2Fdefinitions%2Fperson%2Fdefinitions%2Fidentity)}/donations",
+          "method": "GET",
+          "rel": "donation",
+          "title": "List Donations",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/donation"
+            }
+          }
+        },
+        {
+          "description": "List all of this persons Fundraising Pages. Fundraisers will be ordered by activity score, descending.",
+          "href": "/people/{(%23%2Fdefinitions%2Fperson%2Fdefinitions%2Fidentity)}/fundraisers",
+          "method": "GET",
+          "rel": "fundraiser",
+          "title": "List Fundraisers",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/fundraiser"
+            }
+          }
+        },
+        {
+          "description": "List all Teams this person is a member of",
+          "href": "/people/{(%23%2Fdefinitions%2Fperson%2Fdefinitions%2Fidentity)}/teams",
+          "method": "GET",
+          "rel": "team",
+          "title": "List Teams",
+          "targetSchema": {
+            "items": {
+              "$ref": "#/definitions/team"
+            }
+          }
+        }
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/person/definitions/id"
+        },
+        "first_name": {
+          "$ref": "#/definitions/person/definitions/first_name"
+        },
+        "last_name": {
+          "$ref": "#/definitions/person/definitions/last_name"
+        },
+        "email": {
+          "$ref": "#/definitions/person/definitions/email"
+        },
+        "phone": {
+          "$ref": "#/definitions/person/definitions/phone"
+        },
+        "title": {
+          "$ref": "#/definitions/person/definitions/title"
+        },
+        "created_at": {
+          "$ref": "#/definitions/person/definitions/created_at"
+        },
+        "birth_month": {
+          "$ref": "#/definitions/person/definitions/birth_month"
+        },
+        "birth_day": {
+          "$ref": "#/definitions/person/definitions/birth_day"
+        },
+        "locale": {
+          "$ref": "#/definitions/person/definitions/locale"
+        },
+        "allow_site_contact": {
+          "$ref": "#/definitions/person/definitions/allow_site_contact"
+        },
+        "partner_reference": {
+          "$ref": "#/definitions/person/definitions/partner_reference"
+        },
+        "url": {
+          "$ref": "#/definitions/person/definitions/url"
+        },
+        "donations": {
+          "$ref": "#/definitions/person/definitions/donations"
+        },
+        "fundraisers": {
+          "$ref": "#/definitions/person/definitions/fundraisers"
+        },
+        "teams": {
+          "$ref": "#/definitions/person/definitions/teams"
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
     "project": {
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "title": "Project",
@@ -1142,9 +1730,13 @@
           "example": "https://api.betternow.org/projects/1234567",
           "$ref": "#/definitions/common/definitions/url"
         },
+        "state": {
+          "description": "The state of this project",
+          "$ref": "#/definitions/common/definitions/state"
+        },
         "html_url": {
           "description": "The current url to view the project page on BetterNow. This can, and does, change. Requests to old urls will be redirect to the current url.",
-          "example": "https://www.betternow.org/dk/helpnow-projekt",
+          "example": "https://dk.betternow.org/projects/helpnow-projekt",
           "$ref": "#/definitions/common/definitions/html_url"
         },
         "fundraisers": {
@@ -1312,6 +1904,9 @@
         },
         "slug": {
           "$ref": "#/definitions/project/definitions/slug"
+        },
+        "state": {
+          "$ref": "#/definitions/project/definitions/state"
         }
       },
       "type": [
@@ -1353,9 +1948,13 @@
           "example": "https://api.betternow.org/team/1234567",
           "$ref": "#/definitions/common/definitions/url"
         },
+        "state": {
+          "description": "The state of this team",
+          "$ref": "#/definitions/common/definitions/state"
+        },
         "html_url": {
           "description": "The url to the Team page on BetterNow",
-          "example": "https://www.betternow.org/dk/teams/team-novo",
+          "example": "https://dk.betternow.org/teams/team-novo",
           "$ref": "#/definitions/common/definitions/url"
         },
         "cover_media": {
@@ -1569,6 +2168,9 @@
         "slug": {
           "$ref": "#/definitions/team/definitions/slug"
         },
+        "state": {
+          "$ref": "#/definitions/team/definitions/state"
+        },
         "updated_at": {
           "$ref": "#/definitions/team/definitions/updated_at"
         },
@@ -1618,6 +2220,14 @@
             "string"
           ]
         },
+        "private_person_url": {
+          "description": "The URL to retreive private information about the user. A secret key is required for this URL",
+          "example": "https://api.betternow.org/people/3e9344ff-69be-4ab5-a254-07b067325ebe",
+          "format": "uri",
+          "type": [
+            "string"
+          ]
+        },
         "first_name": {
           "description": "The first name of the user",
           "example": "Firstname",
@@ -1646,6 +2256,9 @@
             },
             "last_name": {
               "$ref": "#/definitions/user/definitions/last_name"
+            },
+            "private_person_url": {
+              "$ref": "#/definitions/user/definitions/private_person_url"
             }
           }
         }
@@ -1680,6 +2293,9 @@
     "common": {
       "$ref": "#/definitions/common"
     },
+    "donation-detail": {
+      "$ref": "#/definitions/donation-detail"
+    },
     "donation": {
       "$ref": "#/definitions/donation"
     },
@@ -1695,6 +2311,9 @@
     "organisation": {
       "$ref": "#/definitions/organisation"
     },
+    "person": {
+      "$ref": "#/definitions/person"
+    },
     "project": {
       "$ref": "#/definitions/project"
     },
@@ -1708,7 +2327,7 @@
   "type": [
     "object"
   ],
-  "description": "The BetterNow Public API",
+  "description": "The BetterNow API",
   "id": "betternow-api",
   "links": [
     {
@@ -1716,5 +2335,5 @@
       "rel": "self"
     }
   ],
-  "title": "The BetterNow Public API"
+  "title": "The BetterNow API"
 }
