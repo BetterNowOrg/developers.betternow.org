@@ -45,6 +45,7 @@ HTTP/1.1 200 OK
   },
   "comment": "Wow, what a great idea!",
   "name_shown": "Joes Truck Stop",
+  "hidden_name": null,
   "first_name": "Firstname",
   "last_name": "Lastname",
   "company_name": "BetterNow Worldwide ApS",
@@ -139,6 +140,7 @@ HTTP/1.1 200 OK
 | **amount:currency** | *string* | 3 character currency code, as specified in ISO 4217<br/> **pattern:** <code>^([A-Z]{3})$</code> | `"EUR"` |
 | **comment** | *string* | The comment given with the donation | `"Wow, what a great idea!"` |
 | **name_shown** | *string* | The name on the donation | `"Joes Truck Stop"` |
+| **hidden_name** | *boolean* | Has the donor requested to hide their name (donate anonymously on the public site)? |  |
 | **first_name** | *string* | The first name of the user | `"Firstname"` |
 | **last_name** | *string* | The last name of the user | `"Lastname"` |
 | **company_name** | *string* |  | `"BetterNow Worldwide ApS"` |

@@ -117,6 +117,8 @@ properties:
     "$ref": "/schemata/donation-detail#/definitions/comment"
   name_shown:
     "$ref": "/schemata/donation-detail#/definitions/name_shown"
+  hidden_name:
+    "$ref": "/schemata/donation-detail#/definitions/hidden_name"
   first_name:
     "$ref": "/schemata/donation-detail#/definitions/first_name"
   last_name:

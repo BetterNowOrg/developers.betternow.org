@@ -358,6 +358,9 @@
         "name_shown": {
           "$ref": "#/definitions/donation-detail/definitions/name_shown"
         },
+        "hidden_name": {
+          "$ref": "#/definitions/donation-detail/definitions/hidden_name"
+        },
         "first_name": {
           "$ref": "#/definitions/donation-detail/definitions/first_name"
         },
