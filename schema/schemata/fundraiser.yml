@@ -118,7 +118,7 @@ links:
   title: List Donations
   targetSchema:
     items:
-      "$ref": "/schemata/donation"
+      "$ref": "/schemata/donation#/definitions/donation_summary"
 - description: List the updates for existing fundraiser.
   href:  "/fundraisers/{(%2Fschemata%2Ffundraiser%23%2Fdefinitions%2Fidentity)}/updates"
   method: GET
