@@ -15,7 +15,6 @@ namespace :schema do
 
   Prmd::RakeTasks::Doc.new do |t|
     t.options[:prepend] = ['schema/preface.md']
-    # t.options[:template] = File.join(File.dirname(__FILE__), 'schema/templates')
     t.files = { 'source/schema.json' => 'source/includes/resources.md' }
   end
 end
