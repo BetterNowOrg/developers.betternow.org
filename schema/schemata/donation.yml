@@ -43,13 +43,62 @@ definitions:
       - string
   avatar_url:
     "$ref": "/schemata/user#/definitions/avatar_url"
+  url:
+    description: An url where publicly displayable information about the donationcan be retreived.
+    example: "https://api.betternow.org/donations/542e5f3b-7d8e-475c-8d25-5a2c0742672d"
+    format: uri
+    type:
+      - string
+  private_details_url:
+    description: An url where private information about the donation and donor can be retreived. Requires a secret key.
+    example: "https://api.betternow.org/donation-details/542e5f3b-7d8e-475c-8d25-5a2c0742672d"
+    format: uri
+    type:
+      - string
   updated_at:
     description: when donation was updated
     example: '2012-01-01T12:00:00Z'
     format: date-time
     type:
     - string
-description: A single donation
+  fundraiser:
+    "$ref": "/schemata/fundraiser#/definitions/fundraiser_summary"
+  recipient:
+    "$ref": "/schemata/common#/definitions/recipient"
+  team:
+    "$ref": "/schemata/team#/definitions/team_summary"
+  event:
+    "$ref": "/schemata/event#/definitions/event_summary"
+  project:
+    "$ref": "/schemata/project#/definitions/project_summary"
+  donation_summary:
+    description: A summarized version of the donation for use in other resources
+    type:
+      - object
+    properties:
+      amount:
+        "$ref": "/schemata/donation#/definitions/amount"
+      comment:
+        "$ref": "/schemata/donation#/definitions/comment"
+      created_at:
+        "$ref": "/schemata/donation#/definitions/created_at"
+      id:
+        "$ref": "/schemata/donation#/definitions/id"
+      name:
+        "$ref": "/schemata/donation#/definitions/name"
+      updated_at:
+        "$ref": "/schemata/donation#/definitions/updated_at"
+      url:
+        "$ref": "/schemata/donation#/definitions/url"
+      private_details_url:
+        "$ref": "/schemata/donation#/definitions/private_details_url"
+description: The publicly available details about a donation
+links:
+- description: Info for existing donation.
+  href: "/donation/{(%2Fschemata%2Fdonation%23%2Fdefinitions%2Fidentity)}"
+  method: GET
+  rel: self
+  title: Info
 properties:
   amount:
     "$ref": "/schemata/donation#/definitions/amount"
@@ -59,10 +108,22 @@ properties:
     "$ref": "/schemata/donation#/definitions/created_at"
   id:
     "$ref": "/schemata/donation#/definitions/id"
+  private_details_url:
+    "$ref": "/schemata/donation#/definitions/private_details_url"
   name:
     "$ref": "/schemata/donation#/definitions/name"
   updated_at:
     "$ref": "/schemata/donation#/definitions/updated_at"
+  fundraiser:
+    "$ref": "/schemata/donation#/definitions/recipient"
+  recipient:
+    "$ref": "/schemata/donation#/definitions/recipient"
+  team:
+    "$ref": "/schemata/donation#/definitions/team"
+  project:
+    "$ref": "/schemata/donation#/definitions/project"
+  event:
+    "$ref": "/schemata/donation#/definitions/event"
 type:
 - object
 id: schemata/donation
