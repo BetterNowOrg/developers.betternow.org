@@ -212,7 +212,13 @@ API.
 ## curl example
 
 ```shell
-# save api credentials in .netrc, for use with 'curl -n'
+# Save api credentials in .netrc, for use with `curl -n`
+#
+# You can use any email address as the `login`. We will only use the email address to
+# contact you in case we see problems with your API client.
+#
+# You can use either your `publishable` or `secret key` as the `password`.
+#
 cat >> ~/.netrc
 machine api.betternow.org
   login <YOUR EMAIL ADDRESS>
