@@ -97,8 +97,10 @@ control, or saved/sent via an insecure channel.
 The secret key has all of the access rights of a publishable key, so if your
 integration is server-side only, you can use the secret key only.
 
-Both keys can be used via HTTP Basic-Auth, or in the browser as shown in our
-[HTML example](/#html-javascript-browser-example).
+Both keys can be used as the password via HTTP Basic-Auth, or in the browser as shown in our
+[HTML example](/#html-javascript-browser-example). When using HTTP Basic-Auth,
+send your email address as the username. We will use the email address to contact you if
+we notice problems with your API client.
 
 API keys grant access to specific resources such as
 [Organisations/Charities](/#organisation), [Events](/#event), etc. and all of
