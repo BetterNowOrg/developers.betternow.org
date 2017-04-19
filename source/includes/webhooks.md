@@ -116,12 +116,24 @@ update your systems.
 The example donation above was received by a fundraiser that is participating in
 an event and is part of a team, so the Event and Team resources are included.
 
+The webhook notification body is similar for all notification types. The
+resources that are included will change depending on the notification type -
+e.g. a Fundraiser notification will not include a donation resource, as the
+notification relates to the fundraiser as a whole, rather than one specific
+donation.
+
 ## Requirements for your endpoint
 
 Your endpoint should respond within 30 seconds with an HTTP 200 response.
 
 If we receive any other response code, or we do not receive a response within 30
-seconds, we will retry the notification periodically.
+seconds, the system will retry sending the notification indefinently until we
+receive an HTTP 200 response.
+
+The system retrys at exponentially-increasing intervals equal to
+(failure_count^4 + 3) seconds. This means that delivery will be retried 4
+seconds after the first failure, 19 seconds after the second, 84 seconds after
+the third, 259 seconds after the fourth, and so on until it succeeds.
 
 ## Responding to a webhook request
 
