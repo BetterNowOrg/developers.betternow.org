@@ -40,7 +40,9 @@ The following activities will trigger a notification to your endpoint:
 | fundraiser_joined_team | A fundraiser page is connected with a team |
 | fundraiser_left_team | A fundraiser page is disconnected from a team |
 | fundraiser_seven_days_until_end_date_reached | There are seven days remaining until the end-date for a fundraiser |
-| fundraiser_end_date_reached | The fundraiser has reached its end date |
+| fundraiser_halfway_to_end_date | The fundraiser has reached the halfway point
+between first publication date and end-date |
+| fundraiser_end_date_reached | The fundraiser has reached its end-date |
 | fundraiser_fifty_percent_goal_reached | The fundraiser has reached 50% of its goal |
 | fundraiser_one_hundred_percent_goal_reached | The fundraiser has reached 100% of its goal |
 
@@ -48,7 +50,9 @@ The following activities will trigger a notification to your endpoint:
 The <code>end_date</code> and <code>goal</code> can be
 changed by the fundraiser owner. The end date and goal -related activities will
 only be sent once per fundraising page, even if later the fundraiser owner
-increases the goal or extends the end date.
+increases the goal or extends the end date. The only exception to this is the
+'fundraiser_seven_days_until_end_date_reached' event which may be sent multiple
+times if the end date is changed.
 </aside>
 
 ### Team activities
