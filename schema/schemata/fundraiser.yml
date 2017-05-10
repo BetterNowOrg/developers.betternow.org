@@ -12,6 +12,11 @@ definitions:
   description:
     description: The text written by the fundraiser owner. Contains HTML.
     "$ref": "/schemata/common#/definitions/description"
+  fundraiser_type:
+    description: They type of the fundraiser on BetterNow
+    example: birthday
+    type:
+      - string
   donate_url:
     description: The current url to donate via the fundraising page on BetterNow. This can, and does, change. Requests to old urls will be redirect to the current url.
     example: 'https://www.betternow.org/dk/fundraisers/firstname-lastnames-fundraiser/donations/new'
@@ -136,6 +141,10 @@ properties:
     "$ref": "/schemata/fundraiser#/definitions/created_at"
   description:
     "$ref": "/schemata/fundraiser#/definitions/description"
+  state:
+    "$ref": "/schemata/fundraiser#/definitions/state"
+  fundraiser_type:
+    "$ref": "/schemata/fundraiser#/definitions/fundraiser_type"
   donate_url:
     "$ref": "/schemata/fundraiser#/definitions/donate_url"
   donations:
@@ -162,8 +171,6 @@ properties:
     "$ref": "/schemata/project#/definitions/project_summary"
   event:
     "$ref": "/schemata/event#/definitions/event_summary"
-  state:
-    "$ref": "/schemata/fundraiser#/definitions/state"
   slug:
     "$ref": "/schemata/fundraiser#/definitions/slug"
   updated_at:

@@ -560,6 +560,8 @@ HTTP/1.1 200 OK
     },
     "created_at": "2012-01-01T12:00:00Z",
     "description": "<p>This is really, <b>REALLY</b> great</p> <br><br>",
+    "state": "published",
+    "fundraiser_type": "birthday",
     "donate_url": "https://www.betternow.org/dk/fundraisers/firstname-lastnames-fundraiser/donations/new",
     "donations": {
       "count": 123,
@@ -608,7 +610,6 @@ HTTP/1.1 200 OK
       "url": "https://api.betternow.org/events/1234567",
       "html_url": "https://dk.betternow.org/events/copenhagen-marathon-2013"
     },
-    "state": "published",
     "slug": "firstname-lastnames-fundraiser-for-helpnow",
     "updated_at": "2012-01-01T12:00:00Z",
     "url": "https://api.betternow.org/fundraisers/1234567"
@@ -768,6 +769,8 @@ HTTP/1.1 200 OK
   },
   "created_at": "2012-01-01T12:00:00Z",
   "description": "<p>This is really, <b>REALLY</b> great</p> <br><br>",
+  "state": "published",
+  "fundraiser_type": "birthday",
   "donate_url": "https://www.betternow.org/dk/fundraisers/firstname-lastnames-fundraiser/donations/new",
   "donations": {
     "count": 123,
@@ -816,7 +819,6 @@ HTTP/1.1 200 OK
     "url": "https://api.betternow.org/events/1234567",
     "html_url": "https://dk.betternow.org/events/copenhagen-marathon-2013"
   },
-  "state": "published",
   "slug": "firstname-lastnames-fundraiser-for-helpnow",
   "updated_at": "2012-01-01T12:00:00Z",
   "url": "https://api.betternow.org/fundraisers/1234567"
@@ -863,6 +865,8 @@ HTTP/1.1 200 OK
     },
     "created_at": "2012-01-01T12:00:00Z",
     "description": "<p>This is really, <b>REALLY</b> great</p> <br><br>",
+    "state": "published",
+    "fundraiser_type": "birthday",
     "donate_url": "https://www.betternow.org/dk/fundraisers/firstname-lastnames-fundraiser/donations/new",
     "donations": {
       "count": 123,
@@ -911,7 +915,6 @@ HTTP/1.1 200 OK
       "url": "https://api.betternow.org/events/1234567",
       "html_url": "https://dk.betternow.org/events/copenhagen-marathon-2013"
     },
-    "state": "published",
     "slug": "firstname-lastnames-fundraiser-for-helpnow",
     "updated_at": "2012-01-01T12:00:00Z",
     "url": "https://api.betternow.org/fundraisers/1234567"
@@ -1022,6 +1025,8 @@ HTTP/1.1 200 OK
 | **cover_media:thumb:url** | *uri* | The url for the cover media that should be displayed in e.g. a card view. 120x80 pixels | `"https://cnd.example.net/image.jpg"` |
 | **created_at** | *date-time* | when resource was created | `"2012-01-01T12:00:00Z"` |
 | **description** | *string* | The text written by the fundraiser owner. Contains HTML. | `"<p>This is really, <b>REALLY</b> great</p> <br><br>"` |
+| **state** | *string* | The state of this fundraiser | `"published"` |
+| **fundraiser_type** | *string* | They type of the fundraiser on BetterNow | `"birthday"` |
 | **donate_url** | *uri* | The current url to donate via the fundraising page on BetterNow. This can, and does, change. Requests to old urls will be redirect to the current url. | `"https://www.betternow.org/dk/fundraisers/firstname-lastnames-fundraiser/donations/new"` |
 | **donations:count** | *integer* | The count of all donations made to this fundraiser | `123` |
 | **donations:total_donated:cents** | *integer* | Numeric amount in cents | `1234500` |
@@ -1054,7 +1059,6 @@ HTTP/1.1 200 OK
 | **event:name** | *string* | the name of the Event | `"Copenhagen Marathon 2013"` |
 | **event:url** | *uri* |  | `"https://api.betternow.org/events/1234567"` |
 | **event:html_url** | *uri* | The url to the Event page on BetterNow | `"https://dk.betternow.org/events/copenhagen-marathon-2013"` |
-| **state** | *string* | The state of this fundraiser | `"published"` |
 | **slug** | *string* | The current url path component to identify the fundraiser. This can, and does, change.<br/> **pattern:** <code>^([a-z0-9-]{2,})$</code> | `"firstname-lastnames-fundraiser-for-helpnow"` |
 | **updated_at** | *date-time* | when resource was updated | `"2012-01-01T12:00:00Z"` |
 | **url** | *uri* |  | `"https://api.betternow.org/fundraisers/1234567"` |
@@ -1241,6 +1245,8 @@ HTTP/1.1 200 OK
     },
     "created_at": "2012-01-01T12:00:00Z",
     "description": "<p>This is really, <b>REALLY</b> great</p> <br><br>",
+    "state": "published",
+    "fundraiser_type": "birthday",
     "donate_url": "https://www.betternow.org/dk/fundraisers/firstname-lastnames-fundraiser/donations/new",
     "donations": {
       "count": 123,
@@ -1289,7 +1295,6 @@ HTTP/1.1 200 OK
       "url": "https://api.betternow.org/events/1234567",
       "html_url": "https://dk.betternow.org/events/copenhagen-marathon-2013"
     },
-    "state": "published",
     "slug": "firstname-lastnames-fundraiser-for-helpnow",
     "updated_at": "2012-01-01T12:00:00Z",
     "url": "https://api.betternow.org/fundraisers/1234567"
@@ -1564,6 +1569,8 @@ HTTP/1.1 200 OK
     },
     "created_at": "2012-01-01T12:00:00Z",
     "description": "<p>This is really, <b>REALLY</b> great</p> <br><br>",
+    "state": "published",
+    "fundraiser_type": "birthday",
     "donate_url": "https://www.betternow.org/dk/fundraisers/firstname-lastnames-fundraiser/donations/new",
     "donations": {
       "count": 123,
@@ -1612,7 +1619,6 @@ HTTP/1.1 200 OK
       "url": "https://api.betternow.org/events/1234567",
       "html_url": "https://dk.betternow.org/events/copenhagen-marathon-2013"
     },
-    "state": "published",
     "slug": "firstname-lastnames-fundraiser-for-helpnow",
     "updated_at": "2012-01-01T12:00:00Z",
     "url": "https://api.betternow.org/fundraisers/1234567"
@@ -1839,6 +1845,8 @@ HTTP/1.1 200 OK
     },
     "created_at": "2012-01-01T12:00:00Z",
     "description": "<p>This is really, <b>REALLY</b> great</p> <br><br>",
+    "state": "published",
+    "fundraiser_type": "birthday",
     "donate_url": "https://www.betternow.org/dk/fundraisers/firstname-lastnames-fundraiser/donations/new",
     "donations": {
       "count": 123,
@@ -1887,7 +1895,6 @@ HTTP/1.1 200 OK
       "url": "https://api.betternow.org/events/1234567",
       "html_url": "https://dk.betternow.org/events/copenhagen-marathon-2013"
     },
-    "state": "published",
     "slug": "firstname-lastnames-fundraiser-for-helpnow",
     "updated_at": "2012-01-01T12:00:00Z",
     "url": "https://api.betternow.org/fundraisers/1234567"
@@ -2195,6 +2202,8 @@ HTTP/1.1 200 OK
     },
     "created_at": "2012-01-01T12:00:00Z",
     "description": "<p>This is really, <b>REALLY</b> great</p> <br><br>",
+    "state": "published",
+    "fundraiser_type": "birthday",
     "donate_url": "https://www.betternow.org/dk/fundraisers/firstname-lastnames-fundraiser/donations/new",
     "donations": {
       "count": 123,
@@ -2243,7 +2252,6 @@ HTTP/1.1 200 OK
       "url": "https://api.betternow.org/events/1234567",
       "html_url": "https://dk.betternow.org/events/copenhagen-marathon-2013"
     },
-    "state": "published",
     "slug": "firstname-lastnames-fundraiser-for-helpnow",
     "updated_at": "2012-01-01T12:00:00Z",
     "url": "https://api.betternow.org/fundraisers/1234567"
