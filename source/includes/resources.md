@@ -127,7 +127,8 @@ HTTP/1.1 200 OK
       "count": 12,
       "url": "https://api.betternow.org/people/fdb6cd2a-3ca7-40db-8fae-135daebecdab/teams"
     }
-  }
+  },
+  "your_reference": "my-crm-project-reference-123456"
 }
 ```
 
@@ -201,6 +202,7 @@ HTTP/1.1 200 OK
 | **donor:fundraisers:url** | *uri* | The url to retrieve all fundraisers | `"https://api.betternow.org/people/fdb6cd2a-3ca7-40db-8fae-135daebecdab/fundraisers"` |
 | **donor:teams:count** | *integer* | The number of teams | `12` |
 | **donor:teams:url** | *uri* | The url to retrieve all teams | `"https://api.betternow.org/people/fdb6cd2a-3ca7-40db-8fae-135daebecdab/teams"` |
+| **your_reference** | *string* | A string that you can use to identify the project and its fundraisers and donations. The value will be inherited by any fundraisers created for the project and any donations made via the fundraisers. Commonly used to assign donations to e.g. a campaign in your CRM system. You can set this value in the dashboard for your project. | `"my-crm-project-reference-123456"` |
 
 
 ## Donation
@@ -270,7 +272,8 @@ HTTP/1.1 200 OK
     "name": "Copenhagen Marathon 2013",
     "url": "https://api.betternow.org/events/1234567",
     "html_url": "https://dk.betternow.org/events/copenhagen-marathon-2013"
-  }
+  },
+  "your_reference": "my-crm-project-reference-123456"
 }
 ```
 
@@ -307,6 +310,7 @@ HTTP/1.1 200 OK
 | **event:name** | *string* | the name of the Event | `"Copenhagen Marathon 2013"` |
 | **event:url** | *uri* |  | `"https://api.betternow.org/events/1234567"` |
 | **event:html_url** | *uri* | The url to the Event page on BetterNow | `"https://dk.betternow.org/events/copenhagen-marathon-2013"` |
+| **your_reference** | *string* | A string that you can use to identify the project and its fundraisers and donations. The value will be inherited by any fundraisers created for the project and any donations made via the fundraisers. Commonly used to assign donations to e.g. a campaign in your CRM system. You can set this value in the dashboard for your project. | `"my-crm-project-reference-123456"` |
 
 
 ## Event
@@ -515,7 +519,8 @@ HTTP/1.1 200 OK
       "html_url": "https://dk.betternow.org/charities/helpnow"
     },
     "slug": "helpnow-project",
-    "state": "published"
+    "state": "published",
+    "your_reference": "my-crm-project-reference-123456"
   }
 ]
 ```
@@ -612,7 +617,8 @@ HTTP/1.1 200 OK
     },
     "slug": "firstname-lastnames-fundraiser-for-helpnow",
     "updated_at": "2012-01-01T12:00:00Z",
-    "url": "https://api.betternow.org/fundraisers/1234567"
+    "url": "https://api.betternow.org/fundraisers/1234567",
+    "your_reference": "my-crm-project-reference-123456"
   }
 ]
 ```
@@ -821,7 +827,8 @@ HTTP/1.1 200 OK
   },
   "slug": "firstname-lastnames-fundraiser-for-helpnow",
   "updated_at": "2012-01-01T12:00:00Z",
-  "url": "https://api.betternow.org/fundraisers/1234567"
+  "url": "https://api.betternow.org/fundraisers/1234567",
+  "your_reference": "my-crm-project-reference-123456"
 }
 ```
 
@@ -917,7 +924,8 @@ HTTP/1.1 200 OK
     },
     "slug": "firstname-lastnames-fundraiser-for-helpnow",
     "updated_at": "2012-01-01T12:00:00Z",
-    "url": "https://api.betternow.org/fundraisers/1234567"
+    "url": "https://api.betternow.org/fundraisers/1234567",
+    "your_reference": "my-crm-project-reference-123456"
   }
 ]
 ```
@@ -1062,6 +1070,7 @@ HTTP/1.1 200 OK
 | **slug** | *string* | The current url path component to identify the fundraiser. This can, and does, change.<br/> **pattern:** <code>^([a-z0-9-]{2,})$</code> | `"firstname-lastnames-fundraiser-for-helpnow"` |
 | **updated_at** | *date-time* | when resource was updated | `"2012-01-01T12:00:00Z"` |
 | **url** | *uri* |  | `"https://api.betternow.org/fundraisers/1234567"` |
+| **your_reference** | *string* | A string that you can use to identify the project and its fundraisers and donations. The value will be inherited by any fundraisers created for the project and any donations made via the fundraisers. Commonly used to assign donations to e.g. a campaign in your CRM system. You can set this value in the dashboard for your project. | `"my-crm-project-reference-123456"` |
 
 
 
@@ -1200,7 +1209,8 @@ HTTP/1.1 200 OK
       "html_url": "https://dk.betternow.org/charities/helpnow"
     },
     "slug": "helpnow-project",
-    "state": "published"
+    "state": "published",
+    "your_reference": "my-crm-project-reference-123456"
   }
 ]
 ```
@@ -1297,7 +1307,8 @@ HTTP/1.1 200 OK
     },
     "slug": "firstname-lastnames-fundraiser-for-helpnow",
     "updated_at": "2012-01-01T12:00:00Z",
-    "url": "https://api.betternow.org/fundraisers/1234567"
+    "url": "https://api.betternow.org/fundraisers/1234567",
+    "your_reference": "my-crm-project-reference-123456"
   }
 ]
 ```
@@ -1366,7 +1377,8 @@ HTTP/1.1 200 OK
       "name": "Copenhagen Marathon 2013",
       "url": "https://api.betternow.org/events/1234567",
       "html_url": "https://dk.betternow.org/events/copenhagen-marathon-2013"
-    }
+    },
+    "your_reference": "my-crm-project-reference-123456"
   }
 ]
 ```
@@ -1524,7 +1536,8 @@ HTTP/1.1 200 OK
       "name": "Copenhagen Marathon 2013",
       "url": "https://api.betternow.org/events/1234567",
       "html_url": "https://dk.betternow.org/events/copenhagen-marathon-2013"
-    }
+    },
+    "your_reference": "my-crm-project-reference-123456"
   }
 ]
 ```
@@ -1621,7 +1634,8 @@ HTTP/1.1 200 OK
     },
     "slug": "firstname-lastnames-fundraiser-for-helpnow",
     "updated_at": "2012-01-01T12:00:00Z",
-    "url": "https://api.betternow.org/fundraisers/1234567"
+    "url": "https://api.betternow.org/fundraisers/1234567",
+    "your_reference": "my-crm-project-reference-123456"
   }
 ]
 ```
@@ -1801,7 +1815,8 @@ HTTP/1.1 200 OK
     "html_url": "https://dk.betternow.org/charities/helpnow"
   },
   "slug": "helpnow-project",
-  "state": "published"
+  "state": "published",
+  "your_reference": "my-crm-project-reference-123456"
 }
 ```
 
@@ -1897,7 +1912,8 @@ HTTP/1.1 200 OK
     },
     "slug": "firstname-lastnames-fundraiser-for-helpnow",
     "updated_at": "2012-01-01T12:00:00Z",
-    "url": "https://api.betternow.org/fundraisers/1234567"
+    "url": "https://api.betternow.org/fundraisers/1234567",
+    "your_reference": "my-crm-project-reference-123456"
   }
 ]
 ```
@@ -1966,7 +1982,8 @@ HTTP/1.1 200 OK
       "name": "Copenhagen Marathon 2013",
       "url": "https://api.betternow.org/events/1234567",
       "html_url": "https://dk.betternow.org/events/copenhagen-marathon-2013"
-    }
+    },
+    "your_reference": "my-crm-project-reference-123456"
   }
 ]
 ```
@@ -2002,6 +2019,7 @@ HTTP/1.1 200 OK
 | **recipient:html_url** | *uri* | The current url to view the organisation page on BetterNow. This can, and does, change. Requests to old urls will be redirect to the current url. | `"https://dk.betternow.org/charities/helpnow"` |
 | **slug** | *string* | The current url path component to identify the project. This can, and does, change.<br/> **pattern:** <code>^([a-z0-9-]{2,})$</code> | `"helpnow-project"` |
 | **state** | *string* | The state of this project | `"published"` |
+| **your_reference** | *string* | A string that you can use to identify the project and its fundraisers and donations. The value will be inherited by any fundraisers created for the project and any donations made via the fundraisers. Commonly used to assign donations to e.g. a campaign in your CRM system. You can set this value in the dashboard for your project. | `"my-crm-project-reference-123456"` |
 
 
 ## Team
@@ -2254,7 +2272,8 @@ HTTP/1.1 200 OK
     },
     "slug": "firstname-lastnames-fundraiser-for-helpnow",
     "updated_at": "2012-01-01T12:00:00Z",
-    "url": "https://api.betternow.org/fundraisers/1234567"
+    "url": "https://api.betternow.org/fundraisers/1234567",
+    "your_reference": "my-crm-project-reference-123456"
   }
 ]
 ```
@@ -2323,7 +2342,8 @@ HTTP/1.1 200 OK
       "name": "Copenhagen Marathon 2013",
       "url": "https://api.betternow.org/events/1234567",
       "html_url": "https://dk.betternow.org/events/copenhagen-marathon-2013"
-    }
+    },
+    "your_reference": "my-crm-project-reference-123456"
   }
 ]
 ```
@@ -2394,7 +2414,8 @@ HTTP/1.1 200 OK
       "html_url": "https://dk.betternow.org/charities/helpnow"
     },
     "slug": "helpnow-project",
-    "state": "published"
+    "state": "published",
+    "your_reference": "my-crm-project-reference-123456"
   }
 ]
 ```

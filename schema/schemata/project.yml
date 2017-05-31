@@ -98,6 +98,11 @@ definitions:
     "$ref": "/schemata/common#/definitions/cover_media"
   recipient:
     "$ref": "/schemata/common#/definitions/recipient"
+  your_reference:
+    description: A string that you can use to identify the project and its fundraisers and donations. The value will be inherited by any fundraisers created for the project and any donations made via the fundraisers. Commonly used to assign donations to e.g. a campaign in your CRM system. You can set this value in the dashboard for your project.
+    example: my-crm-project-reference-123456
+    type:
+      - string
 description: A Project is a specific cause that Users can Fundraise for. An Organisation typically has several Projects
 links:
 - description: Info for existing project.
@@ -154,6 +159,8 @@ properties:
     "$ref": "/schemata/project#/definitions/slug"
   state:
     "$ref": "/schemata/project#/definitions/state"
+  your_reference:
+    "$ref": "/schemata/project#/definitions/your_reference"
 type:
 - object
 id: schemata/project

@@ -92,6 +92,8 @@ definitions:
         "$ref": "/schemata/donation#/definitions/url"
       private_details_url:
         "$ref": "/schemata/donation#/definitions/private_details_url"
+  your_reference:
+    "$ref": "/schemata/project#/definitions/your_reference"
 description: The publicly available details about a donation
 links:
 - description: Info for existing donation.
@@ -124,6 +126,8 @@ properties:
     "$ref": "/schemata/donation#/definitions/project"
   event:
     "$ref": "/schemata/donation#/definitions/event"
+  your_reference:
+    "$ref": "/schemata/donation#/definitions/your_reference"
 type:
 - object
 id: schemata/donation

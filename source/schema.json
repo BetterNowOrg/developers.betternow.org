@@ -336,6 +336,9 @@
               ]
             }
           }
+        },
+        "your_reference": {
+          "$ref": "#/definitions/project/definitions/your_reference"
         }
       },
       "description": "The private details about a donation. Includes Personally Identifieable Information. A secret key is required to access this information.",
@@ -420,6 +423,9 @@
         },
         "donor": {
           "$ref": "#/definitions/person"
+        },
+        "your_reference": {
+          "$ref": "#/definitions/donation-detail/definitions/your_reference"
         }
       },
       "type": [
@@ -558,6 +564,9 @@
               "$ref": "#/definitions/donation/definitions/private_details_url"
             }
           }
+        },
+        "your_reference": {
+          "$ref": "#/definitions/project/definitions/your_reference"
         }
       },
       "description": "The publicly available details about a donation",
@@ -606,6 +615,9 @@
         },
         "event": {
           "$ref": "#/definitions/donation/definitions/event"
+        },
+        "your_reference": {
+          "$ref": "#/definitions/donation/definitions/your_reference"
         }
       },
       "type": [
@@ -1038,6 +1050,9 @@
         },
         "partner_data": {
           "$ref": "#/definitions/common/definitions/partner_data"
+        },
+        "your_reference": {
+          "$ref": "#/definitions/project/definitions/your_reference"
         }
       },
       "description": "Detailed information about a single Fundraising Page on BetterNow.org",
@@ -1147,6 +1162,9 @@
         },
         "url": {
           "$ref": "#/definitions/fundraiser/definitions/url"
+        },
+        "your_reference": {
+          "$ref": "#/definitions/fundraiser/definitions/your_reference"
         }
       },
       "type": [
@@ -1836,6 +1854,13 @@
         },
         "recipient": {
           "$ref": "#/definitions/common/definitions/recipient"
+        },
+        "your_reference": {
+          "description": "A string that you can use to identify the project and its fundraisers and donations. The value will be inherited by any fundraisers created for the project and any donations made via the fundraisers. Commonly used to assign donations to e.g. a campaign in your CRM system. You can set this value in the dashboard for your project.",
+          "example": "my-crm-project-reference-123456",
+          "type": [
+            "string"
+          ]
         }
       },
       "description": "A Project is a specific cause that Users can Fundraise for. An Organisation typically has several Projects",
@@ -1920,6 +1945,9 @@
         },
         "state": {
           "$ref": "#/definitions/project/definitions/state"
+        },
+        "your_reference": {
+          "$ref": "#/definitions/project/definitions/your_reference"
         }
       },
       "type": [
