@@ -44,13 +44,13 @@ definitions:
   avatar_url:
     "$ref": "/schemata/user#/definitions/avatar_url"
   url:
-    description: An url where publicly displayable information about the donationcan be retreived.
+    description: An url where publicly displayable information about the donation can be retrieved.
     example: "https://api.betternow.org/donations/542e5f3b-7d8e-475c-8d25-5a2c0742672d"
     format: uri
     type:
       - string
   private_details_url:
-    description: An url where private information about the donation and donor can be retreived. Requires a secret key.
+    description: An url where private information about the donation and donor can be retrieved. Requires a secret key.
     example: "https://api.betternow.org/donation-details/542e5f3b-7d8e-475c-8d25-5a2c0742672d"
     format: uri
     type:
