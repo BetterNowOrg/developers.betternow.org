@@ -1045,7 +1045,7 @@ HTTP/1.1 200 OK
 | **created_at** | *date-time* | when resource was created | `"2012-01-01T12:00:00Z"` |
 | **description** | *string* | The text written by the fundraiser owner. Contains HTML. | `"<p>This is really, <b>REALLY</b> great</p> <br><br>"` |
 | **state** | *string* | The state of this fundraiser | `"published"` |
-| **fundraiser_type** | *string* | They type of the fundraiser on BetterNow | `"birthday"` |
+| **fundraiser_type** | *string* | The type of the fundraiser on BetterNow<br/> **one of:**`"birthday"` or `"anniversary"` or `"in_memory_of"` or `"sports_event"` or `"corporate"` or `"cultural_event"` or `"sponsorable"` or `"other"` | `"birthday"` |
 | **donate_url** | *uri* | The current url to donate via the fundraising page on BetterNow. This can, and does, change. Requests to old urls will be redirect to the current url. | `"https://www.betternow.org/dk/fundraisers/firstname-lastnames-fundraiser/donations/new"` |
 | **donations:count** | *integer* | The count of all donations made to this fundraiser | `123` |
 | **donations:total_donated:cents** | *integer* | Numeric amount in cents | `1234500` |

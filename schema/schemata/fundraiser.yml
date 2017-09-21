@@ -13,10 +13,11 @@ definitions:
     description: The text written by the fundraiser owner. Contains HTML.
     "$ref": "/schemata/common#/definitions/description"
   fundraiser_type:
-    description: They type of the fundraiser on BetterNow
+    description: The type of the fundraiser on BetterNow
     example: birthday
     type:
       - string
+    enum: ['birthday', 'anniversary', 'in_memory_of', 'sports_event', 'corporate', 'cultural_event', 'sponsorable', 'other']
   donate_url:
     description: The current url to donate via the fundraising page on BetterNow. This can, and does, change. Requests to old urls will be redirect to the current url.
     example: 'https://www.betternow.org/dk/fundraisers/firstname-lastnames-fundraiser/donations/new'
