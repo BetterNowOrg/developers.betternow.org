@@ -53,8 +53,11 @@ definitions:
       - company
   first_name:
     "$ref": "/schemata/person#/definitions/first_name"
+  middle_name:
+    "$ref": "/schemata/person#/definitions/middle_name"
   last_name:
     "$ref": "/schemata/person#/definitions/last_name"
+  tax_id:
   tax_id:
     description: country-specific tax identification number
     type:
@@ -100,11 +103,15 @@ definitions:
         type:
           - string
       country:
+        pattern: "^([A-Z]{2})$"
+        description: ISO alpha-2 country code
         example: DK
         type:
           - string
   your_reference:
     "$ref": "/schemata/project#/definitions/your_reference"
+  custom_form_values:
+    "$ref": "/schemata/common#/definitions/custom_form_values"
 description: The private details about a donation. Includes Personally Identifieable Information. A secret key is required to access this information.
 links:
 - description: Info for existing donation.
@@ -123,6 +130,8 @@ properties:
     "$ref": "/schemata/donation-detail#/definitions/hidden_name"
   first_name:
     "$ref": "/schemata/donation-detail#/definitions/first_name"
+  middle_name:
+    "$ref": "/schemata/donation-detail#/definitions/middle_name"
   last_name:
     "$ref": "/schemata/donation-detail#/definitions/last_name"
   company_name:
@@ -163,6 +172,8 @@ properties:
     "$ref": "/schemata/person"
   your_reference:
     "$ref": "/schemata/donation-detail#/definitions/your_reference"
+  custom_form_values:
+    "$ref": "/schemata/donation-detail#/definitions/custom_form_values"
 type:
 - object
 id: schemata/donation-detail

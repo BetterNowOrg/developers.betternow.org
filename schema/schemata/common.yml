@@ -11,6 +11,10 @@ definitions:
     description: An object containing data from partner systems. Structure varies depending on the partner.
     type:
       - object
+  custom_form_values:
+    description: An object containing values for custom form fields. Structure varies depending on the customer.
+    type:
+      - object
   id:
     description: unique identifier
     example: 1234567

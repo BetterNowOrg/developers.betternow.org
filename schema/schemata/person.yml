@@ -11,6 +11,8 @@ definitions:
     "$ref": "/schemata/person#/definitions/id"
   first_name:
     "$ref": "/schemata/user#/definitions/first_name"
+  middle_name:
+    "$ref": "/schemata/user#/definitions/middle_name"
   last_name:
     "$ref": "/schemata/user#/definitions/last_name"
   email:
@@ -136,6 +138,8 @@ properties:
     "$ref": "/schemata/person#/definitions/id"
   first_name:
     "$ref": "/schemata/person#/definitions/first_name"
+  middle_name:
+    "$ref": "/schemata/person#/definitions/middle_name"
   last_name:
     "$ref": "/schemata/person#/definitions/last_name"
   email:

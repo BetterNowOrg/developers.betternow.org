@@ -47,6 +47,7 @@ HTTP/1.1 200 OK
   "name_shown": "Joes Truck Stop",
   "hidden_name": null,
   "first_name": "Firstname",
+  "middle_name": "Middlename",
   "last_name": "Lastname",
   "company_name": "BetterNow Worldwide ApS",
   "legal_name": "BetterNow LTD",
@@ -100,6 +101,7 @@ HTTP/1.1 200 OK
   "donor": {
     "id": "fdb6cd2a-3ca7-40db-8fae-135daebecdab",
     "first_name": "Firstname",
+    "middle_name": "Middlename",
     "last_name": "Lastname",
     "email": "user@example.com",
     "phone": "+4510101010",
@@ -128,7 +130,8 @@ HTTP/1.1 200 OK
       "url": "https://api.betternow.org/people/fdb6cd2a-3ca7-40db-8fae-135daebecdab/teams"
     }
   },
-  "your_reference": "my-crm-project-reference-123456"
+  "your_reference": "my-crm-project-reference-123456",
+  "custom_form_values": null
 }
 ```
 
@@ -143,6 +146,7 @@ HTTP/1.1 200 OK
 | **name_shown** | *string* | The name on the donation | `"Joes Truck Stop"` |
 | **hidden_name** | *boolean* | Has the donor requested to hide their name (donate anonymously on the public site)? |  |
 | **first_name** | *string* | The first name of the user | `"Firstname"` |
+| **middle_name** | *string* | The middle name of the user | `"Middlename"` |
 | **last_name** | *string* | The last name of the user | `"Lastname"` |
 | **company_name** | *string* |  | `"BetterNow Worldwide ApS"` |
 | **legal_name** | *string* |  | `"BetterNow LTD"` |
@@ -156,7 +160,7 @@ HTTP/1.1 200 OK
 | **address:city** | *string* |  | `"Copenhagen K"` |
 | **address:postal_code** | *string* |  | `1434` |
 | **address:province** | *string* |  | `"Region Hovedstaden"` |
-| **address:country** | *string* |  | `"DK"` |
+| **address:country** | *string* | ISO alpha-2 country code<br/> **pattern:** <code>^([A-Z]{2})$</code> | `"DK"` |
 | **fundraiser:id** | *string* | Unique identifier of organisation | `1234567` |
 | **fundraiser:name** | *string* | The name of the Organisation | `"HelpNow"` |
 | **fundraiser:url** | *uri* |  | `"https://api.betternow.org/organisations/1234567"` |
@@ -180,9 +184,10 @@ HTTP/1.1 200 OK
 | **donor_ip_address** | *string* |  | `"127.0.0.1"` |
 | **allow_organisation_contact** | *boolean* | Has the donor given permission for the recipient of the donation to contact them? |  |
 | **allow_site_contact** | *boolean* | Has the donor given permission for the operator of the site on which the donation was given to contact them? |  |
-| **url** | *uri* | An url where private information about the donation and donor can be retreived. Requires a secret key. | `"https://api.betternow.org/donation-details/542e5f3b-7d8e-475c-8d25-5a2c0742672d"` |
+| **url** | *uri* | An url where private information about the donation and donor can be retrieved. Requires a secret key. | `"https://api.betternow.org/donation-details/542e5f3b-7d8e-475c-8d25-5a2c0742672d"` |
 | **donor:id** | *string* | unique identifier of person | `"fdb6cd2a-3ca7-40db-8fae-135daebecdab"` |
 | **donor:first_name** | *string* | The first name of the user | `"Firstname"` |
+| **donor:middle_name** | *string* | The middle name of the user | `"Middlename"` |
 | **donor:last_name** | *string* | The last name of the user | `"Lastname"` |
 | **donor:email** | *string* |  | `"user@example.com"` |
 | **donor:phone** | *string* | Phone number in E.164 format | `"+4510101010"` |
@@ -203,6 +208,7 @@ HTTP/1.1 200 OK
 | **donor:teams:count** | *integer* | The number of teams | `12` |
 | **donor:teams:url** | *uri* | The url to retrieve all teams | `"https://api.betternow.org/people/fdb6cd2a-3ca7-40db-8fae-135daebecdab/teams"` |
 | **your_reference** | *string* | A string that you can use to identify the project and its fundraisers and donations. The value will be inherited by any fundraisers created for the project and any donations made via the fundraisers. Commonly used to assign donations to e.g. a campaign in your CRM system. You can set this value in the dashboard for your project. | `"my-crm-project-reference-123456"` |
+| **custom_form_values** | *object* | An object containing values for custom form fields. Structure varies depending on the customer. |  |
 
 
 ## Donation
@@ -287,7 +293,7 @@ HTTP/1.1 200 OK
 | **comment** | *string* | The comment given with the donation | `"Wow, what a great idea!"` |
 | **created_at** | *date-time* | when donation was created | `"2012-01-01T12:00:00Z"` |
 | **id** | *integer* | unique identifier of donation | `1234567` |
-| **private_details_url** | *uri* | An url where private information about the donation and donor can be retreived. Requires a secret key. | `"https://api.betternow.org/donation-details/542e5f3b-7d8e-475c-8d25-5a2c0742672d"` |
+| **private_details_url** | *uri* | An url where private information about the donation and donor can be retrieved. Requires a secret key. | `"https://api.betternow.org/donation-details/542e5f3b-7d8e-475c-8d25-5a2c0742672d"` |
 | **name** | *string* | The name on the donation | `"Joes Truck Stop"` |
 | **updated_at** | *date-time* | when donation was updated | `"2012-01-01T12:00:00Z"` |
 | **fundraiser:id** | *string* | Unique identifier of organisation | `1234567` |
@@ -587,6 +593,7 @@ HTTP/1.1 200 OK
     "owner": {
       "avatar_url": "https://cdn.example.net/avatar.jpg",
       "first_name": "Firstname",
+      "middle_name": "Middlename",
       "last_name": "Lastname",
       "private_person_url": "https://api.betternow.org/people/3e9344ff-69be-4ab5-a254-07b067325ebe"
     },
@@ -651,6 +658,7 @@ HTTP/1.1 200 OK
     "captain": {
       "avatar_url": "https://cdn.example.net/avatar.jpg",
       "first_name": "Firstname",
+      "middle_name": "Middlename",
       "last_name": "Lastname",
       "private_person_url": "https://api.betternow.org/people/3e9344ff-69be-4ab5-a254-07b067325ebe"
     },
@@ -797,6 +805,7 @@ HTTP/1.1 200 OK
   "owner": {
     "avatar_url": "https://cdn.example.net/avatar.jpg",
     "first_name": "Firstname",
+    "middle_name": "Middlename",
     "last_name": "Lastname",
     "private_person_url": "https://api.betternow.org/people/3e9344ff-69be-4ab5-a254-07b067325ebe"
   },
@@ -894,6 +903,7 @@ HTTP/1.1 200 OK
     "owner": {
       "avatar_url": "https://cdn.example.net/avatar.jpg",
       "first_name": "Firstname",
+      "middle_name": "Middlename",
       "last_name": "Lastname",
       "private_person_url": "https://api.betternow.org/people/3e9344ff-69be-4ab5-a254-07b067325ebe"
     },
@@ -1012,6 +1022,7 @@ HTTP/1.1 200 OK
     "owner": {
       "avatar_url": "https://cdn.example.net/avatar.jpg",
       "first_name": "Firstname",
+      "middle_name": "Middlename",
       "last_name": "Lastname",
       "private_person_url": "https://api.betternow.org/people/3e9344ff-69be-4ab5-a254-07b067325ebe"
     },
@@ -1048,6 +1059,7 @@ HTTP/1.1 200 OK
 | **id** | *string* | The unique identifier of the fundraising page | `1234567` |
 | **owner:avatar_url** | *uri* | The URL for the avatar image for the user. 92x92 pixels | `"https://cdn.example.net/avatar.jpg"` |
 | **owner:first_name** | *string* | The first name of the user | `"Firstname"` |
+| **owner:middle_name** | *string* | The middle name of the user | `"Middlename"` |
 | **owner:last_name** | *string* | The last name of the user | `"Lastname"` |
 | **owner:private_person_url** | *uri* | The URL to retreive private information about the user. A secret key is required for this URL | `"https://api.betternow.org/people/3e9344ff-69be-4ab5-a254-07b067325ebe"` |
 | **partner_data** | *object* | An object containing data from partner systems. Structure varies depending on the partner. |  |
@@ -1277,6 +1289,7 @@ HTTP/1.1 200 OK
     "owner": {
       "avatar_url": "https://cdn.example.net/avatar.jpg",
       "first_name": "Firstname",
+      "middle_name": "Middlename",
       "last_name": "Lastname",
       "private_person_url": "https://api.betternow.org/people/3e9344ff-69be-4ab5-a254-07b067325ebe"
     },
@@ -1442,6 +1455,7 @@ HTTP/1.1 200 OK
 {
   "id": "fdb6cd2a-3ca7-40db-8fae-135daebecdab",
   "first_name": "Firstname",
+  "middle_name": "Middlename",
   "last_name": "Lastname",
   "email": "user@example.com",
   "phone": "+4510101010",
@@ -1604,6 +1618,7 @@ HTTP/1.1 200 OK
     "owner": {
       "avatar_url": "https://cdn.example.net/avatar.jpg",
       "first_name": "Firstname",
+      "middle_name": "Middlename",
       "last_name": "Lastname",
       "private_person_url": "https://api.betternow.org/people/3e9344ff-69be-4ab5-a254-07b067325ebe"
     },
@@ -1668,6 +1683,7 @@ HTTP/1.1 200 OK
     "captain": {
       "avatar_url": "https://cdn.example.net/avatar.jpg",
       "first_name": "Firstname",
+      "middle_name": "Middlename",
       "last_name": "Lastname",
       "private_person_url": "https://api.betternow.org/people/3e9344ff-69be-4ab5-a254-07b067325ebe"
     },
@@ -1725,6 +1741,7 @@ HTTP/1.1 200 OK
 | ------- | ------- | ------- | ------- |
 | **id** | *string* | unique identifier of person | `"fdb6cd2a-3ca7-40db-8fae-135daebecdab"` |
 | **first_name** | *string* | The first name of the user | `"Firstname"` |
+| **middle_name** | *string* | The middle name of the user | `"Middlename"` |
 | **last_name** | *string* | The last name of the user | `"Lastname"` |
 | **email** | *string* |  | `"user@example.com"` |
 | **phone** | *string* | Phone number in E.164 format | `"+4510101010"` |
@@ -1882,6 +1899,7 @@ HTTP/1.1 200 OK
     "owner": {
       "avatar_url": "https://cdn.example.net/avatar.jpg",
       "first_name": "Firstname",
+      "middle_name": "Middlename",
       "last_name": "Lastname",
       "private_person_url": "https://api.betternow.org/people/3e9344ff-69be-4ab5-a254-07b067325ebe"
     },
@@ -2053,6 +2071,7 @@ HTTP/1.1 200 OK
   "captain": {
     "avatar_url": "https://cdn.example.net/avatar.jpg",
     "first_name": "Firstname",
+    "middle_name": "Middlename",
     "last_name": "Lastname",
     "private_person_url": "https://api.betternow.org/people/3e9344ff-69be-4ab5-a254-07b067325ebe"
   },
@@ -2130,6 +2149,7 @@ HTTP/1.1 200 OK
     "captain": {
       "avatar_url": "https://cdn.example.net/avatar.jpg",
       "first_name": "Firstname",
+      "middle_name": "Middlename",
       "last_name": "Lastname",
       "private_person_url": "https://api.betternow.org/people/3e9344ff-69be-4ab5-a254-07b067325ebe"
     },
@@ -2242,6 +2262,7 @@ HTTP/1.1 200 OK
     "owner": {
       "avatar_url": "https://cdn.example.net/avatar.jpg",
       "first_name": "Firstname",
+      "middle_name": "Middlename",
       "last_name": "Lastname",
       "private_person_url": "https://api.betternow.org/people/3e9344ff-69be-4ab5-a254-07b067325ebe"
     },
@@ -2427,6 +2448,7 @@ HTTP/1.1 200 OK
 | ------- | ------- | ------- | ------- |
 | **captain:avatar_url** | *uri* | The URL for the avatar image for the user. 92x92 pixels | `"https://cdn.example.net/avatar.jpg"` |
 | **captain:first_name** | *string* | The first name of the user | `"Firstname"` |
+| **captain:middle_name** | *string* | The middle name of the user | `"Middlename"` |
 | **captain:last_name** | *string* | The last name of the user | `"Lastname"` |
 | **captain:private_person_url** | *uri* | The URL to retreive private information about the user. A secret key is required for this URL | `"https://api.betternow.org/people/3e9344ff-69be-4ab5-a254-07b067325ebe"` |
 | **cover_media:image:url** | *uri* | The url for the image. On the BetterNow site, the video takes precedence if both exist. 461x306 pixels | `"https://cnd.example.net/image.jpg"` |

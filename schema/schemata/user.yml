@@ -38,6 +38,11 @@ definitions:
     example: Firstname
     type:
       - string
+  middle_name:
+    description: The middle name of the user
+    example: Middlename
+    type:
+      - string
   last_name:
     description: The last name of the user
     example: Lastname
@@ -52,6 +57,8 @@ definitions:
         "$ref": "/schemata/user#/definitions/avatar_url"
       first_name:
         "$ref": "/schemata/user#/definitions/first_name"
+      middle_name:
+        "$ref": "/schemata/user#/definitions/middle_name"
       last_name:
         "$ref": "/schemata/user#/definitions/last_name"
       private_person_url:
@@ -102,6 +109,8 @@ properties:
     "$ref": "/schemata/user#/definitions/id"
   last_name:
     "$ref": "/schemata/user#/definitions/last_name"
+  middle_name:
+    "$ref": "/schemata/user#/definitions/middle_name"
   updated_at:
     "$ref": "/schemata/user#/definitions/updated_at"
 type:

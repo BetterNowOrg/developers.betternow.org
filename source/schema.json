@@ -18,6 +18,12 @@
             "object"
           ]
         },
+        "custom_form_values": {
+          "description": "An object containing values for custom form fields. Structure varies depending on the customer.",
+          "type": [
+            "object"
+          ]
+        },
         "id": {
           "description": "unique identifier",
           "example": 1234567,
@@ -261,6 +267,9 @@
         "first_name": {
           "$ref": "#/definitions/person/definitions/first_name"
         },
+        "middle_name": {
+          "$ref": "#/definitions/person/definitions/middle_name"
+        },
         "last_name": {
           "$ref": "#/definitions/person/definitions/last_name"
         },
@@ -330,6 +339,8 @@
               ]
             },
             "country": {
+              "pattern": "^([A-Z]{2})$",
+              "description": "ISO alpha-2 country code",
               "example": "DK",
               "type": [
                 "string"
@@ -339,6 +350,9 @@
         },
         "your_reference": {
           "$ref": "#/definitions/project/definitions/your_reference"
+        },
+        "custom_form_values": {
+          "$ref": "#/definitions/common/definitions/custom_form_values"
         }
       },
       "description": "The private details about a donation. Includes Personally Identifieable Information. A secret key is required to access this information.",
@@ -366,6 +380,9 @@
         },
         "first_name": {
           "$ref": "#/definitions/donation-detail/definitions/first_name"
+        },
+        "middle_name": {
+          "$ref": "#/definitions/donation-detail/definitions/middle_name"
         },
         "last_name": {
           "$ref": "#/definitions/donation-detail/definitions/last_name"
@@ -426,6 +443,9 @@
         },
         "your_reference": {
           "$ref": "#/definitions/donation-detail/definitions/your_reference"
+        },
+        "custom_form_values": {
+          "$ref": "#/definitions/donation-detail/definitions/custom_form_values"
         }
       },
       "type": [
@@ -495,7 +515,7 @@
           "$ref": "#/definitions/user/definitions/avatar_url"
         },
         "url": {
-          "description": "An url where publicly displayable information about the donationcan be retreived.",
+          "description": "An url where publicly displayable information about the donation can be retrieved.",
           "example": "https://api.betternow.org/donations/542e5f3b-7d8e-475c-8d25-5a2c0742672d",
           "format": "uri",
           "type": [
@@ -503,7 +523,7 @@
           ]
         },
         "private_details_url": {
-          "description": "An url where private information about the donation and donor can be retreived. Requires a secret key.",
+          "description": "An url where private information about the donation and donor can be retrieved. Requires a secret key.",
           "example": "https://api.betternow.org/donation-details/542e5f3b-7d8e-475c-8d25-5a2c0742672d",
           "format": "uri",
           "type": [
@@ -1486,6 +1506,9 @@
         "first_name": {
           "$ref": "#/definitions/user/definitions/first_name"
         },
+        "middle_name": {
+          "$ref": "#/definitions/user/definitions/middle_name"
+        },
         "last_name": {
           "$ref": "#/definitions/user/definitions/last_name"
         },
@@ -1666,6 +1689,9 @@
         },
         "first_name": {
           "$ref": "#/definitions/person/definitions/first_name"
+        },
+        "middle_name": {
+          "$ref": "#/definitions/person/definitions/middle_name"
         },
         "last_name": {
           "$ref": "#/definitions/person/definitions/last_name"
@@ -2276,6 +2302,13 @@
             "string"
           ]
         },
+        "middle_name": {
+          "description": "The middle name of the user",
+          "example": "Middlename",
+          "type": [
+            "string"
+          ]
+        },
         "last_name": {
           "description": "The last name of the user",
           "example": "Lastname",
@@ -2294,6 +2327,9 @@
             },
             "first_name": {
               "$ref": "#/definitions/user/definitions/first_name"
+            },
+            "middle_name": {
+              "$ref": "#/definitions/user/definitions/middle_name"
             },
             "last_name": {
               "$ref": "#/definitions/user/definitions/last_name"
@@ -2320,6 +2356,9 @@
         },
         "last_name": {
           "$ref": "#/definitions/user/definitions/last_name"
+        },
+        "middle_name": {
+          "$ref": "#/definitions/user/definitions/middle_name"
         },
         "updated_at": {
           "$ref": "#/definitions/user/definitions/updated_at"
