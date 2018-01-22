@@ -7,6 +7,8 @@ definitions:
     example: 987654321
     type:
       - integer
+  allow_organisation_contact:
+    "$ref": "/schemata/common#/definitions/allow_organisation_contact"
   created_at:
     "$ref": "/schemata/common#/definitions/created_at"
   description:
@@ -138,6 +140,8 @@ links:
 properties:
   activity_score:
     "$ref": "/schemata/fundraiser#/definitions/activity_score"
+  allow_organisation_contact:
+    "$ref": "/schemata/fundraiser#/definitions/allow_organisation_contact"
   cover_media:
     "$ref": "/schemata/fundraiser#/definitions/cover_media"
   created_at:

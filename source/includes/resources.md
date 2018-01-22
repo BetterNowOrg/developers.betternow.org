@@ -243,6 +243,7 @@ HTTP/1.1 200 OK
     "cents": 12345,
     "currency": "EUR"
   },
+  "allow_organisation_contact": true,
   "comment": "Wow, what a great idea!",
   "created_at": "2012-01-01T12:00:00Z",
   "id": 1234567,
@@ -290,6 +291,7 @@ HTTP/1.1 200 OK
 | ------- | ------- | ------- | ------- |
 | **amount:cents** | *integer* | Numeric amount in cents | `12345` |
 | **amount:currency** | *string* | 3 character currency code, as specified in ISO 4217<br/> **pattern:** <code>^([A-Z]{3})$</code> | `"EUR"` |
+| **allow_organisation_contact** | *boolean* | If the person has consented to be contacted by the organisation | `true` |
 | **comment** | *string* | The comment given with the donation | `"Wow, what a great idea!"` |
 | **created_at** | *date-time* | when donation was created | `"2012-01-01T12:00:00Z"` |
 | **id** | *integer* | unique identifier of donation | `1234567` |
@@ -557,6 +559,7 @@ HTTP/1.1 200 OK
 [
   {
     "activity_score": 987654321,
+    "allow_organisation_contact": true,
     "cover_media": {
       "image": {
         "url": "https://cnd.example.net/image.jpg"
@@ -769,6 +772,7 @@ HTTP/1.1 200 OK
 ```json
 {
   "activity_score": 987654321,
+  "allow_organisation_contact": true,
   "cover_media": {
     "image": {
       "url": "https://cnd.example.net/image.jpg"
@@ -867,6 +871,7 @@ HTTP/1.1 200 OK
 [
   {
     "activity_score": 987654321,
+    "allow_organisation_contact": true,
     "cover_media": {
       "image": {
         "url": "https://cnd.example.net/image.jpg"
@@ -1038,6 +1043,7 @@ HTTP/1.1 200 OK
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
 | **activity_score** | *integer* | A number that can be used for sorting lists of fundraisers. More recently active fundraisers should have a higher activity score than fundraisers who have raised more money long ago. | `987654321` |
+| **allow_organisation_contact** | *boolean* | If the person has consented to be contacted by the organisation | `true` |
 | **cover_media:image:url** | *uri* | The url for the image. On the BetterNow site, the video takes precedence if both exist. 461x306 pixels | `"https://cnd.example.net/image.jpg"` |
 | **cover_media:video:url** | *uri* | The url for the video. Currently only YouTube and Vimeo are supported. Could be blank. | `"https://youtu.be/12345"` |
 | **cover_media:video:oembed_html** | *string* | The OEmbed HTML to display the video. Could be blank. | `"<iframe width=\\\"480\\\" height=\\\"270\\\" src=\\\"https://www.youtube.com/embed/G1JBOSwjN6Q?feature=oembed\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>"` |
@@ -1253,6 +1259,7 @@ HTTP/1.1 200 OK
 [
   {
     "activity_score": 987654321,
+    "allow_organisation_contact": true,
     "cover_media": {
       "image": {
         "url": "https://cnd.example.net/image.jpg"
@@ -1355,6 +1362,7 @@ HTTP/1.1 200 OK
       "cents": 12345,
       "currency": "EUR"
     },
+    "allow_organisation_contact": true,
     "comment": "Wow, what a great idea!",
     "created_at": "2012-01-01T12:00:00Z",
     "id": 1234567,
@@ -1515,6 +1523,7 @@ HTTP/1.1 200 OK
       "cents": 12345,
       "currency": "EUR"
     },
+    "allow_organisation_contact": true,
     "comment": "Wow, what a great idea!",
     "created_at": "2012-01-01T12:00:00Z",
     "id": 1234567,
@@ -1582,6 +1591,7 @@ HTTP/1.1 200 OK
 [
   {
     "activity_score": 987654321,
+    "allow_organisation_contact": true,
     "cover_media": {
       "image": {
         "url": "https://cnd.example.net/image.jpg"
@@ -1863,6 +1873,7 @@ HTTP/1.1 200 OK
 [
   {
     "activity_score": 987654321,
+    "allow_organisation_contact": true,
     "cover_media": {
       "image": {
         "url": "https://cnd.example.net/image.jpg"
@@ -1965,6 +1976,7 @@ HTTP/1.1 200 OK
       "cents": 12345,
       "currency": "EUR"
     },
+    "allow_organisation_contact": true,
     "comment": "Wow, what a great idea!",
     "created_at": "2012-01-01T12:00:00Z",
     "id": 1234567,
@@ -2226,6 +2238,7 @@ HTTP/1.1 200 OK
 [
   {
     "activity_score": 987654321,
+    "allow_organisation_contact": true,
     "cover_media": {
       "image": {
         "url": "https://cnd.example.net/image.jpg"
@@ -2328,6 +2341,7 @@ HTTP/1.1 200 OK
       "cents": 12345,
       "currency": "EUR"
     },
+    "allow_organisation_contact": true,
     "comment": "Wow, what a great idea!",
     "created_at": "2012-01-01T12:00:00Z",
     "id": 1234567,

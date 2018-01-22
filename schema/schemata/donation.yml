@@ -18,6 +18,8 @@ definitions:
         pattern: "^([A-Z]{3})$"
         type:
           - string
+  allow_organisation_contact:
+    "$ref": "/schemata/common#/definitions/allow_organisation_contact"
   id:
     description: unique identifier of donation
     example: 1234567
@@ -104,6 +106,8 @@ links:
 properties:
   amount:
     "$ref": "/schemata/donation#/definitions/amount"
+  allow_organisation_contact:
+    "$ref": "/schemata/donation#/definitions/allow_organisation_contact"
   comment:
     "$ref": "/schemata/donation#/definitions/comment"
   created_at:

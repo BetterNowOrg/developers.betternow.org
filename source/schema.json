@@ -5,6 +5,13 @@
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "title": "Common definitions",
       "definitions": {
+        "allow_organisation_contact": {
+          "description": "If the person has consented to be contacted by the organisation",
+          "example": true,
+          "type": [
+            "boolean"
+          ]
+        },
         "state": {
           "description": "The state of the resource",
           "example": "published",
@@ -479,6 +486,9 @@
             }
           }
         },
+        "allow_organisation_contact": {
+          "$ref": "#/definitions/common/definitions/allow_organisation_contact"
+        },
         "id": {
           "description": "unique identifier of donation",
           "example": 1234567,
@@ -602,6 +612,9 @@
       "properties": {
         "amount": {
           "$ref": "#/definitions/donation/definitions/amount"
+        },
+        "allow_organisation_contact": {
+          "$ref": "#/definitions/donation/definitions/allow_organisation_contact"
         },
         "comment": {
           "$ref": "#/definitions/donation/definitions/comment"
@@ -931,6 +944,9 @@
             "integer"
           ]
         },
+        "allow_organisation_contact": {
+          "$ref": "#/definitions/common/definitions/allow_organisation_contact"
+        },
         "created_at": {
           "$ref": "#/definitions/common/definitions/created_at"
         },
@@ -1129,6 +1145,9 @@
       "properties": {
         "activity_score": {
           "$ref": "#/definitions/fundraiser/definitions/activity_score"
+        },
+        "allow_organisation_contact": {
+          "$ref": "#/definitions/fundraiser/definitions/allow_organisation_contact"
         },
         "cover_media": {
           "$ref": "#/definitions/fundraiser/definitions/cover_media"

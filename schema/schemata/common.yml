@@ -2,6 +2,11 @@
 "$schema": http://json-schema.org/draft-04/hyper-schema
 title: Common definitions
 definitions:
+  allow_organisation_contact:
+    description: If the person has consented to be contacted by the organisation
+    example: true
+    type:
+      - boolean
   state:
     description: The state of the resource
     example: published
