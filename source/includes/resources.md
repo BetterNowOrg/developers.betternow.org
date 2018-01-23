@@ -11,6 +11,104 @@ above](/#curl-example).
 
 
 
+## Contact Permission
+
+Information about the contact permissions gathered in connection with the creation of a Fundraiser, Donation or Team. Depending on the configuration for the region/site/organisation more or less detail will be available. A secret key is required to access this information.
+
+### Contact Permission Info
+
+Info for existing donation.
+
+`GET /contact-permissions/{contact_permission_id}`
+
+
+#### Curl Example ->
+
+```shell
+$ curl -n \
+  -H "Accept: application/vnd.betternow+json; version=1" \
+  https://api.betternow.org/contact-permissions/$CONTACT_PERMISSION_ID
+```
+
+
+#### Response Example ->
+
+```
+HTTP/1.1 200 OK
+```
+
+```json
+{
+  "allow_organisation_contact": true,
+  "allow_site_contact": false,
+  "created_at": "2012-01-01T12:00:00Z",
+  "id": 1234567,
+  "organisation_contact_methods": {
+    "email": null,
+    "post": null,
+    "sms": null,
+    "phone": null
+  },
+  "site_contact_methods": {
+    "email": null,
+    "post": null,
+    "sms": null,
+    "phone": null
+  },
+  "person": {
+    "avatar_url": "https://cdn.example.net/avatar.jpg",
+    "first_name": "Firstname",
+    "middle_name": "Middlename",
+    "last_name": "Lastname",
+    "private_person_url": "https://api.betternow.org/people/3e9344ff-69be-4ab5-a254-07b067325ebe"
+  },
+  "recipient": {
+    "id": 1234567,
+    "name": "HelpNow",
+    "url": "https://api.betternow.org/organisations/1234567",
+    "html_url": "https://dk.betternow.org/charities/helpnow"
+  },
+  "source": {
+    "source_type": null,
+    "source_id": 1234567,
+    "url": "https://url.example.net"
+  },
+  "url": "https://url.example.net"
+}
+```
+
+
+### Attributes
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **allow_organisation_contact** | *boolean* | If the person has consented to be contacted by the organisation | `true` |
+| **allow_site_contact** | *boolean* | If the person has consented to be contacted by the site. If the value is null, the person has not been asked | `false` |
+| **created_at** | *date-time* | when resource was created | `"2012-01-01T12:00:00Z"` |
+| **id** | *string* | unique identifier | `1234567` |
+| **organisation_contact_methods:email** | *boolean* | If the person has agreed to be contacted via the method. If the value is null, the person has not been asked about specific contact methods. |  |
+| **organisation_contact_methods:post** | *boolean* | If the person has agreed to be contacted via the method. If the value is null, the person has not been asked about specific contact methods. |  |
+| **organisation_contact_methods:sms** | *boolean* | If the person has agreed to be contacted via the method. If the value is null, the person has not been asked about specific contact methods. |  |
+| **organisation_contact_methods:phone** | *boolean* | If the person has agreed to be contacted via the method. If the value is null, the person has not been asked about specific contact methods. |  |
+| **site_contact_methods:email** | *boolean* | If the person has agreed to be contacted via the method. If the value is null, the person has not been asked about specific contact methods. |  |
+| **site_contact_methods:post** | *boolean* | If the person has agreed to be contacted via the method. If the value is null, the person has not been asked about specific contact methods. |  |
+| **site_contact_methods:sms** | *boolean* | If the person has agreed to be contacted via the method. If the value is null, the person has not been asked about specific contact methods. |  |
+| **site_contact_methods:phone** | *boolean* | If the person has agreed to be contacted via the method. If the value is null, the person has not been asked about specific contact methods. |  |
+| **person:avatar_url** | *uri* | The URL for the avatar image for the user. 92x92 pixels | `"https://cdn.example.net/avatar.jpg"` |
+| **person:first_name** | *string* | The first name of the user | `"Firstname"` |
+| **person:middle_name** | *string* | The middle name of the user | `"Middlename"` |
+| **person:last_name** | *string* | The last name of the user | `"Lastname"` |
+| **person:private_person_url** | *uri* | The URL to retreive private information about the user. A secret key is required for this URL | `"https://api.betternow.org/people/3e9344ff-69be-4ab5-a254-07b067325ebe"` |
+| **recipient:id** | *string* | Unique identifier of organisation | `1234567` |
+| **recipient:name** | *string* | The name of the Organisation | `"HelpNow"` |
+| **recipient:url** | *uri* |  | `"https://api.betternow.org/organisations/1234567"` |
+| **recipient:html_url** | *uri* | The current url to view the organisation page on BetterNow. This can, and does, change. Requests to old urls will be redirect to the current url. | `"https://dk.betternow.org/charities/helpnow"` |
+| **source:source_type** | *string* | <br/> **one of:**`"Donation"` or `"Fundraiser"` or `"Team"` |  |
+| **source:source_id** | *string* | unique identifier | `1234567` |
+| **source:url** | *uri* |  | `"https://url.example.net"` |
+| **url** | *uri* |  | `"https://url.example.net"` |
+
+
 ## Donation Details
 
 The private details about a donation. Includes Personally Identifieable Information. A secret key is required to access this information.

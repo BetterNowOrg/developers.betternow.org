@@ -117,7 +117,7 @@ definitions:
   logo_url:
     "$ref": "/schemata/common#/definitions/url"
   recipient:
-    description: The organisation that will receive the donation
+    description: The organisation receiving the donation or contact permission
     type:
       - object
     properties:

@@ -1,0 +1,106 @@
+---
+"$schema": http://json-schema.org/draft-04/hyper-schema
+title: Contact Permission
+definitions:
+  allow_organisation_contact:
+    "$ref": "/schemata/common#/definitions/allow_organisation_contact"
+  allow_site_contact:
+    description: If the person has consented to be contacted by the site. If the value is null, the person has not been asked
+    example: false
+    type:
+      - boolean
+  created_at:
+    "$ref": "/schemata/common#/definitions/created_at"
+  id:
+    "$ref": "/schemata/common#/definitions/id"
+  identity:
+    "$ref": "/schemata/common#/definitions/identity"
+  organisation_contact_methods:
+    description: 'What contact methods has the person consented to for contact from the organisation. Note - in many region/site/organisation configurations we will not ask specificly for each method and the values therefore will be "not asked"'
+    type:
+    - object
+    properties:
+      email:
+        "$ref": "/schemata/contact_permission#/definitions/contact_method"
+      post:
+        "$ref": "/schemata/contact_permission#/definitions/contact_method"
+      sms:
+        "$ref": "/schemata/contact_permission#/definitions/contact_method"
+      phone:
+        "$ref": "/schemata/contact_permission#/definitions/contact_method"
+  site_contact_methods:
+    description: 'What contact methods has the person consented to for contact from the site. Note - in many region/site/organisation configurations we will not ask specificly for each method and the values therefore will be "not asked"'
+    type:
+    - object
+    properties:
+      email:
+        "$ref": "/schemata/contact_permission#/definitions/contact_method"
+      post:
+        "$ref": "/schemata/contact_permission#/definitions/contact_method"
+      sms:
+        "$ref": "/schemata/contact_permission#/definitions/contact_method"
+      phone:
+        "$ref": "/schemata/contact_permission#/definitions/contact_method"
+  person:
+    "$ref": "/schemata/user#/definitions/user_summary"
+  recipient:
+    "$ref": "/schemata/common#/definitions/recipient"
+  source:
+    description: The resource that was created in conjunction with this contact permission
+    type:
+    - object
+    properties:
+      source_type:
+        type:
+        - string
+        enum: ['Donation', 'Fundraiser', 'Team']
+      source_id:
+        "$ref": "/schemata/common#/definitions/id"
+      url:
+        "$ref": "/schemata/common#/definitions/url"
+  url:
+    "$ref": "/schemata/common#/definitions/url"
+  contact_method:
+    description: If the person has agreed to be contacted via the method. If the value is null, the person has not been asked about specific contact methods.
+    type:
+    - boolean
+  contact_permission_summary:
+    description: A summarized version of the contact permission for use in other resources
+    type:
+    - object
+    properties:
+      id:
+        "$ref": "/schemata/contact_permission#/definitions/id"
+      url:
+        "$ref": "/schemata/contact_permission#/definitions/url"
+description: Information about the contact permissions gathered in connection with the creation of a Fundraiser, Donation or Team. Depending on the configuration for the region/site/organisation more or less detail will be available. A secret key is required to access this information.
+links:
+- description: Info for existing donation.
+  href: "/contact-permissions/{(%2Fschemata%2Fcontact_permission%23%2Fdefinitions%2Fidentity)}"
+  method: GET
+  rel: self
+  title: Info
+properties:
+  allow_organisation_contact:
+    "$ref": "/schemata/contact_permission#/definitions/allow_organisation_contact"
+  allow_site_contact:
+    "$ref": "/schemata/contact_permission#/definitions/allow_site_contact"
+  created_at:
+    "$ref": "/schemata/contact_permission#/definitions/created_at"
+  id:
+    "$ref": "/schemata/contact_permission#/definitions/id"
+  organisation_contact_methods:
+    "$ref": "/schemata/contact_permission#/definitions/organisation_contact_methods"
+  site_contact_methods:
+    "$ref": "/schemata/contact_permission#/definitions/site_contact_methods"
+  person:
+    "$ref": "/schemata/contact_permission#/definitions/person"
+  recipient:
+    "$ref": "/schemata/contact_permission#/definitions/recipient"
+  source:
+    "$ref": "/schemata/contact_permission#/definitions/source"
+  url:
+    "$ref": "/schemata/contact_permission#/definitions/url"
+type:
+- object
+id: schemata/contact_permission
