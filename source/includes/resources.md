@@ -149,7 +149,7 @@ HTTP/1.1 200 OK
   "last_name": "Lastname",
   "company_name": "BetterNow Worldwide ApS",
   "legal_name": "BetterNow LTD",
-  "donor_type": "company",
+  "donor_type": "personal",
   "tax_id": null,
   "created_at": "2012-01-01T12:00:00Z",
   "id": 1234567,
@@ -248,7 +248,7 @@ HTTP/1.1 200 OK
 | **last_name** | *string* | The last name of the user | `"Lastname"` |
 | **company_name** | *string* |  | `"BetterNow Worldwide ApS"` |
 | **legal_name** | *string* |  | `"BetterNow LTD"` |
-| **donor_type** | *string* | <br/> **one of:**`"personal"` or `"company"` | `"company"` |
+| **donor_type** | *string* | <br/> **one of:**`"unknown"` or `"personal"` or `"organisation"` | `"personal"` |
 | **tax_id** | *string* | country-specific tax identification number |  |
 | **created_at** | *date-time* | when donation was created | `"2012-01-01T12:00:00Z"` |
 | **id** | *integer* | unique identifier of donation | `1234567` |

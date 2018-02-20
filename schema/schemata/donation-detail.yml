@@ -45,12 +45,13 @@ definitions:
     type:
       - string
   donor_type:
-    example: company
+    example: personal
     type:
       - string
     enum:
+      - unknown
       - personal
-      - company
+      - organisation
   first_name:
     "$ref": "/schemata/person#/definitions/first_name"
   middle_name:

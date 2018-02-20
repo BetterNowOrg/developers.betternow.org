@@ -425,13 +425,14 @@
           ]
         },
         "donor_type": {
-          "example": "company",
+          "example": "personal",
           "type": [
             "string"
           ],
           "enum": [
+            "unknown",
             "personal",
-            "company"
+            "organisation"
           ]
         },
         "first_name": {
