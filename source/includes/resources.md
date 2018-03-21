@@ -151,6 +151,7 @@ HTTP/1.1 200 OK
   "legal_name": "BetterNow LTD",
   "donor_type": "personal",
   "tax_id": null,
+  "tax_deduction_requested": false,
   "created_at": "2012-01-01T12:00:00Z",
   "id": 1234567,
   "updated_at": "2012-01-01T12:00:00Z",
@@ -250,6 +251,7 @@ HTTP/1.1 200 OK
 | **legal_name** | *string* |  | `"BetterNow LTD"` |
 | **donor_type** | *string* | <br/> **one of:**`"unknown"` or `"personal"` or `"organisation"` | `"personal"` |
 | **tax_id** | *string* | country-specific tax identification number |  |
+| **tax_deduction_requested** | *boolean* | whether the donor requested a tax deduction (or Gift Aid in UK) | `false` |
 | **created_at** | *date-time* | when donation was created | `"2012-01-01T12:00:00Z"` |
 | **id** | *integer* | unique identifier of donation | `1234567` |
 | **updated_at** | *date-time* | when donation was updated | `"2012-01-01T12:00:00Z"` |

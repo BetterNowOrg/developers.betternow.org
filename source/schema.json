@@ -450,6 +450,13 @@
             "string"
           ]
         },
+        "tax_deduction_requested": {
+          "example": false,
+          "description": "whether the donor requested a tax deduction (or Gift Aid in UK)",
+          "type": [
+            "boolean"
+          ]
+        },
         "donor_ip_address": {
           "example": "127.0.0.1",
           "type": [
@@ -569,6 +576,9 @@
         },
         "tax_id": {
           "$ref": "#/definitions/donation-detail/definitions/tax_id"
+        },
+        "tax_deduction_requested": {
+          "$ref": "#/definitions/donation-detail/definitions/tax_deduction_requested"
         },
         "created_at": {
           "$ref": "#/definitions/donation-detail/definitions/created_at"

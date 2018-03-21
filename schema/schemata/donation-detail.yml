@@ -59,10 +59,14 @@ definitions:
   last_name:
     "$ref": "/schemata/person#/definitions/last_name"
   tax_id:
-  tax_id:
     description: country-specific tax identification number
     type:
       - string
+  tax_deduction_requested:
+    example: false
+    description: whether the donor requested a tax deduction (or Gift Aid in UK)
+    type:
+      - boolean
   donor_ip_address:
     example: 127.0.0.1
     type:
@@ -143,6 +147,8 @@ properties:
     "$ref": "/schemata/donation-detail#/definitions/donor_type"
   tax_id:
     "$ref": "/schemata/donation-detail#/definitions/tax_id"
+  tax_deduction_requested:
+    "$ref": "/schemata/donation-detail#/definitions/tax_deduction_requested"
   created_at:
     "$ref": "/schemata/donation-detail#/definitions/created_at"
   id:
