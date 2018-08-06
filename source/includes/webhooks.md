@@ -30,8 +30,12 @@ The following activities will trigger a notification to your endpoint:
 | --- | --- |
 | test | Sent when you create a new webhook or manually request a test notification |
 
-### Fundraiser page activities
+### User activities
+| Activity Type | Description |
+| --- | --- |
+| user_deleted | The user has been deleted in the BetterNow system |
 
+### Fundraiser page activities
 | Activity Type | Description |
 | --- | --- |
 | fundraiser_created_by_system | A fundraising page is created via an integration with a third-party-system |
