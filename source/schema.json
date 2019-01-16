@@ -505,7 +505,7 @@
               ]
             },
             "postal_code": {
-              "example": 1434,
+              "example": "1434",
               "type": [
                 "string"
               ]
@@ -531,6 +531,41 @@
         },
         "custom_form_values": {
           "$ref": "#/definitions/common/definitions/custom_form_values"
+        },
+        "payment": {
+          "type": [
+            "object"
+          ],
+          "properties": {
+            "processor_id": {
+              "description": "the payment processor's id for the payment",
+              "example": "123456789",
+              "type": [
+                "string"
+              ]
+            },
+            "payment_id_for_processor": {
+              "description": "the id we send to the payment processor and acquirer",
+              "example": "12345-slyellei_0",
+              "type": [
+                "string"
+              ]
+            },
+            "settled_by_betternow": {
+              "description": "If BetterNow transfers the money to you",
+              "example": false,
+              "type": [
+                "boolean"
+              ]
+            },
+            "acquirer": {
+              "description": "What company acquires the payment",
+              "example": "clearhaus",
+              "type": [
+                "string"
+              ]
+            }
+          }
         }
       },
       "description": "The private details about a donation. Includes Personally Identifieable Information. A secret key is required to access this information.",
@@ -627,6 +662,9 @@
         },
         "custom_form_values": {
           "$ref": "#/definitions/donation-detail/definitions/custom_form_values"
+        },
+        "payment": {
+          "$ref": "#/definitions/donation-detail/definitions/payment"
         }
       },
       "type": [

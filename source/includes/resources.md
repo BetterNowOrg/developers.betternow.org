@@ -159,7 +159,7 @@ HTTP/1.1 200 OK
     "street_line_1": "Danneskiold-Samsøes Allé 41",
     "street_line_2": "Suite 103",
     "city": "Copenhagen K",
-    "postal_code": 1434,
+    "postal_code": "1434",
     "province": "Region Hovedstaden",
     "country": "DK"
   },
@@ -230,7 +230,13 @@ HTTP/1.1 200 OK
     }
   },
   "your_reference": "my-crm-project-reference-123456",
-  "custom_form_values": null
+  "custom_form_values": null,
+  "payment": {
+    "processor_id": "123456789",
+    "payment_id_for_processor": "12345-slyellei_0",
+    "settled_by_betternow": false,
+    "acquirer": "clearhaus"
+  }
 }
 ```
 
@@ -258,7 +264,7 @@ HTTP/1.1 200 OK
 | **address:street_line_1** | *string* |  | `"Danneskiold-Samsøes Allé 41"` |
 | **address:street_line_2** | *string* |  | `"Suite 103"` |
 | **address:city** | *string* |  | `"Copenhagen K"` |
-| **address:postal_code** | *string* |  | `1434` |
+| **address:postal_code** | *string* |  | `"1434"` |
 | **address:province** | *string* |  | `"Region Hovedstaden"` |
 | **address:country** | *string* | ISO alpha-2 country code<br/> **pattern:** <code>^([A-Z]{2})$</code> | `"DK"` |
 | **fundraiser:id** | *string* | Unique identifier of organisation | `1234567` |
@@ -309,6 +315,10 @@ HTTP/1.1 200 OK
 | **donor:teams:url** | *uri* | The url to retrieve all teams | `"https://api.betternow.org/people/fdb6cd2a-3ca7-40db-8fae-135daebecdab/teams"` |
 | **your_reference** | *string* | A string that you can use to identify the project and its fundraisers and donations. The value will be inherited by any fundraisers created for the project and any donations made via the fundraisers. Commonly used to assign donations to e.g. a campaign in your CRM system. You can set this value in the dashboard for your project. | `"my-crm-project-reference-123456"` |
 | **custom_form_values** | *object* | An object containing values for custom form fields. Structure varies depending on the customer. |  |
+| **payment:processor_id** | *string* | the payment processor's id for the payment | `"123456789"` |
+| **payment:payment_id_for_processor** | *string* | the id we send to the payment processor and acquirer | `"12345-slyellei_0"` |
+| **payment:settled_by_betternow** | *boolean* | If BetterNow transfers the money to you | `false` |
+| **payment:acquirer** | *string* | What company acquires the payment | `"clearhaus"` |
 
 
 ## Donation
