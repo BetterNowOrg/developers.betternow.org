@@ -121,6 +121,44 @@ links:
   method: GET
   rel: instances
   title: List
+- description: Create a fundraiser. Requires a secret key.
+  href: "/fundraisers"
+  method: POST
+  rel: fundraiser
+  title: Create
+  schema:
+    properties:
+      name:
+        "$ref": "/schemata/fundraiser#/definitions/headline"
+      email:
+        "$ref": "/schemata/person#/definitions/email"
+      description:
+        "$ref": "/schemata/fundraiser#/definitions/description"
+      goal:
+        "$ref": "/schemata/fundraiser#/definitions/goal"
+      end_date:
+        "$ref": "/schemata/fundraiser#/definitions/end_date"
+      team_id:
+        "$ref": "/schemata/team#/definitions/id"
+      event_id:
+        "$ref": "/schemata/event#/definitions/id"
+      fundraiser_type:
+        "$ref": "/schemata/fundraiser#/definitions/fundraiser_type"
+      first_name:
+        "$ref": "/schemata/person#/definitions/first_name"
+      middle_name:
+        "$ref": "/schemata/person#/definitions/middle_name"
+      last_name:
+        "$ref": "/schemata/person#/definitions/last_name"
+      site_id:
+        "$ref": "/schemata/common#/definitions/id"
+      project_id:
+        "$ref": "/schemata/project#/definitions/id"
+    required:
+      - name
+      - email
+      - project_id
+      - site_id
 - description: List the donations for existing fundraiser. Donations will always be returned in reverse-chronological order (newest first).
   href:  "/fundraisers/{(%2Fschemata%2Ffundraiser%23%2Fdefinitions%2Fidentity)}/donations"
   method: GET

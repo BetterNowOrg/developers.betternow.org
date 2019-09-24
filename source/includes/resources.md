@@ -1055,6 +1055,149 @@ HTTP/1.1 200 OK
 ]
 ```
 
+### Fundraising Page Create
+
+Create a fundraiser. Requires a secret key.
+
+`POST /fundraisers`
+
+#### Required Parameters
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **name** | *string* | The headline for this fundraising page | `"Firstname Lastname's Fundraiser for HelpNow"` |
+| **email** | *string* |  | `"user@example.com"` |
+| **site_id** | *string* | unique identifier | `1234567` |
+| **project_id** | *string* | Unique identifier of project | `1234567` |
+
+
+#### Optional Parameters
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **description** | *string* | The text written by the fundraiser owner. Contains HTML. | `"<p>This is really, <b>REALLY</b> great</p> <br><br>"` |
+| **goal:cents** | *integer* | Numeric amount in cents | `1234500` |
+| **goal:currency** | *string* | 3 character currency code, as specified in ISO 4217<br/> **pattern:** <code>^([A-Z]{3})$</code> | `"EUR"` |
+| **end_date** | *date-time* | The end date for a fundraiser. | `"2012-01-01T12:00:00Z"` |
+| **team_id** | *string* | unique identifier of team | `1234567` |
+| **event_id** | *string* | unique identifier of event | `1234567` |
+| **fundraiser_type** | *string* | The type of the fundraiser on BetterNow<br/> **one of:**`"birthday"` or `"anniversary"` or `"in_memory_of"` or `"sports_event"` or `"corporate"` or `"cultural_event"` or `"sponsorable"` or `"other"` | `"birthday"` |
+| **first_name** | *string* | The first name of the user | `"Firstname"` |
+| **middle_name** | *string* | The middle name of the user | `"Middlename"` |
+| **last_name** | *string* | The last name of the user | `"Lastname"` |
+
+
+#### Curl Example ->
+
+```shell
+$ curl -n -X POST \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/vnd.betternow+json; version=1" \
+ \
+  -d '{
+  "name": "Firstname Lastname's Fundraiser for HelpNow",
+  "email": "user@example.com",
+  "description": "<p>This is really, <b>REALLY</b> great</p> <br><br>",
+  "goal": {
+    "cents": 1234500,
+    "currency": "EUR"
+  },
+  "end_date": "2012-01-01T12:00:00Z",
+  "team_id": 1234567,
+  "event_id": 1234567,
+  "fundraiser_type": "birthday",
+  "first_name": "Firstname",
+  "middle_name": "Middlename",
+  "last_name": "Lastname",
+  "site_id": 1234567,
+  "project_id": 1234567
+}'
+  https://api.betternow.org/fundraisers
+```
+
+
+#### Response Example ->
+
+```
+HTTP/1.1 200 OK
+```
+
+```json
+{
+  "activity_score": 987654321,
+  "allow_organisation_contact": true,
+  "cover_media": {
+    "image": {
+      "url": "https://cnd.example.net/image.jpg"
+    },
+    "video": {
+      "url": "https://youtu.be/12345",
+      "oembed_html": "<iframe width=\\\"480\\\" height=\\\"270\\\" src=\\\"https://www.youtube.com/embed/G1JBOSwjN6Q?feature=oembed\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>"
+    },
+    "thumb": {
+      "url": "https://cnd.example.net/image.jpg"
+    }
+  },
+  "created_at": "2012-01-01T12:00:00Z",
+  "description": "<p>This is really, <b>REALLY</b> great</p> <br><br>",
+  "state": "published",
+  "fundraiser_type": "birthday",
+  "donate_url": "https://www.betternow.org/dk/fundraisers/firstname-lastnames-fundraiser/donations/new",
+  "donations": {
+    "count": 123,
+    "total_donated": {
+      "cents": 1234500,
+      "currency": "EUR"
+    },
+    "url": "https://api.betternow.org/fundraisers/1234567/donations"
+  },
+  "end_date": "2012-01-01T12:00:00Z",
+  "goal": {
+    "cents": 1234500,
+    "currency": "EUR"
+  },
+  "headline": "Firstname Lastname's Fundraiser for HelpNow",
+  "html_url": "https://dk.betternow.org/fundraisers/firstname-lastnames-fundraiser-for-helpnow",
+  "id": 1234567,
+  "owner": {
+    "avatar_url": "https://cdn.example.net/avatar.jpg",
+    "first_name": "Firstname",
+    "middle_name": "Middlename",
+    "last_name": "Lastname",
+    "private_person_url": "https://api.betternow.org/people/3e9344ff-69be-4ab5-a254-07b067325ebe"
+  },
+  "partner_data": null,
+  "recipient": {
+    "id": 1234567,
+    "name": "HelpNow",
+    "url": "https://api.betternow.org/organisations/1234567",
+    "html_url": "https://dk.betternow.org/charities/helpnow"
+  },
+  "team": {
+    "id": 1234567,
+    "name": "Team NOVO",
+    "url": "https://api.betternow.org/team/1234567",
+    "html_url": "https://dk.betternow.org/teams/team-novo"
+  },
+  "project": {
+    "id": 1234567,
+    "name": "HelpNows generelle arbejde",
+    "url": "https://api.betternow.org/projects/1234567",
+    "html_url": "https://dk.betternow.org/projects/helpnow-projekt"
+  },
+  "event": {
+    "id": 1234567,
+    "name": "Copenhagen Marathon 2013",
+    "url": "https://api.betternow.org/events/1234567",
+    "html_url": "https://dk.betternow.org/events/copenhagen-marathon-2013"
+  },
+  "slug": "firstname-lastnames-fundraiser-for-helpnow",
+  "updated_at": "2012-01-01T12:00:00Z",
+  "url": "https://api.betternow.org/fundraisers/1234567",
+  "your_reference": "my-crm-project-reference-123456"
+}
+```
+
 ### Fundraising Page List Donations
 
 List the donations for existing fundraiser. Donations will always be returned in reverse-chronological order (newest first).
