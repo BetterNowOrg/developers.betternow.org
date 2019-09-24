@@ -151,7 +151,7 @@ links:
       last_name:
         "$ref": "/schemata/person#/definitions/last_name"
       site_id:
-        "$ref": "/schemata/common#/definitions/id"
+        "$ref": "/schemata/site#/definitions/id"
       project_id:
         "$ref": "/schemata/project#/definitions/id"
     required:

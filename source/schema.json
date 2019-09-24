@@ -1371,7 +1371,7 @@
                 "$ref": "#/definitions/person/definitions/last_name"
               },
               "site_id": {
-                "$ref": "#/definitions/common/definitions/id"
+                "$ref": "#/definitions/site/definitions/id"
               },
               "project_id": {
                 "$ref": "#/definitions/project/definitions/id"
@@ -2277,6 +2277,92 @@
         "object"
       ]
     },
+    "site": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "title": "Site",
+      "definitions": {
+        "id": {
+          "description": "unique identifier of site",
+          "example": 1234567,
+          "type": [
+            "integer"
+          ]
+        },
+        "identity": {
+          "$ref": "#/definitions/site/definitions/id"
+        },
+        "created_at": {
+          "description": "when site was created",
+          "example": "2012-01-01T12:00:00Z",
+          "format": "date-time",
+          "type": [
+            "string"
+          ]
+        },
+        "updated_at": {
+          "description": "when site was updated",
+          "example": "2012-01-01T12:00:00Z",
+          "format": "date-time",
+          "type": [
+            "string"
+          ]
+        },
+        "cname": {
+          "description": "The CNAME dns record.",
+          "example": "fundraising.betternow.org",
+          "type": [
+            "string"
+          ]
+        },
+        "subdomain": {
+          "description": "The unique subdomain for this site.",
+          "example": "sample-event",
+          "type": [
+            "string"
+          ]
+        },
+        "hostname": {
+          "description": "The hostname for this site.",
+          "example": "sample-event.eventsite.org",
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "description": "A website running the BetterNow software.",
+      "links": [
+        {
+          "description": "List existing sites",
+          "href": "/sites",
+          "method": "GET",
+          "rel": "instances",
+          "title": "List"
+        }
+      ],
+      "properties": {
+        "cname": {
+          "$ref": "#/definitions/site/definitions/cname"
+        },
+        "created_at": {
+          "$ref": "#/definitions/site/definitions/created_at"
+        },
+        "id": {
+          "$ref": "#/definitions/site/definitions/id"
+        },
+        "hostname": {
+          "$ref": "#/definitions/site/definitions/hostname"
+        },
+        "subdomain": {
+          "$ref": "#/definitions/site/definitions/subdomain"
+        },
+        "updated_at": {
+          "$ref": "#/definitions/site/definitions/updated_at"
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
     "team": {
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "title": "Team",
@@ -2696,6 +2782,9 @@
     },
     "project": {
       "$ref": "#/definitions/project"
+    },
+    "site": {
+      "$ref": "#/definitions/site"
     },
     "team": {
       "$ref": "#/definitions/team"

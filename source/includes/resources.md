@@ -1067,7 +1067,7 @@ Create a fundraiser. Requires a secret key.
 | ------- | ------- | ------- | ------- |
 | **name** | *string* | The headline for this fundraising page | `"Firstname Lastname's Fundraiser for HelpNow"` |
 | **email** | *string* |  | `"user@example.com"` |
-| **site_id** | *string* | unique identifier | `1234567` |
+| **site_id** | *integer* | unique identifier of site | `1234567` |
 | **project_id** | *string* | Unique identifier of project | `1234567` |
 
 
@@ -2303,6 +2303,58 @@ HTTP/1.1 200 OK
 | **slug** | *string* | The current url path component to identify the project. This can, and does, change.<br/> **pattern:** <code>^([a-z0-9-]{2,})$</code> | `"helpnow-project"` |
 | **state** | *string* | The state of this project | `"published"` |
 | **your_reference** | *string* | A string that you can use to identify the project and its fundraisers and donations. The value will be inherited by any fundraisers created for the project and any donations made via the fundraisers. Commonly used to assign donations to e.g. a campaign in your CRM system. You can set this value in the dashboard for your project. | `"my-crm-project-reference-123456"` |
+
+
+## Site
+
+A website running the BetterNow software.
+
+### Site List
+
+List existing sites
+
+`GET /sites`
+
+
+#### Curl Example ->
+
+```shell
+$ curl -n \
+  -H "Accept: application/vnd.betternow+json; version=1" \
+  https://api.betternow.org/sites
+```
+
+
+#### Response Example ->
+
+```
+HTTP/1.1 200 OK
+```
+
+```json
+[
+  {
+    "cname": "fundraising.betternow.org",
+    "created_at": "2012-01-01T12:00:00Z",
+    "id": 1234567,
+    "hostname": "sample-event.eventsite.org",
+    "subdomain": "sample-event",
+    "updated_at": "2012-01-01T12:00:00Z"
+  }
+]
+```
+
+
+### Attributes
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **cname** | *string* | The CNAME dns record. | `"fundraising.betternow.org"` |
+| **created_at** | *date-time* | when site was created | `"2012-01-01T12:00:00Z"` |
+| **id** | *integer* | unique identifier of site | `1234567` |
+| **hostname** | *string* | The hostname for this site. | `"sample-event.eventsite.org"` |
+| **subdomain** | *string* | The unique subdomain for this site. | `"sample-event"` |
+| **updated_at** | *date-time* | when site was updated | `"2012-01-01T12:00:00Z"` |
 
 
 ## Team
