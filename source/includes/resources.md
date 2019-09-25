@@ -1344,6 +1344,115 @@ HTTP/1.1 200 OK
 | **your_reference** | *string* | A string that you can use to identify the project and its fundraisers and donations. The value will be inherited by any fundraisers created for the project and any donations made via the fundraisers. Commonly used to assign donations to e.g. a campaign in your CRM system. You can set this value in the dashboard for your project. | `"my-crm-project-reference-123456"` |
 
 
+## Fundraiser Invitation
+
+An invitation to create a fundraiser for a specific project
+
+### Fundraiser Invitation Create
+
+Create a fundraiser invitation. Requires a secret key.
+
+`POST /fundraiser-invitations`
+
+#### Required Parameters
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **inviter_email** | *string* | Must be an exisiting user in the BetterNow system | `"user@example.com"` |
+| **site_id** | *integer* | unique identifier of site | `1234567` |
+| **project_id** | *string* | Unique identifier of project | `1234567` |
+| **email** | *string* | The email that will be sent the invitation | `"user@example.com"` |
+| **first_name** | *string* | The first name of the user | `"Firstname"` |
+| **last_name** | *string* | The last name of the user | `"Lastname"` |
+
+
+#### Optional Parameters
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **middle_name** | *string* | The middle name of the user | `"Middlename"` |
+
+
+#### Curl Example ->
+
+```shell
+$ curl -n -X POST \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/vnd.betternow+json; version=1" \
+ \
+  -d '{
+  "inviter_email": "user@example.com",
+  "site_id": 1234567,
+  "project_id": 1234567,
+  "email": "user@example.com",
+  "first_name": "Firstname",
+  "middle_name": "Middlename",
+  "last_name": "Lastname"
+}'
+  https://api.betternow.org/fundraiser-invitations
+```
+
+
+#### Response Example ->
+
+```
+HTTP/1.1 200 OK
+```
+
+```json
+{
+  "created_at": "2012-01-01T12:00:00Z",
+  "id": 1234567,
+  "inviter": {
+    "avatar_url": "https://cdn.example.net/avatar.jpg",
+    "first_name": "Firstname",
+    "middle_name": "Middlename",
+    "last_name": "Lastname",
+    "private_person_url": "https://api.betternow.org/people/3e9344ff-69be-4ab5-a254-07b067325ebe"
+  },
+  "invitee": {
+    "avatar_url": "https://cdn.example.net/avatar.jpg",
+    "first_name": "Firstname",
+    "middle_name": "Middlename",
+    "last_name": "Lastname",
+    "private_person_url": "https://api.betternow.org/people/3e9344ff-69be-4ab5-a254-07b067325ebe"
+  },
+  "invitation_link": "https://example.betternow.org/i/invitation-token",
+  "project": {
+    "id": 1234567,
+    "name": "HelpNows generelle arbejde",
+    "url": "https://api.betternow.org/projects/1234567",
+    "html_url": "https://dk.betternow.org/projects/helpnow-projekt"
+  },
+  "updated_at": "2012-01-01T12:00:00Z"
+}
+```
+
+
+### Attributes
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **created_at** | *date-time* | when the invitation was created | `"2012-01-01T12:00:00Z"` |
+| **id** | *string* | The unique identifier of the fundraiser invitation | `1234567` |
+| **inviter:avatar_url** | *uri* | The URL for the avatar image for the user. 92x92 pixels | `"https://cdn.example.net/avatar.jpg"` |
+| **inviter:first_name** | *string* | The first name of the user | `"Firstname"` |
+| **inviter:middle_name** | *string* | The middle name of the user | `"Middlename"` |
+| **inviter:last_name** | *string* | The last name of the user | `"Lastname"` |
+| **inviter:private_person_url** | *uri* | The URL to retreive private information about the user. A secret key is required for this URL | `"https://api.betternow.org/people/3e9344ff-69be-4ab5-a254-07b067325ebe"` |
+| **invitee:avatar_url** | *uri* | The URL for the avatar image for the user. 92x92 pixels | `"https://cdn.example.net/avatar.jpg"` |
+| **invitee:first_name** | *string* | The first name of the user | `"Firstname"` |
+| **invitee:middle_name** | *string* | The middle name of the user | `"Middlename"` |
+| **invitee:last_name** | *string* | The last name of the user | `"Lastname"` |
+| **invitee:private_person_url** | *uri* | The URL to retreive private information about the user. A secret key is required for this URL | `"https://api.betternow.org/people/3e9344ff-69be-4ab5-a254-07b067325ebe"` |
+| **invitation_link** | *uri* |  | `"https://example.betternow.org/i/invitation-token"` |
+| **project:id** | *string* | Unique identifier of project | `1234567` |
+| **project:name** | *string* | The name of the Project | `"HelpNows generelle arbejde"` |
+| **project:url** | *uri* |  | `"https://api.betternow.org/projects/1234567"` |
+| **project:html_url** | *uri* | The current url to view the project page on BetterNow. This can, and does, change. Requests to old urls will be redirect to the current url. | `"https://dk.betternow.org/projects/helpnow-projekt"` |
+| **updated_at** | *date-time* | when invitation was updated | `"2012-01-01T12:00:00Z"` |
+
+
 
 ## Organisation
 

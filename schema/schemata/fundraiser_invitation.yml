@@ -1,0 +1,80 @@
+---
+"$schema": http://json-schema.org/draft-04/hyper-schema
+title: Fundraiser Invitation
+definitions:
+  created_at:
+    description: when the invitation was created
+    example: '2012-01-01T12:00:00Z'
+    format: date-time
+    type:
+    - string
+  id:
+    description: The unique identifier of the fundraiser invitation
+    "$ref": "/schemata/common#/definitions/id"
+  inviter:
+    description: The person who created the invitation
+    "$ref": "/schemata/user#/definitions/user_summary"
+  invitee:
+    description: The person who has been invited
+    "$ref": "/schemata/user#/definitions/user_summary"
+  invitation_link:
+    example: 'https://example.betternow.org/i/invitation-token'
+    "$ref": "/schemata/common#/definitions/url"
+  project:
+    "$ref": "/schemata/project#/definitions/project_summary"
+  updated_at:
+    description: when invitation was updated
+    example: '2012-01-01T12:00:00Z'
+    format: date-time
+    type:
+    - string
+description: An invitation to create a fundraiser for a specific project
+links:
+- description: Create a fundraiser invitation. Requires a secret key.
+  href: "/fundraiser-invitations"
+  method: POST
+  rel: fundraiser_invitation
+  title: Create
+  schema:
+    properties:
+      inviter_email:
+        description: Must be an exisiting user in the BetterNow system
+        "$ref": "/schemata/person#/definitions/email"
+      site_id:
+        "$ref": "/schemata/site#/definitions/id"
+      project_id:
+        "$ref": "/schemata/project#/definitions/id"
+      email:
+        description: The email that will be sent the invitation
+        "$ref": "/schemata/person#/definitions/email"
+      first_name:
+        "$ref": "/schemata/person#/definitions/first_name"
+      middle_name:
+        "$ref": "/schemata/person#/definitions/middle_name"
+      last_name:
+        "$ref": "/schemata/person#/definitions/last_name"
+    required:
+      - site_id
+      - project_id
+      - inviter_email
+      - email
+      - first_name
+      - last_name
+properties:
+  created_at:
+    "$ref": "/schemata/fundraiser_invitation#/definitions/created_at"
+  id:
+    "$ref": "/schemata/fundraiser_invitation#/definitions/id"
+  inviter:
+    "$ref": "/schemata/fundraiser_invitation#/definitions/inviter"
+  invitee:
+    "$ref": "/schemata/fundraiser_invitation#/definitions/invitee"
+  invitation_link:
+    "$ref": "/schemata/fundraiser_invitation#/definitions/invitation_link"
+  project:
+    "$ref": "/schemata/fundraiser_invitation#/definitions/project"
+  updated_at:
+    "$ref": "/schemata/fundraiser_invitation#/definitions/updated_at"
+type:
+- object
+id: schemata/fundraiser_invitation

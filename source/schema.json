@@ -1488,6 +1488,118 @@
         "object"
       ]
     },
+    "fundraiser_invitation": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "title": "Fundraiser Invitation",
+      "definitions": {
+        "created_at": {
+          "description": "when the invitation was created",
+          "example": "2012-01-01T12:00:00Z",
+          "format": "date-time",
+          "type": [
+            "string"
+          ]
+        },
+        "id": {
+          "description": "The unique identifier of the fundraiser invitation",
+          "$ref": "#/definitions/common/definitions/id"
+        },
+        "inviter": {
+          "description": "The person who created the invitation",
+          "$ref": "#/definitions/user/definitions/user_summary"
+        },
+        "invitee": {
+          "description": "The person who has been invited",
+          "$ref": "#/definitions/user/definitions/user_summary"
+        },
+        "invitation_link": {
+          "example": "https://example.betternow.org/i/invitation-token",
+          "$ref": "#/definitions/common/definitions/url"
+        },
+        "project": {
+          "$ref": "#/definitions/project/definitions/project_summary"
+        },
+        "updated_at": {
+          "description": "when invitation was updated",
+          "example": "2012-01-01T12:00:00Z",
+          "format": "date-time",
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "description": "An invitation to create a fundraiser for a specific project",
+      "links": [
+        {
+          "description": "Create a fundraiser invitation. Requires a secret key.",
+          "href": "/fundraiser-invitations",
+          "method": "POST",
+          "rel": "fundraiser_invitation",
+          "title": "Create",
+          "schema": {
+            "properties": {
+              "inviter_email": {
+                "description": "Must be an exisiting user in the BetterNow system",
+                "$ref": "#/definitions/person/definitions/email"
+              },
+              "site_id": {
+                "$ref": "#/definitions/site/definitions/id"
+              },
+              "project_id": {
+                "$ref": "#/definitions/project/definitions/id"
+              },
+              "email": {
+                "description": "The email that will be sent the invitation",
+                "$ref": "#/definitions/person/definitions/email"
+              },
+              "first_name": {
+                "$ref": "#/definitions/person/definitions/first_name"
+              },
+              "middle_name": {
+                "$ref": "#/definitions/person/definitions/middle_name"
+              },
+              "last_name": {
+                "$ref": "#/definitions/person/definitions/last_name"
+              }
+            },
+            "required": [
+              "site_id",
+              "project_id",
+              "inviter_email",
+              "email",
+              "first_name",
+              "last_name"
+            ]
+          }
+        }
+      ],
+      "properties": {
+        "created_at": {
+          "$ref": "#/definitions/fundraiser_invitation/definitions/created_at"
+        },
+        "id": {
+          "$ref": "#/definitions/fundraiser_invitation/definitions/id"
+        },
+        "inviter": {
+          "$ref": "#/definitions/fundraiser_invitation/definitions/inviter"
+        },
+        "invitee": {
+          "$ref": "#/definitions/fundraiser_invitation/definitions/invitee"
+        },
+        "invitation_link": {
+          "$ref": "#/definitions/fundraiser_invitation/definitions/invitation_link"
+        },
+        "project": {
+          "$ref": "#/definitions/fundraiser_invitation/definitions/project"
+        },
+        "updated_at": {
+          "$ref": "#/definitions/fundraiser_invitation/definitions/updated_at"
+        }
+      },
+      "type": [
+        "object"
+      ]
+    },
     "fundraiser_update": {
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "title": "Fundraiser Update",
@@ -2770,6 +2882,9 @@
     },
     "fundraiser": {
       "$ref": "#/definitions/fundraiser"
+    },
+    "fundraiser_invitation": {
+      "$ref": "#/definitions/fundraiser_invitation"
     },
     "fundraiser_update": {
       "$ref": "#/definitions/fundraiser_update"
