@@ -788,6 +788,7 @@ HTTP/1.1 200 OK
       }
     },
     "contact_information": {
+      "captain_name": "Helle Hansen",
       "email": "myteam@example.com",
       "phone": "+4599999999 ex. 1234"
     },
@@ -2072,6 +2073,7 @@ HTTP/1.1 200 OK
       }
     },
     "contact_information": {
+      "captain_name": "Helle Hansen",
       "email": "myteam@example.com",
       "phone": "+4599999999 ex. 1234"
     },
@@ -2514,6 +2516,7 @@ HTTP/1.1 200 OK
     }
   },
   "contact_information": {
+    "captain_name": "Helle Hansen",
     "email": "myteam@example.com",
     "phone": "+4599999999 ex. 1234"
   },
@@ -2592,6 +2595,7 @@ HTTP/1.1 200 OK
       }
     },
     "contact_information": {
+      "captain_name": "Helle Hansen",
       "email": "myteam@example.com",
       "phone": "+4599999999 ex. 1234"
     },
@@ -2624,6 +2628,125 @@ HTTP/1.1 200 OK
     "url": "https://api.betternow.org/team/1234567"
   }
 ]
+```
+
+### Team Create
+
+Create a team.
+
+`POST /teams`
+
+#### Required Parameters
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **name** | *string* | the name of the Team | `"Team NOVO"` |
+| **description** | *string* | Text describing the Team added by the Team Captain. Contains HTML. | `"<p>This is really, <b>REALLY</b> great</p> <br><br>"` |
+| **goal:cents** | *integer* | Numeric amount in cents | `1234500` |
+| **goal:currency** | *string* | 3 character currency code, as specified in ISO 4217<br/> **pattern:** <code>^([A-Z]{3})$</code> | `"EUR"` |
+| **email** | *string* |  | `"user@example.com"` |
+| **event_id** | *string* | unique identifier of event | `1234567` |
+
+
+#### Optional Parameters
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **first_name** | *string* | The first name of the user | `"Firstname"` |
+| **middle_name** | *string* | The middle name of the user | `"Middlename"` |
+| **last_name** | *string* | The last name of the user | `"Lastname"` |
+| **public_captain_name** | *string* | the public captain name for the team | `"Helle Hansen"` |
+| **public_phone_number** | *string* | the public contact phone for the team | `"+4599999999 ex. 1234"` |
+| **public_team_email** | *string* | the public contact email for the team | `"myteam@example.com"` |
+
+
+#### Curl Example ->
+
+```shell
+$ curl -n -X POST \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/vnd.betternow+json; version=1" \
+ \
+  -d '{
+  "name": "Team NOVO",
+  "description": "<p>This is really, <b>REALLY</b> great</p> <br><br>",
+  "goal": {
+    "cents": 1234500,
+    "currency": "EUR"
+  },
+  "email": "user@example.com",
+  "first_name": "Firstname",
+  "middle_name": "Middlename",
+  "last_name": "Lastname",
+  "event_id": 1234567,
+  "public_captain_name": "Helle Hansen",
+  "public_phone_number": "+4599999999 ex. 1234",
+  "public_team_email": "myteam@example.com"
+}'
+  https://api.betternow.org/teams
+```
+
+
+#### Response Example ->
+
+```
+HTTP/1.1 200 OK
+```
+
+```json
+{
+  "captain": {
+    "avatar_url": "https://cdn.example.net/avatar.jpg",
+    "first_name": "Firstname",
+    "middle_name": "Middlename",
+    "last_name": "Lastname",
+    "private_person_url": "https://api.betternow.org/people/3e9344ff-69be-4ab5-a254-07b067325ebe"
+  },
+  "cover_media": {
+    "image": {
+      "url": "https://cnd.example.net/image.jpg"
+    },
+    "video": {
+      "url": "https://youtu.be/12345",
+      "oembed_html": "<iframe width=\\\"480\\\" height=\\\"270\\\" src=\\\"https://www.youtube.com/embed/G1JBOSwjN6Q?feature=oembed\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>"
+    },
+    "thumb": {
+      "url": "https://cnd.example.net/image.jpg"
+    }
+  },
+  "contact_information": {
+    "captain_name": "Helle Hansen",
+    "email": "myteam@example.com",
+    "phone": "+4599999999 ex. 1234"
+  },
+  "created_at": "2012-01-01T12:00:00Z",
+  "description": "<p>This is really, <b>REALLY</b> great</p> <br><br>",
+  "donations": {
+    "count": 123,
+    "total_donated": {
+      "cents": 1234500,
+      "currency": "EUR"
+    },
+    "url": "https://api.betternow.org/teams/1234567/donations"
+  },
+  "fundraisers": {
+    "count": 12,
+    "url": "https://api.betternow.org/teams/1234567/fundraisers"
+  },
+  "goal": {
+    "cents": 1234500,
+    "currency": "EUR"
+  },
+  "html_url": "https://dk.betternow.org/teams/team-novo",
+  "id": 1234567,
+  "logo_url": "https://cdn.example.net/logo.png",
+  "name": "Team NOVO",
+  "partner_data": null,
+  "slug": "team-novo",
+  "state": "published",
+  "updated_at": "2012-01-01T12:00:00Z",
+  "url": "https://api.betternow.org/team/1234567"
+}
 ```
 
 ### Team List Fundraisers
@@ -2883,6 +3006,7 @@ HTTP/1.1 200 OK
 | **cover_media:video:url** | *uri* | The url for the video. Currently only YouTube and Vimeo are supported. Could be blank. | `"https://youtu.be/12345"` |
 | **cover_media:video:oembed_html** | *string* | The OEmbed HTML to display the video. Could be blank. | `"<iframe width=\\\"480\\\" height=\\\"270\\\" src=\\\"https://www.youtube.com/embed/G1JBOSwjN6Q?feature=oembed\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>"` |
 | **cover_media:thumb:url** | *uri* | The url for the cover media that should be displayed in e.g. a card view. 120x80 pixels | `"https://cnd.example.net/image.jpg"` |
+| **contact_information:captain_name** | *string* | the public captain name for the team | `"Helle Hansen"` |
 | **contact_information:email** | *string* | the public contact email for the team | `"myteam@example.com"` |
 | **contact_information:phone** | *string* | the public contact phone for the team | `"+4599999999 ex. 1234"` |
 | **created_at** | *date-time* | when team was created | `"2012-01-01T12:00:00Z"` |

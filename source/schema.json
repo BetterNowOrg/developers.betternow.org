@@ -2617,6 +2617,13 @@
             "object"
           ],
           "properties": {
+            "captain_name": {
+              "description": "the public captain name for the team",
+              "example": "Helle Hansen",
+              "type": [
+                "string"
+              ]
+            },
             "email": {
               "description": "the public contact email for the team",
               "example": "myteam@example.com",
@@ -2649,6 +2656,57 @@
           "method": "GET",
           "rel": "instances",
           "title": "List"
+        },
+        {
+          "description": "Create a team.",
+          "href": "/teams",
+          "method": "POST",
+          "title": "Create",
+          "rel": "",
+          "schema": {
+            "properties": {
+              "name": {
+                "$ref": "#/definitions/team/definitions/name"
+              },
+              "description": {
+                "$ref": "#/definitions/team/definitions/description"
+              },
+              "goal": {
+                "$ref": "#/definitions/team/definitions/goal"
+              },
+              "email": {
+                "$ref": "#/definitions/person/definitions/email"
+              },
+              "first_name": {
+                "$ref": "#/definitions/person/definitions/first_name"
+              },
+              "middle_name": {
+                "$ref": "#/definitions/person/definitions/middle_name"
+              },
+              "last_name": {
+                "$ref": "#/definitions/person/definitions/last_name"
+              },
+              "event_id": {
+                "$ref": "#/definitions/event/definitions/id"
+              },
+              "public_captain_name": {
+                "$ref": "#/definitions/team/definitions/contact_information/properties/captain_name"
+              },
+              "public_phone_number": {
+                "$ref": "#/definitions/team/definitions/contact_information/properties/phone"
+              },
+              "public_team_email": {
+                "$ref": "#/definitions/team/definitions/contact_information/properties/email"
+              }
+            },
+            "required": [
+              "name",
+              "description",
+              "goal",
+              "email",
+              "event_id"
+            ]
+          }
         },
         {
           "description": "List all Fundraisers that are members of this Team. Fundraisers will be ordered by the amount of money donated, descending",
