@@ -2806,6 +2806,44 @@
         "object"
       ]
     },
+    "team_membership": {
+      "$schema": "http://json-schema.org/draft-04/hyper-schema",
+      "title": "Team Membership",
+      "description": "Add or remove a fundraiser for a team",
+      "links": [
+        {
+          "description": "Add a fundraiser to a team",
+          "href": "/team-memberships",
+          "method": "POST",
+          "title": "Create",
+          "rel": "",
+          "schema": {
+            "properties": {
+              "team_id": {
+                "$ref": "#/definitions/team/definitions/id"
+              },
+              "fundraiser_id": {
+                "$ref": "#/definitions/fundraiser/definitions/id"
+              }
+            },
+            "required": [
+              "team_id",
+              "fundraiser_id"
+            ]
+          }
+        },
+        {
+          "description": "Delete the association with a team for a fundraiser",
+          "href": "/team-memberships/fundraiser_id",
+          "method": "DELETE",
+          "title": "Destroy",
+          "rel": ""
+        }
+      ],
+      "type": [
+        "object"
+      ]
+    },
     "user": {
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
       "title": "User",
@@ -2965,6 +3003,9 @@
     },
     "team": {
       "$ref": "#/definitions/team"
+    },
+    "team_membership": {
+      "$ref": "#/definitions/team_membership"
     },
     "user": {
       "$ref": "#/definitions/user"

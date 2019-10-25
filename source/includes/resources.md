@@ -3032,4 +3032,77 @@ HTTP/1.1 200 OK
 | **url** | *uri* |  | `"https://api.betternow.org/team/1234567"` |
 
 
+## Team Membership
+
+Add or remove a fundraiser for a team
+
+### Team Membership Create
+
+Add a fundraiser to a team
+
+`POST /team-memberships`
+
+#### Required Parameters
+
+| Name | Type | Description | Example |
+| ------- | ------- | ------- | ------- |
+| **team_id** | *string* | unique identifier of team | `1234567` |
+| **fundraiser_id** | *string* | The unique identifier of the fundraising page | `1234567` |
+
+
+
+#### Curl Example ->
+
+```shell
+$ curl -n -X POST \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/vnd.betternow+json; version=1" \
+ \
+  -d '{
+  "team_id": 1234567,
+  "fundraiser_id": 1234567
+}'
+  https://api.betternow.org/team-memberships
+```
+
+
+#### Response Example ->
+
+```
+HTTP/1.1 200 OK
+```
+
+```json
+null
+```
+
+### Team Membership Destroy
+
+Delete the association with a team for a fundraiser
+
+`DELETE /team-memberships/fundraiser_id`
+
+
+#### Curl Example ->
+
+```shell
+$ curl -n -X DELETE \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/vnd.betternow+json; version=1" \
+  https://api.betternow.org/team-memberships/fundraiser_id
+```
+
+
+#### Response Example ->
+
+```
+HTTP/1.1 200 OK
+```
+
+```json
+null
+```
+
+
+
 

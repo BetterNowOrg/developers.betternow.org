@@ -1,0 +1,26 @@
+"$schema": http://json-schema.org/draft-04/hyper-schema
+title: Team Membership
+description: Add or remove a fundraiser for a team
+links:
+- description: Add a fundraiser to a team
+  href: "/team-memberships"
+  method: POST
+  title: Create
+  rel: ""
+  schema:
+    properties:
+      team_id:
+        "$ref": "/schemata/team#/definitions/id"
+      fundraiser_id:
+        "$ref": "/schemata/fundraiser#/definitions/id"
+    required:
+      - team_id
+      - fundraiser_id
+- description: Delete the association with a team for a fundraiser
+  href: "/team-memberships/fundraiser_id"
+  method: DELETE
+  title: Destroy
+  rel: ""
+type:
+- object
+id: schemata/team_membership
