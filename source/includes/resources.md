@@ -2646,6 +2646,7 @@ Create a team.
 | **goal:currency** | *string* | 3 character currency code, as specified in ISO 4217<br/> **pattern:** <code>^([A-Z]{3})$</code> | `"EUR"` |
 | **email** | *string* |  | `"user@example.com"` |
 | **event_id** | *string* | unique identifier of event | `1234567` |
+| **site_id** | *integer* | unique identifier of site | `1234567` |
 
 
 #### Optional Parameters
@@ -2679,6 +2680,7 @@ $ curl -n -X POST \
   "middle_name": "Middlename",
   "last_name": "Lastname",
   "event_id": 1234567,
+  "site_id": 1234567,
   "public_captain_name": "Helle Hansen",
   "public_phone_number": "+4599999999 ex. 1234",
   "public_team_email": "myteam@example.com"

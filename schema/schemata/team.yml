@@ -153,6 +153,8 @@ links:
         "$ref": "/schemata/person#/definitions/last_name"
       event_id:
         "$ref": "/schemata/event#/definitions/id"
+      site_id:
+        "$ref": "/schemata/site#/definitions/id"
       public_captain_name:
         "$ref": "/schemata/team#/definitions/contact_information/properties/captain_name"
       public_phone_number:
@@ -165,6 +167,7 @@ links:
       - goal
       - email
       - event_id
+      - site_id
 - description: List all Fundraisers that are members of this Team. Fundraisers will be ordered by the amount of money donated, descending
   href: "/teams/{(%2Fschemata%2Fteam%23%2Fdefinitions%2Fidentity)}/fundraisers"
   method: GET

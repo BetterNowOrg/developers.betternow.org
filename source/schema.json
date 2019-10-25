@@ -2689,6 +2689,9 @@
               "event_id": {
                 "$ref": "#/definitions/event/definitions/id"
               },
+              "site_id": {
+                "$ref": "#/definitions/site/definitions/id"
+              },
               "public_captain_name": {
                 "$ref": "#/definitions/team/definitions/contact_information/properties/captain_name"
               },
@@ -2704,7 +2707,8 @@
               "description",
               "goal",
               "email",
-              "event_id"
+              "event_id",
+              "site_id"
             ]
           }
         },
