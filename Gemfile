@@ -1,17 +1,17 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
-gem 'i18n'
+gem "i18n"
 
 # Middleman
-gem 'middleman', '~>4.1.0'
-gem "middleman-sprockets", "~> 4.0.0"
-gem 'middleman-autoprefixer', '~> 2.7.0'
-gem 'middleman-livereload'
-gem 'middleman-s3_sync'
-gem 'middleman-syntax', '~> 3.0.0'
-gem 'mime-types'
-gem 'nokogiri', '~> 1.10.8'
-gem 'prmd'
-gem 'rake', '12.3.3'
-gem 'rouge', '~> 2.0.5'
-gem 'redcarpet', '~> 3.3.2'
+gem "middleman", "~>4.3.6"
+gem "middleman-sprockets"
+gem "middleman-autoprefixer"
+gem "middleman-livereload"
+gem "middleman-s3_sync"
+gem "middleman-syntax"
+gem "mime-types"
+gem "nokogiri"
+gem "prmd"
+gem "rake"
+gem "rouge"
+gem "redcarpet"
