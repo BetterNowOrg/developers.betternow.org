@@ -150,15 +150,19 @@ links:
         "$ref": "/schemata/person#/definitions/middle_name"
       last_name:
         "$ref": "/schemata/person#/definitions/last_name"
+      phone:
+        "$ref": "/schemata/person#/definitions/phone"
       site_id:
         "$ref": "/schemata/site#/definitions/id"
       project_id:
         "$ref": "/schemata/project#/definitions/id"
     required:
       - name
-      - email
       - project_id
       - site_id
+      - email
+      - first_name
+      - last_name
 - description: List the donations for existing fundraiser. Donations will always be returned in reverse-chronological order (newest first).
   href:  "/fundraisers/{(%2Fschemata%2Ffundraiser%23%2Fdefinitions%2Fidentity)}/donations"
   method: GET

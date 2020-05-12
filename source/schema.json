@@ -1,5 +1,8 @@
 {
-  "$schema": "http://json-schema.org/draft-04/hyper-schema",
+  "$schema": "http://interagent.github.io/interagent-hyper-schema",
+  "type": [
+    "object"
+  ],
   "definitions": {
     "common": {
       "$schema": "http://json-schema.org/draft-04/hyper-schema",
@@ -1370,6 +1373,9 @@
               "last_name": {
                 "$ref": "#/definitions/person/definitions/last_name"
               },
+              "phone": {
+                "$ref": "#/definitions/person/definitions/phone"
+              },
               "site_id": {
                 "$ref": "#/definitions/site/definitions/id"
               },
@@ -1379,9 +1385,11 @@
             },
             "required": [
               "name",
-              "email",
               "project_id",
-              "site_id"
+              "site_id",
+              "email",
+              "first_name",
+              "last_name"
             ]
           }
         },
@@ -3011,9 +3019,6 @@
       "$ref": "#/definitions/user"
     }
   },
-  "type": [
-    "object"
-  ],
   "description": "The BetterNow API",
   "id": "betternow-api",
   "links": [
