@@ -1,7 +1,7 @@
 @charset "utf-8";
-@import 'normalize';
-@import 'variables';
-@import 'icon-font';
+@use 'normalize';
+@use 'variables';
+@use 'icon-font';
 
 /*
 Copyright 2008-2013 Concur Technologies, Inc.
@@ -19,9 +19,78 @@ License for the specific language governing permissions and limitations
 under the License.
 */
 
+/*
 ////////////////////////////////////////////////////////////////////////////////
 // GENERAL STUFF
 ////////////////////////////////////////////////////////////////////////////////
+*/
+
+$nav-bg: #393939 !default;
+$examples-bg: #393939 !default;
+$code-bg: #292929 !default;
+$code-annotation-bg: #1c1c1c !default;
+$nav-subitem-bg: #262626 !default;
+$nav-active-bg: #2467af !default;
+$lang-select-border: #000 !default;
+$lang-select-bg: #222 !default;
+$lang-select-active-bg: $examples-bg !default;
+$lang-select-pressed-bg: #111 !default;
+$main-bg: #eaf2f6 !default;
+$aside-notice-bg: #8fbcd4 !default;
+$aside-warning-bg: #c97a7e !default;
+$aside-success-bg: #6ac174 !default;
+$search-notice-bg: #c97a7e !default;
+
+
+$main-text: #333 !default;
+$nav-text: #fff !default;
+$nav-active-text: #fff !default;
+$lang-select-text: #fff !default;
+$lang-select-active-text: #fff !default;
+$lang-select-pressed-text: #fff !default;
+
+
+$nav-width: 230px !default;
+$examples-width: 40% !default;
+$logo-margin: 20px !default;
+$main-padding: 28px !default;
+$nav-padding: 15px !default;
+$nav-v-padding: 10px !default;
+$nav-indent: 10px !default;
+$code-annotation-padding: 13px !default;
+$h1-margin-bottom: 21px !default;
+$tablet-width: 930px !default;
+$phone-width: $tablet-width - $nav-width !default;
+
+
+%default-font {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
+
+%header-font {
+  @extend %default-font !optional;
+  font-weight: bold;
+}
+
+%code-font {
+  font-family: Consolas, Menlo, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace, serif;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+
+$nav-active-shadow: #000 !default;
+$nav-footer-border-color: #666 !default;
+$nav-embossed-border-top: #000 !default;
+$nav-embossed-border-bottom: #939393 !default;
+$main-embossed-text-shadow: 0px 1px 0px #fff !default;
+$search-box-border-color: #666 !default;
+
+%break-words {
+    word-break: break-all;
+    hyphens: auto;
+}
 
 html, body {
   color: $main-text;
@@ -29,7 +98,7 @@ html, body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  @extend %default-font;
+  @extend %default-font !optional;
   background-color: $main-bg;
   height: 100%;
   -webkit-text-size-adjust: none; /* Never autoresize text */
@@ -106,7 +175,7 @@ html, body {
       top: 17px;
       left: $nav-padding;
       color: $nav-text;
-      @extend %icon-search;
+      @extend %icon-search !optional;
     }
   }
 
@@ -181,7 +250,7 @@ html, body {
   // Subheaders are the submenus that slide open
   // in the table of contents.
   .tocify-subheader {
-    display: none; // tocify will override this when needed
+    display: none;
     background-color: $nav-subitem-bg;
     font-weight: 500;
     .tocify-item>a {
@@ -189,10 +258,9 @@ html, body {
       font-size: 12px;
     }
 
-    // for embossed look:
     @include embossed-bg;
     &>li:last-child {
-      box-shadow: none; // otherwise it'll overflow out of the subheader
+      box-shadow: none;
     }
   }
 
@@ -230,7 +298,7 @@ html, body {
     transform: rotate(-90deg) translate(-100%, 0);
     border-radius: 0 0 0 5px;
   }
-  padding: 0 1.5em 5em 0; // increase touch size area
+  padding: 0 1.5em 5em 0;
   display: none;
   position: fixed;
   top: 0;
@@ -269,8 +337,6 @@ html, body {
   // The dark box is what gives the code samples their dark background.
   // It sits essentially under the actual content block, which has a
   // transparent background.
-  // I know, it's hackish, but it's the simplist way to make the left
-  // half of the content always this background color.
   .dark-box {
     width: $examples-width;
     background-color: $examples-bg;
@@ -312,7 +378,7 @@ html, body {
   }
 
   &:after {
-    content: '';
+    content: "";
     clear: both;
     display: block;
   }
@@ -324,12 +390,11 @@ html, body {
 // This is all the stuff with the light background in the left half of the page
 
 .content {
-  // to place content above the dark box
   position: relative;
   z-index: 30;
 
   &:after {
-    content: '';
+    content: "";
     display: block;
     clear: both;
   }
@@ -341,7 +406,7 @@ html, body {
     display: block;
     text-shadow: $main-embossed-text-shadow;
 
-    @extend %left-col;
+    @extend %left-col !optional;
   }
 
   &>ul, &>ol {
@@ -354,7 +419,7 @@ html, body {
   }
 
   h1 {
-    @extend %header-font;
+    @extend %header-font !optional;
     font-size: 30px;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
@@ -371,7 +436,7 @@ html, body {
   }
 
   h2 {
-    @extend %header-font;
+    @extend %header-font !optional;
     font-size: 20px;
     margin-top: 4em;
     margin-bottom: 0;
@@ -389,7 +454,7 @@ html, body {
   }
 
   h3, h4, h5, h6 {
-    @extend %header-font;
+    @extend %header-font !optional;
     font-size: 15px;
     margin-top: 2.5em;
     margin-bottom: 0.8em;
@@ -458,8 +523,8 @@ html, body {
     background-color: rgba(0,0,0,0.05);
     padding: 3px;
     border-radius: 3px;
-    @extend %break-words;
-    @extend %code-font;
+    @extend %break-words !optional;
+    @extend %code-font !optional;
   }
 
   pre>code {
@@ -494,15 +559,15 @@ html, body {
   }
 
   aside.notice:before {
-    @extend %icon-info-sign;
+    @extend %icon-info-sign !optional;
   }
 
   aside.warning:before {
-    @extend %icon-exclamation-sign;
+    @extend %icon-exclamation-sign !optional;
   }
 
   aside.success:before {
-    @extend %icon-ok-sign;
+    @extend %icon-ok-sign !optional;
   }
 
   .search-highlight {
@@ -535,7 +600,7 @@ html, body {
     box-sizing: border-box;
     text-shadow: 0px 1px 2px rgba(0,0,0,0.4);
 
-    @extend %right-col;
+    @extend %right-col !optional;
 
     &>p { margin: 0; }
 
@@ -547,7 +612,7 @@ html, body {
   }
 
   pre {
-    @extend %code-font;
+    @extend %code-font !optional;
   }
 
   blockquote {

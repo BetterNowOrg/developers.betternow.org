@@ -1,7 +1,9 @@
 @charset "utf-8";
-@import 'normalize';
-@import 'variables';
-@import 'icon-font';
+@use 'normalize';
+@use 'variables';
+@use 'icon-font';
+
+$h1-margin-bottom: 3rem;
 
 /*
 Copyright 2008-2013 Concur Technologies, Inc.
@@ -24,7 +26,7 @@ $print-color-light: #ccc;
 $print-font-size: 12px;
 
 body {
-  @extend %default-font;
+  @extend %default-font !optional;
 }
 
 .tocify, .toc-footer, .lang-selector, .search, #nav-button {
@@ -40,8 +42,8 @@ body {
   font-size: 12px;
 
   pre, code {
-    @extend %code-font;
-    @extend %break-words;
+    @extend %code-font !optional;
+    @extend %break-words !optional;
     border: 1px solid $print-color;
     border-radius: 5px;
     font-size: 0.8em;
@@ -81,7 +83,7 @@ body {
   }
 
   h1 {
-    @extend %header-font;
+    @extend %header-font !optional;
     font-size: 2.5em;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
@@ -93,7 +95,7 @@ body {
   }
 
   h2 {
-    @extend %header-font;
+    @extend %header-font !optional;
     font-size: 1.8em;
     margin-top: 2em;
     border-top: 2px solid $print-color-light;
@@ -107,7 +109,7 @@ body {
   }
 
   h3, h4 {
-    @extend %header-font;
+    @extend %header-font !optional;
     font-size: 0.8em;
     margin-top: 1.5em;
     margin-bottom: 0.8em;
@@ -134,14 +136,14 @@ body {
   }
 
   aside.notice:before {
-    @extend %icon-info-sign;
+    @extend %icon-info-sign !optional;
   }
 
   aside.warning:before {
-    @extend %icon-exclamation-sign;
+    @extend %icon-exclamation-sign !optional;
   }
 
   aside.success:before {
-    @extend %icon-ok-sign;
+    @extend %icon-ok-sign !optional;
   }
 }
