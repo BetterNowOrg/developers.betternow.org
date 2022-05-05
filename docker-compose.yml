@@ -3,7 +3,6 @@ version: "3"
 services:
   web:
     build: .
-    env_file: .env
     ports:
       - "4567:4567"
     volumes:
