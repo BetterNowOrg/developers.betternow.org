@@ -65,7 +65,7 @@ times if the end date is changed.
 | Activity Type | Description |
 | --- | --- |
 | donation_payment_captured | We have received a donation and payment has succeeded |
-| donation_payment_refunded | We have refunded a donation payment |
+| donation_payment_refunded | We have refunded a donation payment. This will also be sent for partial refunds. |
 
 <aside class="notice">
 The list of activities will grow as we add more capabilities to the system, so
