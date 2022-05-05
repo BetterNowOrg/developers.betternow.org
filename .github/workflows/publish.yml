@@ -1,0 +1,30 @@
+name: Publish to developers.betternow.org
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: deploy
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Ruby and install gems
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+        env:
+          BUNDLE_CACHE_PATH: "vendor/cache"
+      - name: Build site
+        run: |
+          bin/build
+      - name: Sync to S3 & Invalidate Cloudfront Distribution
+        uses: raulanatol/aws-s3-docker-action@51bf48df23ad1577542b86c6541dcaaec4d8df31
+        env:
+          AWS_ACCESS_KEY_ID: {{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: {{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: "eu-west-1"
+          AWS_BUCKET_NAME: "developer-betternow-site"
+          SOURCE: build
+          TARGET: .
+          WITH_DELETE: true
+          WITH_CLOUD_FRONT_INVALIDATION: true
+          AWS_CLOUDFRONT_DISTRIBUTION_ID: {{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
