@@ -92,6 +92,12 @@ definitions:
     "$ref": "/schemata/user#/definitions/user_summary"
   cover_media:
     "$ref": "/schemata/common#/definitions/cover_media"
+  override_image_url:
+    description: The url of an image to be shown in place of the owner's avatar.
+    example: 'https://example.com/image.jpg'
+    format: uri
+    type:
+      - string
   fundraiser_summary:
     description: A summarized version of the Fundraiser for use in other resources
     type:
@@ -156,6 +162,8 @@ links:
         "$ref": "/schemata/site#/definitions/id"
       project_id:
         "$ref": "/schemata/project#/definitions/id"
+      avatar_url:
+        "$ref": "/schemata/fundraiser#/definitions/override_image_url"
     required:
       - name
       - project_id
