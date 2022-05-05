@@ -25,7 +25,8 @@ jobs:
           AWS_REGION: "eu-west-1"
           AWS_BUCKET_NAME: "developer-betternow-site"
           SOURCE: build
-          TARGET: .
+          TARGET: /
           WITH_DELETE: true
           WITH_CLOUD_FRONT_INVALIDATION: true
           AWS_CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
+          AWS_CLOUDFRONT_INVALIDATION_PATH: /
