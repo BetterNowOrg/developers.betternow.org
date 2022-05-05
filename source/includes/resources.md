@@ -10,25 +10,18 @@ For more information about configuring your `.netrc` see the [curl example
 above](/#curl-example).
 
 
-<a name="#resource-common"></a>
-## Common definitions
+## <a name="resource-common">Common definitions</a>
 
 
 Common definitions used by multiple resources
 
 
-<a name="#resource-contact_permission"></a>
-## Contact Permission
+## <a name="resource-contact_permission">Contact Permission</a>
 
 
 Information about the contact permissions gathered in connection with the creation of a Fundraiser, Donation or Team. Depending on the configuration for the region/site/organisation more or less detail will be available. A secret key is required to access this information.
 
-
 ### Attributes
-
-<details>
-  <summary>Details</summary>
-
 
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
@@ -58,25 +51,19 @@ Information about the contact permissions gathered in connection with the creati
 | **[source:url](#resource-common)** | *uri* |  | `"https://url.example.net"` |
 | **[url](#resource-common)** | *uri* |  | `"https://url.example.net"` |
 
-</details>
-
-<a name="link-GET-contact_permission-/contact-permissions/{(%23%2Fdefinitions%2Fcontact_permission%2Fdefinitions%2Fidentity)}"></a>
 ### Contact Permission Info
-
-<details>
-  <summary>Details</summary>
 
 Info for existing donation.
 
 ```
-GET /contact-permissions/{common_id}
+GET /contact-permissions/{contact_permission_id}
 ```
 
 
 #### Curl Example
 
 ```bash
-$ curl -n https://api.betternow.org/contact-permissions/$COMMON_ID \
+$ curl -n https://api.betternow.org/contact-permissions/$CONTACT_PERMISSION_ID \
   -H "Accept: application/vnd.betternow+json; version=1"
 ```
 
@@ -127,27 +114,19 @@ HTTP/1.1 200 OK
 }
 ```
 
-</details>
 
-
-<a name="#resource-donation"></a>
-## Donation
+## <a name="resource-donation">Donation</a>
 
 
 The publicly available details about a donation
 
-
 ### Attributes
-
-<details>
-  <summary>Details</summary>
-
 
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
 | **[allow_organisation_contact](#resource-common)** | *boolean* | If the person has consented to be contacted by the organisation | `true` |
 | **amount:cents** | *integer* | Numeric amount in cents | `12345` |
-| **amount:currency** | *string* | 3 character currency code, as specified in ISO 4217<br/> **pattern:** <pre>^([A-Z]{3})$</pre> | `"EUR"` |
+| **amount:currency** | *string* | 3 character currency code, as specified in ISO 4217<br/> **pattern:** `^([A-Z]{3})$` | `"EUR"` |
 | **comment** | *string* | The comment given with the donation | `"Wow, what a great idea!"` |
 | **created_at** | *date-time* | when donation was created | `"2012-01-01T12:00:00Z"` |
 | **[event:html_url](#resource-common)** | *uri* | The url to the Event page on BetterNow | `"https://dk.betternow.org/events/copenhagen-marathon-2013"` |
@@ -176,13 +155,7 @@ The publicly available details about a donation
 | **updated_at** | *date-time* | when donation was updated | `"2012-01-01T12:00:00Z"` |
 | **[your_reference](#resource-project)** | *string* | A string that you can use to identify the project and its fundraisers and donations. The value will be inherited by any fundraisers created for the project and any donations made via the fundraisers. Commonly used to assign donations to e.g. a campaign in your CRM system. You can set this value in the dashboard for your project. | `"my-crm-project-reference-123456"` |
 
-</details>
-
-<a name="link-GET-donation-/donations/{(%23%2Fdefinitions%2Fdonation%2Fdefinitions%2Fidentity)}"></a>
 ### Donation Info
-
-<details>
-  <summary>Details</summary>
 
 Info for existing donation.
 
@@ -252,26 +225,18 @@ HTTP/1.1 200 OK
 }
 ```
 
-</details>
 
-
-<a name="#resource-donation-detail"></a>
-## Donation Details
+## <a name="resource-donation-detail">Donation Details</a>
 
 
 The private details about a donation. Includes Personally Identifieable Information. A secret key is required to access this information.
 
-
 ### Attributes
-
-<details>
-  <summary>Details</summary>
-
 
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
 | **address:city** | *string* |  | `"Copenhagen K"` |
-| **address:country** | *string* | ISO alpha-2 country code<br/> **pattern:** <pre>^([A-Z]{2})$</pre> | `"DK"` |
+| **address:country** | *string* | ISO alpha-2 country code<br/> **pattern:** `^([A-Z]{2})$` | `"DK"` |
 | **address:postal_code** | *string* |  | `"1434"` |
 | **address:province** | *string* |  | `"Region Hovedstaden"` |
 | **address:street_line_1** | *string* |  | `"Danneskiold-Samsøes Allé 41"` |
@@ -279,7 +244,7 @@ The private details about a donation. Includes Personally Identifieable Informat
 | **allow_organisation_contact** | *boolean* | Has the donor given permission for the recipient of the donation to contact them? | `true` |
 | **allow_site_contact** | *boolean* | Has the donor given permission for the operator of the site on which the donation was given to contact them? | `true` |
 | **amount:cents** | *integer* | Numeric amount in cents | `12345` |
-| **amount:currency** | *string* | 3 character currency code, as specified in ISO 4217<br/> **pattern:** <pre>^([A-Z]{3})$</pre> | `"EUR"` |
+| **amount:currency** | *string* | 3 character currency code, as specified in ISO 4217<br/> **pattern:** `^([A-Z]{3})$` | `"EUR"` |
 | **[comment](#resource-donation)** | *string* | The comment given with the donation | `"Wow, what a great idea!"` |
 | **company_name** | *string* |  | `"BetterNow Worldwide ApS"` |
 | **[created_at](#resource-donation)** | *date-time* | when donation was created | `"2012-01-01T12:00:00Z"` |
@@ -290,7 +255,7 @@ The private details about a donation. Includes Personally Identifieable Informat
 | **[donor:created_at](#resource-user)** | *date-time* | when user was created | `"2012-01-01T12:00:00Z"` |
 | **donor:donations:count** | *integer* | The count of all donations made by this person | `123` |
 | **donor:donations:total_donated:cents** | *integer* | Numeric amount in cents | `1234500` |
-| **donor:donations:total_donated:currency** | *string* | 3 character currency code, as specified in ISO 4217<br/> **pattern:** <pre>^([A-Z]{3})$</pre> | `"EUR"` |
+| **donor:donations:total_donated:currency** | *string* | 3 character currency code, as specified in ISO 4217<br/> **pattern:** `^([A-Z]{3})$` | `"EUR"` |
 | **[donor:donations:url](#resource-common)** | *uri* | The url to retrieve details on all donations made by this person | `"https://api.betternow.org/people/fdb6cd2a-3ca7-40db-8fae-135daebecdab/donations"` |
 | **[donor:email](#resource-person)** | *string* |  | `"user@example.com"` |
 | **[donor:first_name](#resource-user)** | *string* | The first name of the user | `"Firstname"` |
@@ -345,13 +310,7 @@ The private details about a donation. Includes Personally Identifieable Informat
 | **[url](#resource-donation)** | *uri* | An url where private information about the donation and donor can be retrieved. Requires a secret key. | `"https://api.betternow.org/donation-details/542e5f3b-7d8e-475c-8d25-5a2c0742672d"` |
 | **[your_reference](#resource-project)** | *string* | A string that you can use to identify the project and its fundraisers and donations. The value will be inherited by any fundraisers created for the project and any donations made via the fundraisers. Commonly used to assign donations to e.g. a campaign in your CRM system. You can set this value in the dashboard for your project. | `"my-crm-project-reference-123456"` |
 
-</details>
-
-<a name="link-GET-donation-detail-/donation-details/{(%23%2Fdefinitions%2Fdonation%2Fdefinitions%2Fidentity)}"></a>
 ### Donation Details Info
-
-<details>
-  <summary>Details</summary>
 
 Info for existing donation.
 
@@ -479,21 +438,13 @@ HTTP/1.1 200 OK
 }
 ```
 
-</details>
 
-
-<a name="#resource-event"></a>
-## Event
+## <a name="resource-event">Event</a>
 
 
 An Event is something that takes place at a particular time and/or place. It could be a sporting event like the Copenhagen Marathon 2013, or a holiday like Christmas 2014
 
-
 ### Attributes
-
-<details>
-  <summary>Details</summary>
-
 
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
@@ -507,7 +458,7 @@ An Event is something that takes place at a particular time and/or place. It cou
 | **[description](#resource-common)** | *string* | Text describing the Event added by the event organiser. Contains HTML. | `"<p>This is really, <b>REALLY</b> great</p> <br><br>"` |
 | **donations:count** | *integer* | The count of all donations made via this Event | `123` |
 | **donations:total_donated:cents** | *integer* | Numeric amount in cents | `1234500` |
-| **donations:total_donated:currency** | *string* | 3 character currency code, as specified in ISO 4217<br/> **pattern:** <pre>^([A-Z]{3})$</pre> | `"EUR"` |
+| **donations:total_donated:currency** | *string* | 3 character currency code, as specified in ISO 4217<br/> **pattern:** `^([A-Z]{3})$` | `"EUR"` |
 | **[donations:url](#resource-common)** | *uri* | The url to retrieve details on all donations made via this Event | `"https://api.betternow.org/events/1234567/donations"` |
 | **end_date** | *date-time* | The date when the Event ends. May be blank in the case of a single day event. | `"2012-01-01"` |
 | **fundraisers:count** | *integer* | The number of active fundraisers | `12` |
@@ -517,18 +468,12 @@ An Event is something that takes place at a particular time and/or place. It cou
 | **location:city** | *string* | The name of a city | `"København"` |
 | **[logo_url](#resource-common)** | *uri* | The logo for the Event | `"https://cdn.example.net/logo.png"` |
 | **[name](#resource-common)** | *string* | the name of the Event | `"Copenhagen Marathon 2013"` |
-| **[slug](#resource-common)** | *string* | The current url path component to identify the event. This can, and does, change.<br/> **pattern:** <pre>^([a-z0-9-]{2,})$</pre> | `"cph-marathon-2013"` |
+| **[slug](#resource-common)** | *string* | The current url path component to identify the event. This can, and does, change.<br/> **pattern:** `^([a-z0-9-]{2,})$` | `"cph-marathon-2013"` |
 | **start_date** | *date-time* | The date when the Event starts | `"2012-01-01"` |
 | **[updated_at](#resource-common)** | *date-time* | when event was updated | `"2012-01-01T12:00:00Z"` |
 | **[url](#resource-common)** | *uri* |  | `"https://api.betternow.org/events/1234567"` |
 
-</details>
-
-<a name="link-GET-event-/events/{(%23%2Fdefinitions%2Fevent%2Fdefinitions%2Fidentity)}"></a>
 ### Event Info
-
-<details>
-  <summary>Details</summary>
 
 Info for existing event.
 
@@ -596,13 +541,7 @@ HTTP/1.1 200 OK
 }
 ```
 
-</details>
-
-<a name="link-GET-event-/events"></a>
 ### Event List
-
-<details>
-  <summary>Details</summary>
 
 List existing events.
 
@@ -672,13 +611,7 @@ HTTP/1.1 200 OK
 ]
 ```
 
-</details>
-
-<a name="link-GET-event-/events/{(%23%2Fdefinitions%2Fevent%2Fdefinitions%2Fidentity)}/projects"></a>
 ### Event List Projects
-
-<details>
-  <summary>Details</summary>
 
 List all Projects associated with an Event
 
@@ -751,13 +684,7 @@ HTTP/1.1 200 OK
 ]
 ```
 
-</details>
-
-<a name="link-GET-event-/events/{(%23%2Fdefinitions%2Fevent%2Fdefinitions%2Fidentity)}/fundraisers"></a>
 ### Event List Fundraisers
-
-<details>
-  <summary>Details</summary>
 
 List all Fundraisers associated with an Event
 
@@ -858,13 +785,7 @@ HTTP/1.1 200 OK
 ]
 ```
 
-</details>
-
-<a name="link-GET-event-/events/{(%23%2Fdefinitions%2Fevent%2Fdefinitions%2Fidentity)}/teams"></a>
 ### Event List Teams
-
-<details>
-  <summary>Details</summary>
 
 List all Teams associated with an Event
 
@@ -945,21 +866,13 @@ HTTP/1.1 200 OK
 ]
 ```
 
-</details>
 
-
-<a name="#resource-fundraiser"></a>
-## Fundraising Page
+## <a name="resource-fundraiser">Fundraising Page</a>
 
 
 Detailed information about a single Fundraising Page on BetterNow.org
 
-
 ### Attributes
-
-<details>
-  <summary>Details</summary>
-
 
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
@@ -974,7 +887,7 @@ Detailed information about a single Fundraising Page on BetterNow.org
 | **donate_url** | *uri* | The current url to donate via the fundraising page on BetterNow. This can, and does, change. Requests to old urls will be redirect to the current url. | `"https://www.betternow.org/dk/fundraisers/firstname-lastnames-fundraiser/donations/new"` |
 | **donations:count** | *integer* | The count of all donations made to this fundraiser | `123` |
 | **donations:total_donated:cents** | *integer* | Numeric amount in cents | `1234500` |
-| **donations:total_donated:currency** | *string* | 3 character currency code, as specified in ISO 4217<br/> **pattern:** <pre>^([A-Z]{3})$</pre> | `"EUR"` |
+| **donations:total_donated:currency** | *string* | 3 character currency code, as specified in ISO 4217<br/> **pattern:** `^([A-Z]{3})$` | `"EUR"` |
 | **[donations:url](#resource-common)** | *uri* | The url to retrieve details on all donations made to this fundraiser | `"https://api.betternow.org/fundraisers/1234567/donations"` |
 | **end_date** | *date-time* | The end date for a fundraiser. | `"2012-01-01T12:00:00Z"` |
 | **[event:html_url](#resource-common)** | *uri* | The url to the Event page on BetterNow | `"https://dk.betternow.org/events/copenhagen-marathon-2013"` |
@@ -983,7 +896,7 @@ Detailed information about a single Fundraising Page on BetterNow.org
 | **[event:url](#resource-common)** | *uri* |  | `"https://api.betternow.org/events/1234567"` |
 | **fundraiser_type** | *string* | The type of the fundraiser on BetterNow<br/> **one of:**`"birthday"` or `"anniversary"` or `"in_memory_of"` or `"sports_event"` or `"corporate"` or `"cultural_event"` or `"sponsorable"` or `"other"` | `"birthday"` |
 | **goal:cents** | *integer* | Numeric amount in cents | `1234500` |
-| **goal:currency** | *string* | 3 character currency code, as specified in ISO 4217<br/> **pattern:** <pre>^([A-Z]{3})$</pre> | `"EUR"` |
+| **goal:currency** | *string* | 3 character currency code, as specified in ISO 4217<br/> **pattern:** `^([A-Z]{3})$` | `"EUR"` |
 | **[headline](#resource-common)** | *string* | The headline for this fundraising page | `"Firstname Lastname's Fundraiser for HelpNow"` |
 | **[html_url](#resource-common)** | *uri* | The current url to view the fundraising page on BetterNow. This can, and does, change. Requests to old urls will be redirect to the current url. | `"https://dk.betternow.org/fundraisers/firstname-lastnames-fundraiser-for-helpnow"` |
 | **[id](#resource-common)** | *string* | The unique identifier of the fundraising page | `1234567` |
@@ -1001,7 +914,7 @@ Detailed information about a single Fundraising Page on BetterNow.org
 | **[recipient:id](#resource-common)** | *string* | Unique identifier of organisation | `1234567` |
 | **[recipient:name](#resource-common)** | *string* | The name of the Organisation | `"HelpNow"` |
 | **[recipient:url](#resource-common)** | *uri* |  | `"https://api.betternow.org/organisations/1234567"` |
-| **[slug](#resource-common)** | *string* | The current url path component to identify the fundraiser. This can, and does, change.<br/> **pattern:** <pre>^([a-z0-9-]{2,})$</pre> | `"firstname-lastnames-fundraiser-for-helpnow"` |
+| **[slug](#resource-common)** | *string* | The current url path component to identify the fundraiser. This can, and does, change.<br/> **pattern:** `^([a-z0-9-]{2,})$` | `"firstname-lastnames-fundraiser-for-helpnow"` |
 | **[state](#resource-common)** | *string* | The state of this fundraiser | `"published"` |
 | **[team:html_url](#resource-common)** | *uri* | The url to the Team page on BetterNow | `"https://dk.betternow.org/teams/team-novo"` |
 | **[team:id](#resource-common)** | *string* | unique identifier of team | `1234567` |
@@ -1011,13 +924,7 @@ Detailed information about a single Fundraising Page on BetterNow.org
 | **[url](#resource-common)** | *uri* |  | `"https://api.betternow.org/fundraisers/1234567"` |
 | **[your_reference](#resource-project)** | *string* | A string that you can use to identify the project and its fundraisers and donations. The value will be inherited by any fundraisers created for the project and any donations made via the fundraisers. Commonly used to assign donations to e.g. a campaign in your CRM system. You can set this value in the dashboard for your project. | `"my-crm-project-reference-123456"` |
 
-</details>
-
-<a name="link-GET-fundraiser-/fundraisers/{(%23%2Fdefinitions%2Ffundraiser%2Fdefinitions%2Fidentity)}"></a>
 ### Fundraising Page Info
-
-<details>
-  <summary>Details</summary>
 
 Info for existing fundraiser.
 
@@ -1116,13 +1023,7 @@ HTTP/1.1 200 OK
 }
 ```
 
-</details>
-
-<a name="link-GET-fundraiser-/fundraisers"></a>
 ### Fundraising Page List
-
-<details>
-  <summary>Details</summary>
 
 List existing fundraisers.
 
@@ -1223,13 +1124,7 @@ HTTP/1.1 200 OK
 ]
 ```
 
-</details>
-
-<a name="link-POST-fundraiser-/fundraisers"></a>
 ### Fundraising Page Create
-
-<details>
-  <summary>Details</summary>
 
 Create a fundraiser. Requires a secret key.
 
@@ -1259,7 +1154,7 @@ POST /fundraisers
 | **event_id** | *string* | unique identifier of event | `1234567` |
 | **fundraiser_type** | *string* | The type of the fundraiser on BetterNow<br/> **one of:**`"birthday"` or `"anniversary"` or `"in_memory_of"` or `"sports_event"` or `"corporate"` or `"cultural_event"` or `"sponsorable"` or `"other"` | `"birthday"` |
 | **goal:cents** | *integer* | Numeric amount in cents | `1234500` |
-| **goal:currency** | *string* | 3 character currency code, as specified in ISO 4217<br/> **pattern:** <pre>^([A-Z]{3})$</pre> | `"EUR"` |
+| **goal:currency** | *string* | 3 character currency code, as specified in ISO 4217<br/> **pattern:** `^([A-Z]{3})$` | `"EUR"` |
 | **middle_name** | *string* | The middle name of the user | `"Middlename"` |
 | **phone** | *string* | Phone number in E.164 format | `"+4510101010"` |
 | **team_id** | *string* | unique identifier of team | `1234567` |
@@ -1376,13 +1271,7 @@ HTTP/1.1 200 OK
 }
 ```
 
-</details>
-
-<a name="link-GET-fundraiser-/fundraisers/{(%23%2Fdefinitions%2Ffundraiser%2Fdefinitions%2Fidentity)}/donations"></a>
 ### Fundraising Page List Donations
-
-<details>
-  <summary>Details</summary>
 
 List the donations for existing fundraiser. Donations will always be returned in reverse-chronological order (newest first).
 
@@ -1423,13 +1312,7 @@ HTTP/1.1 200 OK
 ]
 ```
 
-</details>
-
-<a name="link-GET-fundraiser-/fundraisers/{(%23%2Fdefinitions%2Ffundraiser%2Fdefinitions%2Fidentity)}/updates"></a>
 ### Fundraising Page List Fundraiser Updates
-
-<details>
-  <summary>Details</summary>
 
 List the updates for existing fundraiser.
 
@@ -1482,21 +1365,13 @@ HTTP/1.1 200 OK
 ]
 ```
 
-</details>
 
-
-<a name="#resource-fundraiser_invitation"></a>
-## Fundraiser Invitation
+## <a name="resource-fundraiser_invitation">Fundraiser Invitation</a>
 
 
 An invitation to create a fundraiser for a specific project
 
-
 ### Attributes
-
-<details>
-  <summary>Details</summary>
-
 
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
@@ -1519,13 +1394,7 @@ An invitation to create a fundraiser for a specific project
 | **[project:url](#resource-common)** | *uri* |  | `"https://api.betternow.org/projects/1234567"` |
 | **updated_at** | *date-time* | when invitation was updated | `"2012-01-01T12:00:00Z"` |
 
-</details>
-
-<a name="link-POST-fundraiser_invitation-/fundraiser-invitations"></a>
 ### Fundraiser Invitation Create
-
-<details>
-  <summary>Details</summary>
 
 Create a fundraiser invitation. Requires a secret key.
 
@@ -1605,21 +1474,13 @@ HTTP/1.1 200 OK
 }
 ```
 
-</details>
 
-
-<a name="#resource-fundraiser_update"></a>
-## Fundraiser Update
+## <a name="resource-fundraiser_update">Fundraiser Update</a>
 
 
 An update that was sent to all donors to this fundraiser and posted on the fundraiser page
 
-
 ### Attributes
-
-<details>
-  <summary>Details</summary>
-
 
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
@@ -1637,21 +1498,13 @@ An update that was sent to all donors to this fundraiser and posted on the fundr
 | **title** | *string* | The title of the update | `"Great job everyone!"` |
 | **updated_at** | *date-time* | when update was updated | `"2012-01-01T12:00:00Z"` |
 
-</details>
 
-
-<a name="#resource-organisation"></a>
-## Organisation
+## <a name="resource-organisation">Organisation</a>
 
 
 An Organisation can receive Donations on BetterNow
 
-
 ### Attributes
-
-<details>
-  <summary>Details</summary>
-
 
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
@@ -1664,7 +1517,7 @@ An Organisation can receive Donations on BetterNow
 | **[donate_url](#resource-common)** | *uri* | The current url to donate directly to the organisation on BetterNow. This can, and does, change. Requests to old urls will be redirect to the current url. | `"https://www.betternow.org/dk/fundraisers/helpnow-indsamling1/donations/new"` |
 | **donations:count** | *integer* | The count of all donations made to this project | `123` |
 | **donations:total_donated:cents** | *integer* | Numeric amount in cents | `1234500` |
-| **donations:total_donated:currency** | *string* | 3 character currency code, as specified in ISO 4217<br/> **pattern:** <pre>^([A-Z]{3})$</pre> | `"EUR"` |
+| **donations:total_donated:currency** | *string* | 3 character currency code, as specified in ISO 4217<br/> **pattern:** `^([A-Z]{3})$` | `"EUR"` |
 | **[donations:url](#resource-common)** | *uri* | The url to retrieve details on all donations made to this organisation | `"https://api.betternow.org/organisations/1234567/donations"` |
 | **fundraisers:count** | *integer* | The number of active fundraisers | `12` |
 | **[fundraisers:url](#resource-common)** | *uri* | The url to retrieve all fundraisers | `"https://api.betternow.org/organisations/1234567/fundraisers"` |
@@ -1678,13 +1531,7 @@ An Organisation can receive Donations on BetterNow
 | **[updated_at](#resource-common)** | *date-time* | When organisation was updated | `"2012-01-01T12:00:00Z"` |
 | **[url](#resource-common)** | *uri* |  | `"https://api.betternow.org/organisations/1234567"` |
 
-</details>
-
-<a name="link-GET-organisation-/organisations/{(%23%2Fdefinitions%2Forganisation%2Fdefinitions%2Fidentity)}"></a>
 ### Organisation Info
-
-<details>
-  <summary>Details</summary>
 
 Info for existing organisation.
 
@@ -1750,13 +1597,7 @@ HTTP/1.1 200 OK
 }
 ```
 
-</details>
-
-<a name="link-GET-organisation-/organisations/{(%23%2Fdefinitions%2Forganisation%2Fdefinitions%2Fidentity)}/projects"></a>
 ### Organisation List Projects
-
-<details>
-  <summary>Details</summary>
 
 List all Projects for an existing Organisation. Projects will be ordered by activity score, descending.
 
@@ -1829,13 +1670,7 @@ HTTP/1.1 200 OK
 ]
 ```
 
-</details>
-
-<a name="link-GET-organisation-/organisations/{(%23%2Fdefinitions%2Forganisation%2Fdefinitions%2Fidentity)}/fundraisers"></a>
 ### Organisation List Fundraisers
-
-<details>
-  <summary>Details</summary>
 
 List all Fundraisers for an existing Organisation. Fundraisers will be ordered by activity score, descending.
 
@@ -1936,13 +1771,7 @@ HTTP/1.1 200 OK
 ]
 ```
 
-</details>
-
-<a name="link-GET-organisation-/organisations/{(%23%2Fdefinitions%2Forganisation%2Fdefinitions%2Fidentity)}/donations"></a>
 ### Organisation List Donations
-
-<details>
-  <summary>Details</summary>
 
 List the donations for an existing Organisation. Donations will always be returned in reverse-chronological order (newest first).
 
@@ -2014,21 +1843,13 @@ HTTP/1.1 200 OK
 ]
 ```
 
-</details>
 
-
-<a name="#resource-person"></a>
-## Person
+## <a name="resource-person">Person</a>
 
 
 Private (personally identifiable) information about a BetterNow user (donor, fundraiser owner, team captain, etc.) Requires a secret key.
 
-
 ### Attributes
-
-<details>
-  <summary>Details</summary>
-
 
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
@@ -2038,7 +1859,7 @@ Private (personally identifiable) information about a BetterNow user (donor, fun
 | **[created_at](#resource-user)** | *date-time* | when user was created | `"2012-01-01T12:00:00Z"` |
 | **donations:count** | *integer* | The count of all donations made by this person | `123` |
 | **donations:total_donated:cents** | *integer* | Numeric amount in cents | `1234500` |
-| **donations:total_donated:currency** | *string* | 3 character currency code, as specified in ISO 4217<br/> **pattern:** <pre>^([A-Z]{3})$</pre> | `"EUR"` |
+| **donations:total_donated:currency** | *string* | 3 character currency code, as specified in ISO 4217<br/> **pattern:** `^([A-Z]{3})$` | `"EUR"` |
 | **[donations:url](#resource-common)** | *uri* | The url to retrieve details on all donations made by this person | `"https://api.betternow.org/people/fdb6cd2a-3ca7-40db-8fae-135daebecdab/donations"` |
 | **email** | *string* |  | `"user@example.com"` |
 | **[first_name](#resource-user)** | *string* | The first name of the user | `"Firstname"` |
@@ -2055,13 +1876,7 @@ Private (personally identifiable) information about a BetterNow user (donor, fun
 | **title** | *string* |  | `"Director of Personal Fundraising"` |
 | **[url](#resource-user)** | *uri* | The URL to retreive private information about the user. A secret key is required for this URL | `"https://api.betternow.org/people/3e9344ff-69be-4ab5-a254-07b067325ebe"` |
 
-</details>
-
-<a name="link-GET-person-/people/{(%23%2Fdefinitions%2Fperson%2Fdefinitions%2Fidentity)}"></a>
 ### Person Info
-
-<details>
-  <summary>Details</summary>
 
 Info for existing person.
 
@@ -2119,13 +1934,7 @@ HTTP/1.1 200 OK
 }
 ```
 
-</details>
-
-<a name="link-GET-person-/people/{(%23%2Fdefinitions%2Fperson%2Fdefinitions%2Fidentity)}/donations"></a>
 ### Person List Donations
-
-<details>
-  <summary>Details</summary>
 
 List this person's donations. Donations will always be returned in reverse-chronological order (newest first).
 
@@ -2197,13 +2006,7 @@ HTTP/1.1 200 OK
 ]
 ```
 
-</details>
-
-<a name="link-GET-person-/people/{(%23%2Fdefinitions%2Fperson%2Fdefinitions%2Fidentity)}/fundraisers"></a>
 ### Person List Fundraisers
-
-<details>
-  <summary>Details</summary>
 
 List all of this persons Fundraising Pages. Fundraisers will be ordered by activity score, descending.
 
@@ -2304,13 +2107,7 @@ HTTP/1.1 200 OK
 ]
 ```
 
-</details>
-
-<a name="link-GET-person-/people/{(%23%2Fdefinitions%2Fperson%2Fdefinitions%2Fidentity)}/teams"></a>
 ### Person List Teams
-
-<details>
-  <summary>Details</summary>
 
 List all Teams this person is a member of
 
@@ -2391,21 +2188,13 @@ HTTP/1.1 200 OK
 ]
 ```
 
-</details>
 
-
-<a name="#resource-project"></a>
-## Project
+## <a name="resource-project">Project</a>
 
 
 A Project is a specific cause that Users can Fundraise for. An Organisation typically has several Projects
 
-
 ### Attributes
-
-<details>
-  <summary>Details</summary>
-
 
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
@@ -2419,7 +2208,7 @@ A Project is a specific cause that Users can Fundraise for. An Organisation typi
 | **[donate_url](#resource-common)** | *uri* | The current url to donate directly to the project on BetterNow. This can, and does, change. Requests to old urls will be redirect to the current url. | `"https://www.betternow.org/dk/fundraisers/helpnow-indsamling21/donations/new"` |
 | **donations:count** | *integer* | The count of all donations made to this project | `123` |
 | **donations:total_donated:cents** | *integer* | Numeric amount in cents | `1234500` |
-| **donations:total_donated:currency** | *string* | 3 character currency code, as specified in ISO 4217<br/> **pattern:** <pre>^([A-Z]{3})$</pre> | `"EUR"` |
+| **donations:total_donated:currency** | *string* | 3 character currency code, as specified in ISO 4217<br/> **pattern:** `^([A-Z]{3})$` | `"EUR"` |
 | **[donations:url](#resource-common)** | *uri* | The url to retrieve details on all donations made to this project | `"https://api.betternow.org/projects/1234567/donations"` |
 | **fundraisers:count** | *integer* | The number of active fundraisers | `12` |
 | **[fundraisers:url](#resource-common)** | *uri* | The url to retrieve all fundraisers | `"https://api.betternow.org/projects/1234567/fundraisers"` |
@@ -2431,19 +2220,13 @@ A Project is a specific cause that Users can Fundraise for. An Organisation typi
 | **[recipient:id](#resource-common)** | *string* | Unique identifier of organisation | `1234567` |
 | **[recipient:name](#resource-common)** | *string* | The name of the Organisation | `"HelpNow"` |
 | **[recipient:url](#resource-common)** | *uri* |  | `"https://api.betternow.org/organisations/1234567"` |
-| **[slug](#resource-common)** | *string* | The current url path component to identify the project. This can, and does, change.<br/> **pattern:** <pre>^([a-z0-9-]{2,})$</pre> | `"helpnow-project"` |
+| **[slug](#resource-common)** | *string* | The current url path component to identify the project. This can, and does, change.<br/> **pattern:** `^([a-z0-9-]{2,})$` | `"helpnow-project"` |
 | **[state](#resource-common)** | *string* | The state of this project | `"published"` |
 | **[updated_at](#resource-common)** | *date-time* | When project was updated | `"2012-01-01T12:00:00Z"` |
 | **[url](#resource-common)** | *uri* |  | `"https://api.betternow.org/projects/1234567"` |
 | **your_reference** | *string* | A string that you can use to identify the project and its fundraisers and donations. The value will be inherited by any fundraisers created for the project and any donations made via the fundraisers. Commonly used to assign donations to e.g. a campaign in your CRM system. You can set this value in the dashboard for your project. | `"my-crm-project-reference-123456"` |
 
-</details>
-
-<a name="link-GET-project-/projects/{(%23%2Fdefinitions%2Fproject%2Fdefinitions%2Fidentity)}"></a>
 ### Project Info
-
-<details>
-  <summary>Details</summary>
 
 Info for existing project.
 
@@ -2514,13 +2297,7 @@ HTTP/1.1 200 OK
 }
 ```
 
-</details>
-
-<a name="link-GET-project-/projects/{(%23%2Fdefinitions%2Fproject%2Fdefinitions%2Fidentity)}/fundraisers"></a>
 ### Project List Fundraisers
-
-<details>
-  <summary>Details</summary>
 
 List all Fundraisers for an existing Project. Fundraisers will be ordered by activity score, descending.
 
@@ -2621,13 +2398,7 @@ HTTP/1.1 200 OK
 ]
 ```
 
-</details>
-
-<a name="link-GET-project-/projects/{(%23%2Fdefinitions%2Fproject%2Fdefinitions%2Fidentity)}/donations"></a>
 ### Project List Donations
-
-<details>
-  <summary>Details</summary>
 
 List the donations for existing project. Donations will always be returned in reverse-chronological order (newest first).
 
@@ -2699,21 +2470,13 @@ HTTP/1.1 200 OK
 ]
 ```
 
-</details>
 
-
-<a name="#resource-site"></a>
-## Site
+## <a name="resource-site">Site</a>
 
 
 A website running the BetterNow software.
 
-
 ### Attributes
-
-<details>
-  <summary>Details</summary>
-
 
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
@@ -2724,13 +2487,7 @@ A website running the BetterNow software.
 | **subdomain** | *string* | The unique subdomain for this site. | `"sample-event"` |
 | **updated_at** | *date-time* | when site was updated | `"2012-01-01T12:00:00Z"` |
 
-</details>
-
-<a name="link-GET-site-/sites"></a>
 ### Site List
-
-<details>
-  <summary>Details</summary>
 
 List existing sites
 
@@ -2766,21 +2523,13 @@ HTTP/1.1 200 OK
 ]
 ```
 
-</details>
 
-
-<a name="#resource-team"></a>
-## Team
+## <a name="resource-team">Team</a>
 
 
 A Team is a collection of Fundraisers, who may or may not be raising money in connection with a single Event.
 
-
 ### Attributes
-
-<details>
-  <summary>Details</summary>
-
 
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
@@ -2800,29 +2549,23 @@ A Team is a collection of Fundraisers, who may or may not be raising money in co
 | **[description](#resource-common)** | *string* | Text describing the Team added by the Team Captain. Contains HTML. | `"<p>This is really, <b>REALLY</b> great</p> <br><br>"` |
 | **donations:count** | *integer* | The count of all donations made | `123` |
 | **donations:total_donated:cents** | *integer* | Numeric amount in cents | `1234500` |
-| **donations:total_donated:currency** | *string* | 3 character currency code, as specified in ISO 4217<br/> **pattern:** <pre>^([A-Z]{3})$</pre> | `"EUR"` |
+| **donations:total_donated:currency** | *string* | 3 character currency code, as specified in ISO 4217<br/> **pattern:** `^([A-Z]{3})$` | `"EUR"` |
 | **[donations:url](#resource-common)** | *uri* | The url to retrieve details on all donations made via team members | `"https://api.betternow.org/teams/1234567/donations"` |
 | **fundraisers:count** | *integer* | The number of active fundraisers | `12` |
 | **[fundraisers:url](#resource-common)** | *uri* | The url to retrieve all fundraisers | `"https://api.betternow.org/teams/1234567/fundraisers"` |
 | **goal:cents** | *integer* | Numeric amount in cents | `1234500` |
-| **goal:currency** | *string* | 3 character currency code, as specified in ISO 4217<br/> **pattern:** <pre>^([A-Z]{3})$</pre> | `"EUR"` |
+| **goal:currency** | *string* | 3 character currency code, as specified in ISO 4217<br/> **pattern:** `^([A-Z]{3})$` | `"EUR"` |
 | **[html_url](#resource-common)** | *uri* | The url to the Team page on BetterNow | `"https://dk.betternow.org/teams/team-novo"` |
 | **[id](#resource-common)** | *string* | unique identifier of team | `1234567` |
 | **[logo_url](#resource-common)** | *uri* | The logo for the team. 92x92 pixels. | `"https://cdn.example.net/logo.png"` |
 | **[name](#resource-common)** | *string* | the name of the Team | `"Team NOVO"` |
 | **[partner_data](#resource-common)** | *object* | An object containing data from partner systems. Structure varies depending on the partner. |  |
-| **[slug](#resource-common)** | *string* | The current url path component to identify the team. This can, and does, change.<br/> **pattern:** <pre>^([a-z0-9-]{2,})$</pre> | `"team-novo"` |
+| **[slug](#resource-common)** | *string* | The current url path component to identify the team. This can, and does, change.<br/> **pattern:** `^([a-z0-9-]{2,})$` | `"team-novo"` |
 | **[state](#resource-common)** | *string* | The state of this team | `"published"` |
 | **[updated_at](#resource-common)** | *date-time* | when team was updated | `"2012-01-01T12:00:00Z"` |
 | **[url](#resource-common)** | *uri* |  | `"https://api.betternow.org/team/1234567"` |
 
-</details>
-
-<a name="link-GET-team-/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}"></a>
 ### Team Info
-
-<details>
-  <summary>Details</summary>
 
 Info for existing team.
 
@@ -2901,13 +2644,7 @@ HTTP/1.1 200 OK
 }
 ```
 
-</details>
-
-<a name="link-GET-team-/teams"></a>
 ### Team List
-
-<details>
-  <summary>Details</summary>
 
 List existing teams.
 
@@ -2988,13 +2725,7 @@ HTTP/1.1 200 OK
 ]
 ```
 
-</details>
-
-<a name="link-POST-team-/teams"></a>
 ### Team Create
-
-<details>
-  <summary>Details</summary>
 
 Create a team.
 
@@ -3010,7 +2741,7 @@ POST /teams
 | **email** | *string* |  | `"user@example.com"` |
 | **event_id** | *string* | unique identifier of event | `1234567` |
 | **goal:cents** | *integer* | Numeric amount in cents | `1234500` |
-| **goal:currency** | *string* | 3 character currency code, as specified in ISO 4217<br/> **pattern:** <pre>^([A-Z]{3})$</pre> | `"EUR"` |
+| **goal:currency** | *string* | 3 character currency code, as specified in ISO 4217<br/> **pattern:** `^([A-Z]{3})$` | `"EUR"` |
 | **name** | *string* | the name of the Team | `"Team NOVO"` |
 | **site_id** | *integer* | unique identifier of site | `1234567` |
 
@@ -3115,13 +2846,7 @@ HTTP/1.1 200 OK
 }
 ```
 
-</details>
-
-<a name="link-GET-team-/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}/fundraisers"></a>
 ### Team List Fundraisers
-
-<details>
-  <summary>Details</summary>
 
 List all Fundraisers that are members of this Team. Fundraisers will be ordered by the amount of money donated, descending
 
@@ -3222,13 +2947,7 @@ HTTP/1.1 200 OK
 ]
 ```
 
-</details>
-
-<a name="link-GET-team-/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}/donations"></a>
 ### Team List Donations
-
-<details>
-  <summary>Details</summary>
 
 List all donations given via this Team
 
@@ -3300,13 +3019,7 @@ HTTP/1.1 200 OK
 ]
 ```
 
-</details>
-
-<a name="link-GET-team-/teams/{(%23%2Fdefinitions%2Fteam%2Fdefinitions%2Fidentity)}/projects"></a>
 ### Team List Projects
-
-<details>
-  <summary>Details</summary>
 
 List all Projects that team members are fundraising for
 
@@ -3379,20 +3092,13 @@ HTTP/1.1 200 OK
 ]
 ```
 
-</details>
 
-
-<a name="#resource-team_membership"></a>
-## Team Membership
+## <a name="resource-team_membership">Team Membership</a>
 
 
 Add or remove a fundraiser for a team
 
-<a name="link-POST-team_membership-/team-memberships"></a>
 ### Team Membership Create
-
-<details>
-  <summary>Details</summary>
 
 Add a fundraiser to a team
 
@@ -3432,13 +3138,7 @@ HTTP/1.1 200 OK
 null
 ```
 
-</details>
-
-<a name="link-DELETE-team_membership-/team-memberships/fundraiser_id"></a>
 ### Team Membership Destroy
-
-<details>
-  <summary>Details</summary>
 
 Delete the association with a team for a fundraiser
 
@@ -3466,21 +3166,13 @@ HTTP/1.1 200 OK
 null
 ```
 
-</details>
 
-
-<a name="#resource-user"></a>
-## User
+## <a name="resource-user">User</a>
 
 
 A BetterNow user
 
-
 ### Attributes
-
-<details>
-  <summary>Details</summary>
-
 
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
@@ -3491,7 +3183,5 @@ A BetterNow user
 | **last_name** | *string* | The last name of the user | `"Lastname"` |
 | **middle_name** | *string* | The middle name of the user | `"Middlename"` |
 | **updated_at** | *date-time* | when user was updated | `"2012-01-01T12:00:00Z"` |
-
-</details>
 
 

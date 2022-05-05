@@ -138,7 +138,7 @@ GEM
     padrino-support (0.13.3.4)
       activesupport (>= 3.1)
     parallel (1.20.1)
-    prmd (0.14.0)
+    prmd (0.12.0)
       erubis (~> 2.7)
       json_schema (~> 0.3, >= 0.3.1)
     public_suffix (4.0.6)
@@ -187,10 +187,10 @@ DEPENDENCIES
   middleman-syntax
   mime-types
   nokogiri
-  prmd
+  prmd (= 0.12.0)
   rake
   redcarpet
   rouge
 
 BUNDLED WITH
-   2.2.11
+   2.3.10
