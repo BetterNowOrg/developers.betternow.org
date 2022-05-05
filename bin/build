@@ -3,5 +3,5 @@
 set -e
 set -o pipefail
 
-middleman build
-middleman s3_sync
+bundle exec rake schema:combine schema:doc
+bundle exec middleman build

@@ -1,4 +1,4 @@
-FROM ruby:2.6.5
+FROM ruby:2.7.2
 
 RUN apt-get update -yqq && apt-get install -yqq --no-install-recommends \
   nodejs
@@ -12,4 +12,4 @@ RUN bundle install
 
 COPY . /app/
 
-CMD ["middleman", "serve"]
+CMD ["bundle", "exec", "middleman", "serve", "--bind-address=0.0.0.0"]
