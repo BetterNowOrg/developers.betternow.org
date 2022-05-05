@@ -99,7 +99,7 @@ definitions:
 description: The publicly available details about a donation
 links:
 - description: Info for existing donation.
-  href: "/donation/{(%2Fschemata%2Fdonation%23%2Fdefinitions%2Fidentity)}"
+  href: "/donations/{(%2Fschemata%2Fdonation%23%2Fdefinitions%2Fidentity)}"
   method: GET
   rel: self
   title: Info

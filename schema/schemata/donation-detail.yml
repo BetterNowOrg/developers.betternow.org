@@ -144,7 +144,7 @@ definitions:
 description: The private details about a donation. Includes Personally Identifieable Information. A secret key is required to access this information.
 links:
 - description: Info for existing donation.
-  href: "/donation-detail/{(%2Fschemata%2Fdonation%23%2Fdefinitions%2Fidentity)}"
+  href: "/donation-details/{(%2Fschemata%2Fdonation%23%2Fdefinitions%2Fidentity)}"
   method: GET
   rel: self
   title: Info
