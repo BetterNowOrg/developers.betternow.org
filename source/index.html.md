@@ -49,24 +49,10 @@ Agreement</a> and the general <a href="https://intl.betternow.org/terms"
 target="_blank">Terms &amp; Conditions</a>
 </aside>
 
-## Availablity
-
-The BetterNow API is available at no additional charge to charities with a
-Branded site. In addition, it can be enabled for charities on the BN platform
-sites or with a Branded Light site for an additional fee.
-
-If you have an **Integrations** section in your charity dashboard, you have
-access to the API. Note that you must have *Administrator* permissions in order
-to manage access to the API.
-
-To upgrade your plan to get access to the BetterNow API, please contact <a
-href="mailto:orgsupport@betternow.org">orgsupport@betternow.org</a>.
-
 ## Setup
 
 In the **Integrations** section of your charity dashboard, you can create API
-keys that will grant you access to the API. If you don't see an **Integrations**
-section, please see the Availablity section above.
+keys that will grant you access to the API.
 
 <img src="/images/add-api-user.png">
 
