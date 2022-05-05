@@ -10,11 +10,6 @@ only one specific project.
 All activities for the project(s) configured for the webhook are sent to the
 endpoint. You can decide if you want to act on the activity or ignore it.
 
-## Webhooks Availabilty
-
-If you have access to the API, you also have access to webhooks. For more
-information, see [the Availablity section above](/#availablity).
-
 ## Webhooks Setup
 
 You can add a webhook endpoint in the **Integrations** section of your charity
@@ -136,9 +131,9 @@ Your endpoint should respond within 30 seconds with an HTTP 200 response.
 
 If we receive any other response code, or we do not receive a response within 30
 seconds, the system will retry sending the notification indefinently until we
-receive an HTTP 200 response.
+receive an HTTP 200 response within 30 seconds.
 
-The system retrys at exponentially-increasing intervals equal to
+The system retries at exponentially-increasing intervals equal to
 (failure_count^4 + 3) seconds. This means that delivery will be retried 4
 seconds after the first failure, 19 seconds after the second, 84 seconds after
 the third, 259 seconds after the fourth, and so on until it succeeds.
