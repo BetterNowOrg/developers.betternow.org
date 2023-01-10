@@ -10,7 +10,7 @@ toc_footers:
     &amp; Conditions</a>
   - <a href="https://intl.betternow.org/developer-agreement" target="_blank">Security</a>
   - <a href="http://status.betternow.org" target="_blank">System Status</a>
-  - <a href="https://help.betternow.org/hc/en-us/categories/200126293-For-Charities" target="_blank">BetterNow Charity Support</a>
+  - <a href="https://support.betternow.org" target="_blank">BetterNow Charity Support</a>
   - <a href="mailto:apisupport@betternow.org">apisupport@betternow.org</a>
   - <a href="https://www.betternow.org">&copy; BetterNow Worldwide Aps</a>
 
