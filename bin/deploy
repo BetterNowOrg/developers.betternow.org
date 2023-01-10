@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -e
+set -o pipefail
+
+SOURCE_DIR=${SOURCE_DIR:-build}
+BUCKET=${BUCKET:-s3://developer-betternow-site/}
+AWS_CLOUDFRONT_DISTRIBUTION_ID=${AWS_CLOUDFRONT_DISTRIBUTION_ID:-E1GR0YW1J3YFRL}
+INVALIDATION_PATHS=${INVALIDATION_PATHS:-/}
+
+aws s3 sync "${SOURCE_DIR}" "${BUCKET}" --with-delete
+
+aws cloudfront create-invalidation \
+  --distribution-id "${AWS_CLOUDFRONT_DISTRIBUTION_ID}" \
+  --paths "${INVALIDATION_PATHS}"
