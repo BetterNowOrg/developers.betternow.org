@@ -156,7 +156,10 @@
           ]
         },
         "name": {
-          "$ref": "#/definitions/common/definitions/headline"
+          "example": "A Name",
+          "type": [
+            "string"
+          ]
         },
         "description": {
           "example": "<p>This is really, <b>REALLY</b> great</p> <br><br>",
