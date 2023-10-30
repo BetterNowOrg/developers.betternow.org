@@ -19,7 +19,7 @@ definitions:
     example: birthday
     type:
       - string
-    enum: ['birthday', 'anniversary', 'in_memory_of', 'sports_event', 'corporate', 'cultural_event', 'sponsorable', 'other']
+    enum: ['birthday', 'anniversary', 'in_memory_of', 'sports_event', 'corporate', 'cultural_event', 'sponsorable', 'tribute_fund', 'other']
   donate_url:
     description: The current url to donate via the fundraising page on BetterNow. This can, and does, change. Requests to old urls will be redirect to the current url.
     example: 'https://www.betternow.org/dk/fundraisers/firstname-lastnames-fundraiser/donations/new'
@@ -45,8 +45,8 @@ definitions:
         "$ref": "/schemata/common#/definitions/url"
   end_date:
     description: The end date for a fundraiser.
-    example: '2012-01-01T12:00:00Z'
-    format: date-time
+    example: '2012-01-01'
+    format: date
     type:
     - string
   goal:
@@ -96,6 +96,29 @@ definitions:
     description: The url of an image to be shown in place of the owner's avatar.
     example: 'https://example.com/image.jpg'
     format: uri
+    type:
+      - string
+  birth_date:
+    description: The day the person who a tribute_fund fundraiser is honoring was born.
+    example: '2012-01-01'
+    format: date
+    type:
+    - string
+  death_date:
+    description: The day the person who a tribute_fund fundraiser is honoring died.
+    example: '2012-01-01'
+    format: date
+    type:
+    - string
+  funeral_date:
+    description: The date of the funeral for the person who a tribute_fund fundraiser is honoring.
+    example: '2012-01-01'
+    format: date
+    type:
+    - string
+  honoree:
+    description: The name of the person who a tribute_fund fundraiser is honoring
+    example: 'Dorthe Jensen Hansen'
     type:
       - string
   fundraiser_summary:
@@ -164,6 +187,14 @@ links:
         "$ref": "/schemata/project#/definitions/id"
       avatar_url:
         "$ref": "/schemata/fundraiser#/definitions/override_image_url"
+      honoree:
+        "$ref": "/schemata/fundraiser#/definitions/honoree"
+      birth_date:
+        "$ref": "/schemata/fundraiser#/definitions/birth_date"
+      death_date:
+        "$ref": "/schemata/fundraiser#/definitions/death_date"
+      funeral_date:
+        "$ref": "/schemata/fundraiser#/definitions/funeral_date"
     required:
       - name
       - project_id
@@ -236,6 +267,14 @@ properties:
     "$ref": "/schemata/fundraiser#/definitions/url"
   your_reference:
     "$ref": "/schemata/fundraiser#/definitions/your_reference"
+  honoree:
+    "$ref": "/schemata/fundraiser#/definitions/honoree"
+  birth_date:
+    "$ref": "/schemata/fundraiser#/definitions/birth_date"
+  death_date:
+    "$ref": "/schemata/fundraiser#/definitions/death_date"
+  funeral_date:
+    "$ref": "/schemata/fundraiser#/definitions/funeral_date"
 type:
 - object
 id: schemata/fundraiser

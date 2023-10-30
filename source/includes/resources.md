@@ -737,7 +737,7 @@ HTTP/1.1 200 OK
       },
       "url": "https://api.betternow.org/fundraisers/1234567/donations"
     },
-    "end_date": "2012-01-01T12:00:00Z",
+    "end_date": "2012-01-01",
     "goal": {
       "cents": 1234500,
       "currency": "EUR"
@@ -780,7 +780,11 @@ HTTP/1.1 200 OK
     "slug": "firstname-lastnames-fundraiser-for-helpnow",
     "updated_at": "2012-01-01T12:00:00Z",
     "url": "https://api.betternow.org/fundraisers/1234567",
-    "your_reference": "my-crm-project-reference-123456"
+    "your_reference": "my-crm-project-reference-123456",
+    "honoree": "Dorthe Jensen Hansen",
+    "birth_date": "2012-01-01",
+    "death_date": "2012-01-01",
+    "funeral_date": "2012-01-01"
   }
 ]
 ```
@@ -878,26 +882,30 @@ Detailed information about a single Fundraising Page on BetterNow.org
 | ------- | ------- | ------- | ------- |
 | **activity_score** | *integer* | A number that can be used for sorting lists of fundraisers. More recently active fundraisers should have a higher activity score than fundraisers who have raised more money long ago. | `987654321` |
 | **[allow_organisation_contact](#resource-common)** | *boolean* | If the person has consented to be contacted by the organisation | `true` |
+| **birth_date** | *date* | The day the person who a tribute_fund fundraiser is honoring was born. | `"2012-01-01"` |
 | **[cover_media:image:url](#resource-common)** | *uri* | The url for the image. On the BetterNow site, the video takes precedence if both exist. 461x306 pixels | `"https://cnd.example.net/image.jpg"` |
 | **[cover_media:thumb:url](#resource-common)** | *uri* | The url for the cover media that should be displayed in e.g. a card view. 120x80 pixels | `"https://cnd.example.net/image.jpg"` |
 | **cover_media:video:oembed_html** | *string* | The OEmbed HTML to display the video. Could be blank. | `"<iframe width=\\\"480\\\" height=\\\"270\\\" src=\\\"https://www.youtube.com/embed/G1JBOSwjN6Q?feature=oembed\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>"` |
 | **[cover_media:video:url](#resource-common)** | *uri* | The url for the video. Currently only YouTube and Vimeo are supported. Could be blank. | `"https://youtu.be/12345"` |
 | **[created_at](#resource-common)** | *date-time* | when resource was created | `"2012-01-01T12:00:00Z"` |
+| **death_date** | *date* | The day the person who a tribute_fund fundraiser is honoring died. | `"2012-01-01"` |
 | **[description](#resource-common)** | *string* | The text written by the fundraiser owner. Contains HTML. | `"<p>This is really, <b>REALLY</b> great</p> <br><br>"` |
 | **donate_url** | *uri* | The current url to donate via the fundraising page on BetterNow. This can, and does, change. Requests to old urls will be redirect to the current url. | `"https://www.betternow.org/dk/fundraisers/firstname-lastnames-fundraiser/donations/new"` |
 | **donations:count** | *integer* | The count of all donations made to this fundraiser | `123` |
 | **donations:total_donated:cents** | *integer* | Numeric amount in cents | `1234500` |
 | **donations:total_donated:currency** | *string* | 3 character currency code, as specified in ISO 4217<br/> **pattern:** `^([A-Z]{3})$` | `"EUR"` |
 | **[donations:url](#resource-common)** | *uri* | The url to retrieve details on all donations made to this fundraiser | `"https://api.betternow.org/fundraisers/1234567/donations"` |
-| **end_date** | *date-time* | The end date for a fundraiser. | `"2012-01-01T12:00:00Z"` |
+| **end_date** | *date* | The end date for a fundraiser. | `"2012-01-01"` |
 | **[event:html_url](#resource-common)** | *uri* | The url to the Event page on BetterNow | `"https://dk.betternow.org/events/copenhagen-marathon-2013"` |
 | **[event:id](#resource-common)** | *string* | unique identifier of event | `1234567` |
 | **[event:name](#resource-common)** | *string* | the name of the Event | `"Copenhagen Marathon 2013"` |
 | **[event:url](#resource-common)** | *uri* |  | `"https://api.betternow.org/events/1234567"` |
-| **fundraiser_type** | *string* | The type of the fundraiser on BetterNow<br/> **one of:**`"birthday"` or `"anniversary"` or `"in_memory_of"` or `"sports_event"` or `"corporate"` or `"cultural_event"` or `"sponsorable"` or `"other"` | `"birthday"` |
+| **fundraiser_type** | *string* | The type of the fundraiser on BetterNow<br/> **one of:**`"birthday"` or `"anniversary"` or `"in_memory_of"` or `"sports_event"` or `"corporate"` or `"cultural_event"` or `"sponsorable"` or `"tribute_fund"` or `"other"` | `"birthday"` |
+| **funeral_date** | *date* | The date of the funeral for the person who a tribute_fund fundraiser is honoring. | `"2012-01-01"` |
 | **goal:cents** | *integer* | Numeric amount in cents | `1234500` |
 | **goal:currency** | *string* | 3 character currency code, as specified in ISO 4217<br/> **pattern:** `^([A-Z]{3})$` | `"EUR"` |
 | **[headline](#resource-common)** | *string* | The headline for this fundraising page | `"Firstname Lastname's Fundraiser for HelpNow"` |
+| **honoree** | *string* | The name of the person who a tribute_fund fundraiser is honoring | `"Dorthe Jensen Hansen"` |
 | **[html_url](#resource-common)** | *uri* | The current url to view the fundraising page on BetterNow. This can, and does, change. Requests to old urls will be redirect to the current url. | `"https://dk.betternow.org/fundraisers/firstname-lastnames-fundraiser-for-helpnow"` |
 | **[id](#resource-common)** | *string* | The unique identifier of the fundraising page | `1234567` |
 | **[owner:avatar_url](#resource-user)** | *uri* | The URL for the avatar image for the user. 92x92 pixels | `"https://cdn.example.net/avatar.jpg"` |
@@ -976,7 +984,7 @@ HTTP/1.1 200 OK
     },
     "url": "https://api.betternow.org/fundraisers/1234567/donations"
   },
-  "end_date": "2012-01-01T12:00:00Z",
+  "end_date": "2012-01-01",
   "goal": {
     "cents": 1234500,
     "currency": "EUR"
@@ -1019,7 +1027,11 @@ HTTP/1.1 200 OK
   "slug": "firstname-lastnames-fundraiser-for-helpnow",
   "updated_at": "2012-01-01T12:00:00Z",
   "url": "https://api.betternow.org/fundraisers/1234567",
-  "your_reference": "my-crm-project-reference-123456"
+  "your_reference": "my-crm-project-reference-123456",
+  "honoree": "Dorthe Jensen Hansen",
+  "birth_date": "2012-01-01",
+  "death_date": "2012-01-01",
+  "funeral_date": "2012-01-01"
 }
 ```
 
@@ -1076,7 +1088,7 @@ HTTP/1.1 200 OK
       },
       "url": "https://api.betternow.org/fundraisers/1234567/donations"
     },
-    "end_date": "2012-01-01T12:00:00Z",
+    "end_date": "2012-01-01",
     "goal": {
       "cents": 1234500,
       "currency": "EUR"
@@ -1119,7 +1131,11 @@ HTTP/1.1 200 OK
     "slug": "firstname-lastnames-fundraiser-for-helpnow",
     "updated_at": "2012-01-01T12:00:00Z",
     "url": "https://api.betternow.org/fundraisers/1234567",
-    "your_reference": "my-crm-project-reference-123456"
+    "your_reference": "my-crm-project-reference-123456",
+    "honoree": "Dorthe Jensen Hansen",
+    "birth_date": "2012-01-01",
+    "death_date": "2012-01-01",
+    "funeral_date": "2012-01-01"
   }
 ]
 ```
@@ -1149,12 +1165,16 @@ POST /fundraisers
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
 | **avatar_url** | *uri* | The url of an image to be shown in place of the owner's avatar. | `"https://example.com/image.jpg"` |
+| **birth_date** | *date* | The day the person who a tribute_fund fundraiser is honoring was born. | `"2012-01-01"` |
+| **death_date** | *date* | The day the person who a tribute_fund fundraiser is honoring died. | `"2012-01-01"` |
 | **description** | *string* | The text written by the fundraiser owner. Contains HTML. | `"<p>This is really, <b>REALLY</b> great</p> <br><br>"` |
-| **end_date** | *date-time* | The end date for a fundraiser. | `"2012-01-01T12:00:00Z"` |
+| **end_date** | *date* | The end date for a fundraiser. | `"2012-01-01"` |
 | **event_id** | *string* | unique identifier of event | `1234567` |
-| **fundraiser_type** | *string* | The type of the fundraiser on BetterNow<br/> **one of:**`"birthday"` or `"anniversary"` or `"in_memory_of"` or `"sports_event"` or `"corporate"` or `"cultural_event"` or `"sponsorable"` or `"other"` | `"birthday"` |
+| **fundraiser_type** | *string* | The type of the fundraiser on BetterNow<br/> **one of:**`"birthday"` or `"anniversary"` or `"in_memory_of"` or `"sports_event"` or `"corporate"` or `"cultural_event"` or `"sponsorable"` or `"tribute_fund"` or `"other"` | `"birthday"` |
+| **funeral_date** | *date* | The date of the funeral for the person who a tribute_fund fundraiser is honoring. | `"2012-01-01"` |
 | **goal:cents** | *integer* | Numeric amount in cents | `1234500` |
 | **goal:currency** | *string* | 3 character currency code, as specified in ISO 4217<br/> **pattern:** `^([A-Z]{3})$` | `"EUR"` |
+| **honoree** | *string* | The name of the person who a tribute_fund fundraiser is honoring | `"Dorthe Jensen Hansen"` |
 | **middle_name** | *string* | The middle name of the user | `"Middlename"` |
 | **phone** | *string* | Phone number in E.164 format | `"+4510101010"` |
 | **team_id** | *string* | unique identifier of team | `1234567` |
@@ -1172,7 +1192,7 @@ $ curl -n -X POST https://api.betternow.org/fundraisers \
     "cents": 1234500,
     "currency": "EUR"
   },
-  "end_date": "2012-01-01T12:00:00Z",
+  "end_date": "2012-01-01",
   "team_id": 1234567,
   "event_id": 1234567,
   "fundraiser_type": "birthday",
@@ -1182,7 +1202,11 @@ $ curl -n -X POST https://api.betternow.org/fundraisers \
   "phone": "+4510101010",
   "site_id": 1234567,
   "project_id": 1234567,
-  "avatar_url": "https://example.com/image.jpg"
+  "avatar_url": "https://example.com/image.jpg",
+  "honoree": "Dorthe Jensen Hansen",
+  "birth_date": "2012-01-01",
+  "death_date": "2012-01-01",
+  "funeral_date": "2012-01-01"
 }' \
   -H "Content-Type: application/json" \
   -H "Accept: application/vnd.betternow+json; version=1"
@@ -1224,7 +1248,7 @@ HTTP/1.1 200 OK
     },
     "url": "https://api.betternow.org/fundraisers/1234567/donations"
   },
-  "end_date": "2012-01-01T12:00:00Z",
+  "end_date": "2012-01-01",
   "goal": {
     "cents": 1234500,
     "currency": "EUR"
@@ -1267,7 +1291,11 @@ HTTP/1.1 200 OK
   "slug": "firstname-lastnames-fundraiser-for-helpnow",
   "updated_at": "2012-01-01T12:00:00Z",
   "url": "https://api.betternow.org/fundraisers/1234567",
-  "your_reference": "my-crm-project-reference-123456"
+  "your_reference": "my-crm-project-reference-123456",
+  "honoree": "Dorthe Jensen Hansen",
+  "birth_date": "2012-01-01",
+  "death_date": "2012-01-01",
+  "funeral_date": "2012-01-01"
 }
 ```
 
@@ -1723,7 +1751,7 @@ HTTP/1.1 200 OK
       },
       "url": "https://api.betternow.org/fundraisers/1234567/donations"
     },
-    "end_date": "2012-01-01T12:00:00Z",
+    "end_date": "2012-01-01",
     "goal": {
       "cents": 1234500,
       "currency": "EUR"
@@ -1766,7 +1794,11 @@ HTTP/1.1 200 OK
     "slug": "firstname-lastnames-fundraiser-for-helpnow",
     "updated_at": "2012-01-01T12:00:00Z",
     "url": "https://api.betternow.org/fundraisers/1234567",
-    "your_reference": "my-crm-project-reference-123456"
+    "your_reference": "my-crm-project-reference-123456",
+    "honoree": "Dorthe Jensen Hansen",
+    "birth_date": "2012-01-01",
+    "death_date": "2012-01-01",
+    "funeral_date": "2012-01-01"
   }
 ]
 ```
@@ -2059,7 +2091,7 @@ HTTP/1.1 200 OK
       },
       "url": "https://api.betternow.org/fundraisers/1234567/donations"
     },
-    "end_date": "2012-01-01T12:00:00Z",
+    "end_date": "2012-01-01",
     "goal": {
       "cents": 1234500,
       "currency": "EUR"
@@ -2102,7 +2134,11 @@ HTTP/1.1 200 OK
     "slug": "firstname-lastnames-fundraiser-for-helpnow",
     "updated_at": "2012-01-01T12:00:00Z",
     "url": "https://api.betternow.org/fundraisers/1234567",
-    "your_reference": "my-crm-project-reference-123456"
+    "your_reference": "my-crm-project-reference-123456",
+    "honoree": "Dorthe Jensen Hansen",
+    "birth_date": "2012-01-01",
+    "death_date": "2012-01-01",
+    "funeral_date": "2012-01-01"
   }
 ]
 ```
@@ -2350,7 +2386,7 @@ HTTP/1.1 200 OK
       },
       "url": "https://api.betternow.org/fundraisers/1234567/donations"
     },
-    "end_date": "2012-01-01T12:00:00Z",
+    "end_date": "2012-01-01",
     "goal": {
       "cents": 1234500,
       "currency": "EUR"
@@ -2393,7 +2429,11 @@ HTTP/1.1 200 OK
     "slug": "firstname-lastnames-fundraiser-for-helpnow",
     "updated_at": "2012-01-01T12:00:00Z",
     "url": "https://api.betternow.org/fundraisers/1234567",
-    "your_reference": "my-crm-project-reference-123456"
+    "your_reference": "my-crm-project-reference-123456",
+    "honoree": "Dorthe Jensen Hansen",
+    "birth_date": "2012-01-01",
+    "death_date": "2012-01-01",
+    "funeral_date": "2012-01-01"
   }
 ]
 ```
@@ -2899,7 +2939,7 @@ HTTP/1.1 200 OK
       },
       "url": "https://api.betternow.org/fundraisers/1234567/donations"
     },
-    "end_date": "2012-01-01T12:00:00Z",
+    "end_date": "2012-01-01",
     "goal": {
       "cents": 1234500,
       "currency": "EUR"
@@ -2942,7 +2982,11 @@ HTTP/1.1 200 OK
     "slug": "firstname-lastnames-fundraiser-for-helpnow",
     "updated_at": "2012-01-01T12:00:00Z",
     "url": "https://api.betternow.org/fundraisers/1234567",
-    "your_reference": "my-crm-project-reference-123456"
+    "your_reference": "my-crm-project-reference-123456",
+    "honoree": "Dorthe Jensen Hansen",
+    "birth_date": "2012-01-01",
+    "death_date": "2012-01-01",
+    "funeral_date": "2012-01-01"
   }
 ]
 ```

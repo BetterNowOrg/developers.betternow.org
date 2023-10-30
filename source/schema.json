@@ -1186,6 +1186,7 @@
             "corporate",
             "cultural_event",
             "sponsorable",
+            "tribute_fund",
             "other"
           ]
         },
@@ -1223,8 +1224,8 @@
         },
         "end_date": {
           "description": "The end date for a fundraiser.",
-          "example": "2012-01-01T12:00:00Z",
-          "format": "date-time",
+          "example": "2012-01-01",
+          "format": "date",
           "type": [
             "string"
           ]
@@ -1296,6 +1297,37 @@
           "description": "The url of an image to be shown in place of the owner's avatar.",
           "example": "https://example.com/image.jpg",
           "format": "uri",
+          "type": [
+            "string"
+          ]
+        },
+        "birth_date": {
+          "description": "The day the person who a tribute_fund fundraiser is honoring was born.",
+          "example": "2012-01-01",
+          "format": "date",
+          "type": [
+            "string"
+          ]
+        },
+        "death_date": {
+          "description": "The day the person who a tribute_fund fundraiser is honoring died.",
+          "example": "2012-01-01",
+          "format": "date",
+          "type": [
+            "string"
+          ]
+        },
+        "funeral_date": {
+          "description": "The date of the funeral for the person who a tribute_fund fundraiser is honoring.",
+          "example": "2012-01-01",
+          "format": "date",
+          "type": [
+            "string"
+          ]
+        },
+        "honoree": {
+          "description": "The name of the person who a tribute_fund fundraiser is honoring",
+          "example": "Dorthe Jensen Hansen",
           "type": [
             "string"
           ]
@@ -1395,6 +1427,18 @@
               },
               "avatar_url": {
                 "$ref": "#/definitions/fundraiser/definitions/override_image_url"
+              },
+              "honoree": {
+                "$ref": "#/definitions/fundraiser/definitions/honoree"
+              },
+              "birth_date": {
+                "$ref": "#/definitions/fundraiser/definitions/birth_date"
+              },
+              "death_date": {
+                "$ref": "#/definitions/fundraiser/definitions/death_date"
+              },
+              "funeral_date": {
+                "$ref": "#/definitions/fundraiser/definitions/funeral_date"
               }
             },
             "required": [
@@ -1504,6 +1548,18 @@
         },
         "your_reference": {
           "$ref": "#/definitions/fundraiser/definitions/your_reference"
+        },
+        "honoree": {
+          "$ref": "#/definitions/fundraiser/definitions/honoree"
+        },
+        "birth_date": {
+          "$ref": "#/definitions/fundraiser/definitions/birth_date"
+        },
+        "death_date": {
+          "$ref": "#/definitions/fundraiser/definitions/death_date"
+        },
+        "funeral_date": {
+          "$ref": "#/definitions/fundraiser/definitions/funeral_date"
         }
       },
       "type": [
