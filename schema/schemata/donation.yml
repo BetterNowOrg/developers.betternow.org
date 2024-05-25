@@ -22,9 +22,9 @@ definitions:
     "$ref": "/schemata/common#/definitions/allow_organisation_contact"
   id:
     description: unique identifier of donation
-    example: 1234567
+    example: d06a8759-2200-4dcc-b069-7b89ac0ee314
     type:
-    - integer
+    - string
   identity:
     "$ref": "/schemata/donation#/definitions/id"
   created_at:
