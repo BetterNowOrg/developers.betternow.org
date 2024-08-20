@@ -137,7 +137,7 @@ The publicly available details about a donation
 | **[fundraiser:id](#resource-common)** | *string* | Unique identifier of organisation | `1234567` |
 | **[fundraiser:name](#resource-common)** | *string* | The name of the Organisation | `"HelpNow"` |
 | **[fundraiser:url](#resource-common)** | *uri* |  | `"https://api.betternow.org/organisations/1234567"` |
-| **id** | *integer* | unique identifier of donation | `1234567` |
+| **id** | *string* | unique identifier of donation | `"d06a8759-2200-4dcc-b069-7b89ac0ee314"` |
 | **name** | *string* | The name on the donation | `"Joes Truck Stop"` |
 | **private_details_url** | *uri* | An url where private information about the donation and donor can be retrieved. Requires a secret key. | `"https://api.betternow.org/donation-details/542e5f3b-7d8e-475c-8d25-5a2c0742672d"` |
 | **[project:html_url](#resource-common)** | *uri* | The current url to view the project page on BetterNow. This can, and does, change. Requests to old urls will be redirect to the current url. | `"https://dk.betternow.org/projects/helpnow-projekt"` |
@@ -187,7 +187,7 @@ HTTP/1.1 200 OK
   "allow_organisation_contact": true,
   "comment": "Wow, what a great idea!",
   "created_at": "2012-01-01T12:00:00Z",
-  "id": 1234567,
+  "id": "d06a8759-2200-4dcc-b069-7b89ac0ee314",
   "private_details_url": "https://api.betternow.org/donation-details/542e5f3b-7d8e-475c-8d25-5a2c0742672d",
   "name": "Joes Truck Stop",
   "updated_at": "2012-01-01T12:00:00Z",
@@ -245,6 +245,11 @@ The private details about a donation. Includes Personally Identifieable Informat
 | **allow_site_contact** | *boolean* | Has the donor given permission for the operator of the site on which the donation was given to contact them? | `true` |
 | **amount:cents** | *integer* | Numeric amount in cents | `12345` |
 | **amount:currency** | *string* | 3 character currency code, as specified in ISO 4217<br/> **pattern:** `^([A-Z]{3})$` | `"EUR"` |
+| **analytics:utm_campaign** | *string* |  | `"example"` |
+| **analytics:utm_content** | *string* |  | `"example"` |
+| **analytics:utm_medium** | *string* |  | `"example"` |
+| **analytics:utm_source** | *string* |  | `"example"` |
+| **analytics:utm_term** | *string* |  | `"example"` |
 | **[comment](#resource-donation)** | *string* | The comment given with the donation | `"Wow, what a great idea!"` |
 | **company_name** | *string* |  | `"BetterNow Worldwide ApS"` |
 | **[created_at](#resource-donation)** | *date-time* | when donation was created | `"2012-01-01T12:00:00Z"` |
@@ -273,6 +278,7 @@ The private details about a donation. Includes Personally Identifieable Informat
 | **[donor:url](#resource-user)** | *uri* | The URL to retreive private information about the user. A secret key is required for this URL | `"https://api.betternow.org/people/3e9344ff-69be-4ab5-a254-07b067325ebe"` |
 | **donor_ip_address** | *string* |  | `"127.0.0.1"` |
 | **donor_type** | *string* | <br/> **one of:**`"unknown"` or `"personal"` or `"organisation"` | `"personal"` |
+| **[erp_product_number](#resource-project)** | *string* | A string that you can use to identify the product number to use for a donation in an integrated ERP system. If your ERP system is not integrated with BetterNow this will be null. | `"4000"` |
 | **[event:html_url](#resource-common)** | *uri* | The url to the Event page on BetterNow | `"https://dk.betternow.org/events/copenhagen-marathon-2013"` |
 | **[event:id](#resource-common)** | *string* | unique identifier of event | `1234567` |
 | **[event:name](#resource-common)** | *string* | the name of the Event | `"Copenhagen Marathon 2013"` |
@@ -283,7 +289,7 @@ The private details about a donation. Includes Personally Identifieable Informat
 | **[fundraiser:name](#resource-common)** | *string* | The name of the Organisation | `"HelpNow"` |
 | **[fundraiser:url](#resource-common)** | *uri* |  | `"https://api.betternow.org/organisations/1234567"` |
 | **hidden_name** | *boolean* | Has the donor requested to hide their name (donate anonymously on the public site)? | `true` |
-| **[id](#resource-donation)** | *integer* | unique identifier of donation | `1234567` |
+| **[id](#resource-donation)** | *string* | unique identifier of donation | `"d06a8759-2200-4dcc-b069-7b89ac0ee314"` |
 | **[last_name](#resource-user)** | *string* | The last name of the user | `"Lastname"` |
 | **legal_name** | *string* |  | `"BetterNow LTD"` |
 | **[middle_name](#resource-user)** | *string* | The middle name of the user | `"Middlename"` |
@@ -292,6 +298,7 @@ The private details about a donation. Includes Personally Identifieable Informat
 | **payment:payment_id_for_processor** | *string* | the id we send to the payment processor and acquirer | `"12345-slyellei_0"` |
 | **payment:processor_id** | *string* | the payment processor's id for the payment | `"123456789"` |
 | **payment:settled_by_betternow** | *boolean* | If BetterNow transfers the money to you | `false` |
+| **payment:type** | *string* | The payment type | `"invoiced_payment"` |
 | **[project:html_url](#resource-common)** | *uri* | The current url to view the project page on BetterNow. This can, and does, change. Requests to old urls will be redirect to the current url. | `"https://dk.betternow.org/projects/helpnow-projekt"` |
 | **[project:id](#resource-common)** | *string* | Unique identifier of project | `1234567` |
 | **[project:name](#resource-common)** | *string* | The name of the Project | `"HelpNows generelle arbejde"` |
@@ -351,7 +358,7 @@ HTTP/1.1 200 OK
   "tax_id": "example",
   "tax_deduction_requested": false,
   "created_at": "2012-01-01T12:00:00Z",
-  "id": 1234567,
+  "id": "d06a8759-2200-4dcc-b069-7b89ac0ee314",
   "updated_at": "2012-01-01T12:00:00Z",
   "address": {
     "street_line_1": "Danneskiold-Samsøes Allé 41",
@@ -433,8 +440,17 @@ HTTP/1.1 200 OK
     "processor_id": "123456789",
     "payment_id_for_processor": "12345-slyellei_0",
     "settled_by_betternow": false,
-    "acquirer": "clearhaus"
-  }
+    "acquirer": "clearhaus",
+    "type": "invoiced_payment"
+  },
+  "analytics": {
+    "utm_source": "example",
+    "utm_medium": "example",
+    "utm_term": "example",
+    "utm_content": "example",
+    "utm_campaign": "example"
+  },
+  "erp_product_number": "4000"
 }
 ```
 
@@ -679,7 +695,8 @@ HTTP/1.1 200 OK
     },
     "slug": "helpnow-project",
     "state": "published",
-    "your_reference": "my-crm-project-reference-123456"
+    "your_reference": "my-crm-project-reference-123456",
+    "erp_product_number": "4000"
   }
 ]
 ```
@@ -1331,7 +1348,7 @@ HTTP/1.1 200 OK
     },
     "comment": "Wow, what a great idea!",
     "created_at": "2012-01-01T12:00:00Z",
-    "id": 1234567,
+    "id": "d06a8759-2200-4dcc-b069-7b89ac0ee314",
     "name": "Joes Truck Stop",
     "updated_at": "2012-01-01T12:00:00Z",
     "url": "https://api.betternow.org/donations/542e5f3b-7d8e-475c-8d25-5a2c0742672d",
@@ -1693,7 +1710,8 @@ HTTP/1.1 200 OK
     },
     "slug": "helpnow-project",
     "state": "published",
-    "your_reference": "my-crm-project-reference-123456"
+    "your_reference": "my-crm-project-reference-123456",
+    "erp_product_number": "4000"
   }
 ]
 ```
@@ -1836,7 +1854,7 @@ HTTP/1.1 200 OK
     "allow_organisation_contact": true,
     "comment": "Wow, what a great idea!",
     "created_at": "2012-01-01T12:00:00Z",
-    "id": 1234567,
+    "id": "d06a8759-2200-4dcc-b069-7b89ac0ee314",
     "private_details_url": "https://api.betternow.org/donation-details/542e5f3b-7d8e-475c-8d25-5a2c0742672d",
     "name": "Joes Truck Stop",
     "updated_at": "2012-01-01T12:00:00Z",
@@ -1999,7 +2017,7 @@ HTTP/1.1 200 OK
     "allow_organisation_contact": true,
     "comment": "Wow, what a great idea!",
     "created_at": "2012-01-01T12:00:00Z",
-    "id": 1234567,
+    "id": "d06a8759-2200-4dcc-b069-7b89ac0ee314",
     "private_details_url": "https://api.betternow.org/donation-details/542e5f3b-7d8e-475c-8d25-5a2c0742672d",
     "name": "Joes Truck Stop",
     "updated_at": "2012-01-01T12:00:00Z",
@@ -2246,6 +2264,7 @@ A Project is a specific cause that Users can Fundraise for. An Organisation typi
 | **donations:total_donated:cents** | *integer* | Numeric amount in cents | `1234500` |
 | **donations:total_donated:currency** | *string* | 3 character currency code, as specified in ISO 4217<br/> **pattern:** `^([A-Z]{3})$` | `"EUR"` |
 | **[donations:url](#resource-common)** | *uri* | The url to retrieve details on all donations made to this project | `"https://api.betternow.org/projects/1234567/donations"` |
+| **erp_product_number** | *string* | A string that you can use to identify the product number to use for a donation in an integrated ERP system. If your ERP system is not integrated with BetterNow this will be null. | `"4000"` |
 | **fundraisers:count** | *integer* | The number of active fundraisers | `12` |
 | **[fundraisers:url](#resource-common)** | *uri* | The url to retrieve all fundraisers | `"https://api.betternow.org/projects/1234567/fundraisers"` |
 | **[html_url](#resource-common)** | *uri* | The current url to view the project page on BetterNow. This can, and does, change. Requests to old urls will be redirect to the current url. | `"https://dk.betternow.org/projects/helpnow-projekt"` |
@@ -2329,7 +2348,8 @@ HTTP/1.1 200 OK
   },
   "slug": "helpnow-project",
   "state": "published",
-  "your_reference": "my-crm-project-reference-123456"
+  "your_reference": "my-crm-project-reference-123456",
+  "erp_product_number": "4000"
 }
 ```
 
@@ -2471,7 +2491,7 @@ HTTP/1.1 200 OK
     "allow_organisation_contact": true,
     "comment": "Wow, what a great idea!",
     "created_at": "2012-01-01T12:00:00Z",
-    "id": 1234567,
+    "id": "d06a8759-2200-4dcc-b069-7b89ac0ee314",
     "private_details_url": "https://api.betternow.org/donation-details/542e5f3b-7d8e-475c-8d25-5a2c0742672d",
     "name": "Joes Truck Stop",
     "updated_at": "2012-01-01T12:00:00Z",
@@ -3024,7 +3044,7 @@ HTTP/1.1 200 OK
     "allow_organisation_contact": true,
     "comment": "Wow, what a great idea!",
     "created_at": "2012-01-01T12:00:00Z",
-    "id": 1234567,
+    "id": "d06a8759-2200-4dcc-b069-7b89ac0ee314",
     "private_details_url": "https://api.betternow.org/donation-details/542e5f3b-7d8e-475c-8d25-5a2c0742672d",
     "name": "Joes Truck Stop",
     "updated_at": "2012-01-01T12:00:00Z",
@@ -3131,7 +3151,8 @@ HTTP/1.1 200 OK
     },
     "slug": "helpnow-project",
     "state": "published",
-    "your_reference": "my-crm-project-reference-123456"
+    "your_reference": "my-crm-project-reference-123456",
+    "erp_product_number": "4000"
   }
 ]
 ```
