@@ -141,6 +141,31 @@ definitions:
         example: clearhaus
         type:
           - string
+      type:
+        description: The payment type
+        example: invoiced_payment
+        type:
+          - string
+  analytics:
+    description: UTM parameters for analytics
+    type:
+      - object
+    properties:
+      utm_source:
+        type:
+          - string
+      utm_medium:
+        type:
+          - string
+      utm_term:
+        type:
+          - string
+      utm_content:
+        type:
+          - string
+      utm_campaign:
+        type:
+          - string
 description: The private details about a donation. Includes Personally Identifieable Information. A secret key is required to access this information.
 links:
 - description: Info for existing donation.
@@ -207,6 +232,10 @@ properties:
     "$ref": "/schemata/donation-detail#/definitions/custom_form_values"
   payment:
     "$ref": "/schemata/donation-detail#/definitions/payment"
+  analytics:
+    "$ref": "/schemata/donation-detail#/definitions/analytics"
+  erp_product_number:
+    "$ref":  "/schemata/project#/definitions/erp_product_number"
 type:
 - object
 id: schemata/donation-detail
