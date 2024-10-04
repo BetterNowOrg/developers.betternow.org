@@ -9,6 +9,22 @@ The `curl` examples use the `-n` flag to authenticate using the `.netrc` file.
 For more information about configuring your `.netrc` see the [curl example
 above](/#curl-example).
 
+## Donation versus Donation Detail
+
+The api provides both a `/donations/uuid` and a `/donation-details/uuid`
+endpoint.
+
+The first is accessible with a publishable api key and can be used in
+client-side/javascript applications. It provides the publicly available
+information about a donation.
+
+The second requries a secret key and is meant for server-side CRM and ERP
+integrations. It includes much more data, including private data such as the
+donor's tax id, etc.
+
+The webhook notification for donation-related activities includes both a `url`
+and a `private_details_url` which can be used to get more information about the
+donation.
 
 ## <a name="resource-common">Common definitions</a>
 
@@ -36,7 +52,7 @@ Information about the contact permissions gathered in connection with the creati
 | **[person:avatar_url](#resource-user)** | *uri* | The URL for the avatar image for the user. 92x92 pixels | `"https://cdn.example.net/avatar.jpg"` |
 | **[person:first_name](#resource-user)** | *string* | The first name of the user | `"Firstname"` |
 | **[person:last_name](#resource-user)** | *string* | The last name of the user | `"Lastname"` |
-| **[person:middle_name](#resource-user)** | *string* | The middle name of the user | `"Middlename"` |
+| **[person:middle_name](#resource-user)** | *string* | The middle name of the user (not available in all regions) | `"Middlename"` |
 | **[person:private_person_url](#resource-user)** | *uri* | The URL to retreive private information about the user. A secret key is required for this URL | `"https://api.betternow.org/people/3e9344ff-69be-4ab5-a254-07b067325ebe"` |
 | **[recipient:html_url](#resource-common)** | *uri* | The current url to view the organisation page on BetterNow. This can, and does, change. Requests to old urls will be redirect to the current url. | `"https://dk.betternow.org/charities/helpnow"` |
 | **[recipient:id](#resource-common)** | *string* | Unique identifier of organisation | `1234567` |
@@ -124,7 +140,6 @@ The publicly available details about a donation
 
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
-| **[allow_organisation_contact](#resource-common)** | *boolean* | If the person has consented to be contacted by the organisation | `true` |
 | **amount:cents** | *integer* | Numeric amount in cents | `12345` |
 | **amount:currency** | *string* | 3 character currency code, as specified in ISO 4217<br/> **pattern:** `^([A-Z]{3})$` | `"EUR"` |
 | **comment** | *string* | The comment given with the donation | `"Wow, what a great idea!"` |
@@ -184,7 +199,6 @@ HTTP/1.1 200 OK
     "cents": 12345,
     "currency": "EUR"
   },
-  "allow_organisation_contact": true,
   "comment": "Wow, what a great idea!",
   "created_at": "2012-01-01T12:00:00Z",
   "id": "d06a8759-2200-4dcc-b069-7b89ac0ee314",
@@ -269,7 +283,7 @@ The private details about a donation. Includes Personally Identifieable Informat
 | **[donor:id](#resource-person)** | *string* | unique identifier of person | `"fdb6cd2a-3ca7-40db-8fae-135daebecdab"` |
 | **[donor:last_name](#resource-user)** | *string* | The last name of the user | `"Lastname"` |
 | **[donor:locale](#resource-person)** | *string* | ISO 639-1 locale code | `"en"` |
-| **[donor:middle_name](#resource-user)** | *string* | The middle name of the user | `"Middlename"` |
+| **[donor:middle_name](#resource-user)** | *string* | The middle name of the user (not available in all regions) | `"Middlename"` |
 | **[donor:partner_reference](#resource-person)** | *string* | This is an external identifier that is intended to be used in linking partner systems to BetterNow. The partner reference can be supplied when creating a user. | `"example"` |
 | **[donor:phone](#resource-person)** | *string* | Phone number in E.164 format | `"+4510101010"` |
 | **donor:teams:count** | *integer* | The number of teams | `12` |
@@ -283,16 +297,16 @@ The private details about a donation. Includes Personally Identifieable Informat
 | **[event:id](#resource-common)** | *string* | unique identifier of event | `1234567` |
 | **[event:name](#resource-common)** | *string* | the name of the Event | `"Copenhagen Marathon 2013"` |
 | **[event:url](#resource-common)** | *uri* |  | `"https://api.betternow.org/events/1234567"` |
-| **[first_name](#resource-user)** | *string* | The first name of the user | `"Firstname"` |
+| **first_name** | *string* | The first name on the donation | `"Firstname"` |
 | **[fundraiser:html_url](#resource-common)** | *uri* | The current url to view the organisation page on BetterNow. This can, and does, change. Requests to old urls will be redirect to the current url. | `"https://dk.betternow.org/charities/helpnow"` |
 | **[fundraiser:id](#resource-common)** | *string* | Unique identifier of organisation | `1234567` |
 | **[fundraiser:name](#resource-common)** | *string* | The name of the Organisation | `"HelpNow"` |
 | **[fundraiser:url](#resource-common)** | *uri* |  | `"https://api.betternow.org/organisations/1234567"` |
 | **hidden_name** | *boolean* | Has the donor requested to hide their name (donate anonymously on the public site)? | `true` |
 | **[id](#resource-donation)** | *string* | unique identifier of donation | `"d06a8759-2200-4dcc-b069-7b89ac0ee314"` |
-| **[last_name](#resource-user)** | *string* | The last name of the user | `"Lastname"` |
+| **last_name** | *string* | The last name on the donation | `"Lastname"` |
 | **legal_name** | *string* |  | `"BetterNow LTD"` |
-| **[middle_name](#resource-user)** | *string* | The middle name of the user | `"Middlename"` |
+| **middle_name** | *string* | The middle name on the donation (not available in all regions) | `"Middlename"` |
 | **[name_shown](#resource-donation)** | *string* | The name on the donation | `"Joes Truck Stop"` |
 | **payment:acquirer** | *string* | What company acquires the payment | `"clearhaus"` |
 | **payment:payment_id_for_processor** | *string* | the id we send to the payment processor and acquirer | `"12345-slyellei_0"` |
@@ -928,7 +942,7 @@ Detailed information about a single Fundraising Page on BetterNow.org
 | **[owner:avatar_url](#resource-user)** | *uri* | The URL for the avatar image for the user. 92x92 pixels | `"https://cdn.example.net/avatar.jpg"` |
 | **[owner:first_name](#resource-user)** | *string* | The first name of the user | `"Firstname"` |
 | **[owner:last_name](#resource-user)** | *string* | The last name of the user | `"Lastname"` |
-| **[owner:middle_name](#resource-user)** | *string* | The middle name of the user | `"Middlename"` |
+| **[owner:middle_name](#resource-user)** | *string* | The middle name of the user (not available in all regions) | `"Middlename"` |
 | **[owner:private_person_url](#resource-user)** | *uri* | The URL to retreive private information about the user. A secret key is required for this URL | `"https://api.betternow.org/people/3e9344ff-69be-4ab5-a254-07b067325ebe"` |
 | **[partner_data](#resource-common)** | *object* | An object containing data from partner systems. Structure varies depending on the partner. |  |
 | **[project:html_url](#resource-common)** | *uri* | The current url to view the project page on BetterNow. This can, and does, change. Requests to old urls will be redirect to the current url. | `"https://dk.betternow.org/projects/helpnow-projekt"` |
@@ -1192,7 +1206,7 @@ POST /fundraisers
 | **goal:cents** | *integer* | Numeric amount in cents | `1234500` |
 | **goal:currency** | *string* | 3 character currency code, as specified in ISO 4217<br/> **pattern:** `^([A-Z]{3})$` | `"EUR"` |
 | **honoree** | *string* | The name of the person who a tribute_fund fundraiser is honoring | `"Dorthe Jensen Hansen"` |
-| **middle_name** | *string* | The middle name of the user | `"Middlename"` |
+| **middle_name** | *string* | The middle name of the user (not available in all regions) | `"Middlename"` |
 | **phone** | *string* | Phone number in E.164 format | `"+4510101010"` |
 | **team_id** | *string* | unique identifier of team | `1234567` |
 
@@ -1426,12 +1440,12 @@ An invitation to create a fundraiser for a specific project
 | **[invitee:avatar_url](#resource-user)** | *uri* | The URL for the avatar image for the user. 92x92 pixels | `"https://cdn.example.net/avatar.jpg"` |
 | **[invitee:first_name](#resource-user)** | *string* | The first name of the user | `"Firstname"` |
 | **[invitee:last_name](#resource-user)** | *string* | The last name of the user | `"Lastname"` |
-| **[invitee:middle_name](#resource-user)** | *string* | The middle name of the user | `"Middlename"` |
+| **[invitee:middle_name](#resource-user)** | *string* | The middle name of the user (not available in all regions) | `"Middlename"` |
 | **[invitee:private_person_url](#resource-user)** | *uri* | The URL to retreive private information about the user. A secret key is required for this URL | `"https://api.betternow.org/people/3e9344ff-69be-4ab5-a254-07b067325ebe"` |
 | **[inviter:avatar_url](#resource-user)** | *uri* | The URL for the avatar image for the user. 92x92 pixels | `"https://cdn.example.net/avatar.jpg"` |
 | **[inviter:first_name](#resource-user)** | *string* | The first name of the user | `"Firstname"` |
 | **[inviter:last_name](#resource-user)** | *string* | The last name of the user | `"Lastname"` |
-| **[inviter:middle_name](#resource-user)** | *string* | The middle name of the user | `"Middlename"` |
+| **[inviter:middle_name](#resource-user)** | *string* | The middle name of the user (not available in all regions) | `"Middlename"` |
 | **[inviter:private_person_url](#resource-user)** | *uri* | The URL to retreive private information about the user. A secret key is required for this URL | `"https://api.betternow.org/people/3e9344ff-69be-4ab5-a254-07b067325ebe"` |
 | **[project:html_url](#resource-common)** | *uri* | The current url to view the project page on BetterNow. This can, and does, change. Requests to old urls will be redirect to the current url. | `"https://dk.betternow.org/projects/helpnow-projekt"` |
 | **[project:id](#resource-common)** | *string* | Unique identifier of project | `1234567` |
@@ -1463,7 +1477,7 @@ POST /fundraiser-invitations
 
 | Name | Type | Description | Example |
 | ------- | ------- | ------- | ------- |
-| **middle_name** | *string* | The middle name of the user | `"Middlename"` |
+| **middle_name** | *string* | The middle name of the user (not available in all regions) | `"Middlename"` |
 
 
 #### Curl Example
@@ -1538,7 +1552,7 @@ An update that was sent to all donors to this fundraiser and posted on the fundr
 | **[owner:avatar_url](#resource-user)** | *uri* | The URL for the avatar image for the user. 92x92 pixels | `"https://cdn.example.net/avatar.jpg"` |
 | **[owner:first_name](#resource-user)** | *string* | The first name of the user | `"Firstname"` |
 | **[owner:last_name](#resource-user)** | *string* | The last name of the user | `"Lastname"` |
-| **[owner:middle_name](#resource-user)** | *string* | The middle name of the user | `"Middlename"` |
+| **[owner:middle_name](#resource-user)** | *string* | The middle name of the user (not available in all regions) | `"Middlename"` |
 | **[owner:private_person_url](#resource-user)** | *uri* | The URL to retreive private information about the user. A secret key is required for this URL | `"https://api.betternow.org/people/3e9344ff-69be-4ab5-a254-07b067325ebe"` |
 | **title** | *string* | The title of the update | `"Great job everyone!"` |
 | **updated_at** | *date-time* | when update was updated | `"2012-01-01T12:00:00Z"` |
@@ -1851,7 +1865,6 @@ HTTP/1.1 200 OK
       "cents": 12345,
       "currency": "EUR"
     },
-    "allow_organisation_contact": true,
     "comment": "Wow, what a great idea!",
     "created_at": "2012-01-01T12:00:00Z",
     "id": "d06a8759-2200-4dcc-b069-7b89ac0ee314",
@@ -1918,7 +1931,7 @@ Private (personally identifiable) information about a BetterNow user (donor, fun
 | **id** | *string* | unique identifier of person | `"fdb6cd2a-3ca7-40db-8fae-135daebecdab"` |
 | **[last_name](#resource-user)** | *string* | The last name of the user | `"Lastname"` |
 | **locale** | *string* | ISO 639-1 locale code | `"en"` |
-| **[middle_name](#resource-user)** | *string* | The middle name of the user | `"Middlename"` |
+| **[middle_name](#resource-user)** | *string* | The middle name of the user (not available in all regions) | `"Middlename"` |
 | **partner_reference** | *string* | This is an external identifier that is intended to be used in linking partner systems to BetterNow. The partner reference can be supplied when creating a user. | `"example"` |
 | **phone** | *string* | Phone number in E.164 format | `"+4510101010"` |
 | **teams:count** | *integer* | The number of teams | `12` |
@@ -2014,7 +2027,6 @@ HTTP/1.1 200 OK
       "cents": 12345,
       "currency": "EUR"
     },
-    "allow_organisation_contact": true,
     "comment": "Wow, what a great idea!",
     "created_at": "2012-01-01T12:00:00Z",
     "id": "d06a8759-2200-4dcc-b069-7b89ac0ee314",
@@ -2488,7 +2500,6 @@ HTTP/1.1 200 OK
       "cents": 12345,
       "currency": "EUR"
     },
-    "allow_organisation_contact": true,
     "comment": "Wow, what a great idea!",
     "created_at": "2012-01-01T12:00:00Z",
     "id": "d06a8759-2200-4dcc-b069-7b89ac0ee314",
@@ -2596,7 +2607,7 @@ A Team is a collection of Fundraisers, who may or may not be raising money in co
 | **[captain:avatar_url](#resource-user)** | *uri* | The URL for the avatar image for the user. 92x92 pixels | `"https://cdn.example.net/avatar.jpg"` |
 | **[captain:first_name](#resource-user)** | *string* | The first name of the user | `"Firstname"` |
 | **[captain:last_name](#resource-user)** | *string* | The last name of the user | `"Lastname"` |
-| **[captain:middle_name](#resource-user)** | *string* | The middle name of the user | `"Middlename"` |
+| **[captain:middle_name](#resource-user)** | *string* | The middle name of the user (not available in all regions) | `"Middlename"` |
 | **[captain:private_person_url](#resource-user)** | *uri* | The URL to retreive private information about the user. A secret key is required for this URL | `"https://api.betternow.org/people/3e9344ff-69be-4ab5-a254-07b067325ebe"` |
 | **contact_information:captain_name** | *string* | the public captain name for the team | `"Helle Hansen"` |
 | **contact_information:email** | *string* | the public contact email for the team | `"myteam@example.com"` |
@@ -2812,7 +2823,7 @@ POST /teams
 | ------- | ------- | ------- | ------- |
 | **first_name** | *string* | The first name of the user | `"Firstname"` |
 | **last_name** | *string* | The last name of the user | `"Lastname"` |
-| **middle_name** | *string* | The middle name of the user | `"Middlename"` |
+| **middle_name** | *string* | The middle name of the user (not available in all regions) | `"Middlename"` |
 | **public_captain_name** | *string* | the public captain name for the team | `"Helle Hansen"` |
 | **public_phone_number** | *string* | the public contact phone for the team | `"+4599999999 ex. 1234"` |
 | **public_team_email** | *string* | the public contact email for the team | `"myteam@example.com"` |
@@ -3041,7 +3052,6 @@ HTTP/1.1 200 OK
       "cents": 12345,
       "currency": "EUR"
     },
-    "allow_organisation_contact": true,
     "comment": "Wow, what a great idea!",
     "created_at": "2012-01-01T12:00:00Z",
     "id": "d06a8759-2200-4dcc-b069-7b89ac0ee314",
@@ -3246,7 +3256,7 @@ A BetterNow user
 | **first_name** | *string* | The first name of the user | `"Firstname"` |
 | **id** | *integer* | unique identifier of user | `1234567` |
 | **last_name** | *string* | The last name of the user | `"Lastname"` |
-| **middle_name** | *string* | The middle name of the user | `"Middlename"` |
+| **middle_name** | *string* | The middle name of the user (not available in all regions) | `"Middlename"` |
 | **updated_at** | *date-time* | when user was updated | `"2012-01-01T12:00:00Z"` |
 
 

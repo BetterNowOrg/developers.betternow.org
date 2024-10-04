@@ -106,8 +106,6 @@ links:
 properties:
   amount:
     "$ref": "/schemata/donation#/definitions/amount"
-  allow_organisation_contact:
-    "$ref": "/schemata/donation#/definitions/allow_organisation_contact"
   comment:
     "$ref": "/schemata/donation#/definitions/comment"
   created_at:

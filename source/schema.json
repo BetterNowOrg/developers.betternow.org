@@ -442,13 +442,25 @@
           ]
         },
         "first_name": {
-          "$ref": "#/definitions/person/definitions/first_name"
+          "description": "The first name on the donation",
+          "example": "Firstname",
+          "type": [
+            "string"
+          ]
         },
         "middle_name": {
-          "$ref": "#/definitions/person/definitions/middle_name"
+          "description": "The middle name on the donation (not available in all regions)",
+          "example": "Middlename",
+          "type": [
+            "string"
+          ]
         },
         "last_name": {
-          "$ref": "#/definitions/person/definitions/last_name"
+          "description": "The last name on the donation",
+          "example": "Lastname",
+          "type": [
+            "string"
+          ]
         },
         "tax_id": {
           "description": "country-specific tax identification number",
@@ -876,9 +888,6 @@
       "properties": {
         "amount": {
           "$ref": "#/definitions/donation/definitions/amount"
-        },
-        "allow_organisation_contact": {
-          "$ref": "#/definitions/donation/definitions/allow_organisation_contact"
         },
         "comment": {
           "$ref": "#/definitions/donation/definitions/comment"
@@ -3032,7 +3041,7 @@
           ]
         },
         "middle_name": {
-          "description": "The middle name of the user",
+          "description": "The middle name of the user (not available in all regions)",
           "example": "Middlename",
           "type": [
             "string"

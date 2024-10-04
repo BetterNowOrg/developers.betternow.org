@@ -270,3 +270,12 @@ curl -n -sS -i -H 'Accept: application/vnd.betternow+json; version=1' \
 </html>
 ```
 
+## Changelog
+
+2024-10-04:
+
+- added this changelog
+- documented the difference between the /donation and /donation-details
+  endpoints
+- clarified documentation on `first_name`, `middle_name`, and `last_name` on the
+  donation

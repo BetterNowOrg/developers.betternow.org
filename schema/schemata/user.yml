@@ -39,7 +39,7 @@ definitions:
     type:
       - string
   middle_name:
-    description: The middle name of the user
+    description: The middle name of the user (not available in all regions)
     example: Middlename
     type:
       - string

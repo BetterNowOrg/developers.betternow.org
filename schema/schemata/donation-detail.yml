@@ -53,11 +53,20 @@ definitions:
       - personal
       - organisation
   first_name:
-    "$ref": "/schemata/person#/definitions/first_name"
+    description: The first name on the donation
+    example: Firstname
+    type:
+      - string
   middle_name:
-    "$ref": "/schemata/person#/definitions/middle_name"
+    description: The middle name on the donation (not available in all regions)
+    example: Middlename
+    type:
+      - string
   last_name:
-    "$ref": "/schemata/person#/definitions/last_name"
+    description: The last name on the donation
+    example: Lastname
+    type:
+      - string
   tax_id:
     description: country-specific tax identification number
     type:
