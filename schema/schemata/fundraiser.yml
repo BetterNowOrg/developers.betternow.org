@@ -138,6 +138,76 @@ definitions:
     "$ref": "/schemata/common#/definitions/partner_data"
   your_reference:
     "$ref": "/schemata/project#/definitions/your_reference"
+  company:
+    description: Information about the company that owns the fundraiser. This will only include information if Enhanced Corporate Fundraisers are activated. Contact support@betternow.org to learn more about Enhanced Corporate Fundraisers.
+    type:
+      - object
+    properties:
+      registered_name:
+        description: The name of the company from the company registry
+        example: BETTERNOW WORLDWIDE ApS
+        type:
+          - string
+      registration_id:
+        description: The ID of the compay from the registry (CVR/Orgnummer/etc.)
+        example: 34205566
+        type:
+          - string
+      registration_country_code:
+        description: The country code for the country where the company is registered
+        example: DK
+        type:
+          - string
+      updated_from_registry_at:
+        description: When the system last pulled information about the company from the registry
+        example: "2024-11-15T15:27:27+01:00"
+        format: date
+        type:
+          - string
+      sector_code:
+        description: The sector code for the company
+        example: 620100
+        type:
+          - string
+      sector_description:
+        description: A description of the sector code
+        example: Computerprogrammering
+        type:
+          - string
+      employee_count:
+        description: The number of employees at the company
+        example: 2
+        type:
+          - integer
+      address:
+        description: The address of the company. If the registry supports both a business address and a postal address, this will be the postal address.
+        type:
+          - object
+        properties:
+          street_line_1:
+            example: Finsensvej 6E
+            type:
+              - string
+          street_line_1:
+            example: null
+            type:
+              - string
+          city:
+            example: Frederiksberg
+            type:
+              - string
+          postal_code:
+            example: 2000
+            type:
+              - string
+          province:
+            example: null
+            type:
+              - string
+          country:
+            example: DK
+            type:
+              - :string
 description: Detailed information about a single Fundraising Page on BetterNow.org
 links:
 - description: Info for existing fundraiser.
@@ -275,6 +345,8 @@ properties:
     "$ref": "/schemata/fundraiser#/definitions/death_date"
   funeral_date:
     "$ref": "/schemata/fundraiser#/definitions/funeral_date"
+  company:
+    "$ref": "/schemata/fundraiser#/definitions/company"
 type:
 - object
 id: schemata/fundraiser

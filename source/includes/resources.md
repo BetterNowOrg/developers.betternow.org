@@ -815,7 +815,23 @@ HTTP/1.1 200 OK
     "honoree": "Dorthe Jensen Hansen",
     "birth_date": "2012-01-01",
     "death_date": "2012-01-01",
-    "funeral_date": "2012-01-01"
+    "funeral_date": "2012-01-01",
+    "company": {
+      "registered_name": "BETTERNOW WORLDWIDE ApS",
+      "registration_id": 34205566,
+      "registration_country_code": "DK",
+      "updated_from_registry_at": "2024-11-15T15:27:27+01:00",
+      "sector_code": 620100,
+      "sector_description": "Computerprogrammering",
+      "employee_count": 2,
+      "address": {
+        "street_line_1": null,
+        "city": "Frederiksberg",
+        "postal_code": 2000,
+        "province": null,
+        "country": "DK"
+      }
+    }
   }
 ]
 ```
@@ -914,6 +930,18 @@ Detailed information about a single Fundraising Page on BetterNow.org
 | **activity_score** | *integer* | A number that can be used for sorting lists of fundraisers. More recently active fundraisers should have a higher activity score than fundraisers who have raised more money long ago. | `987654321` |
 | **[allow_organisation_contact](#resource-common)** | *boolean* | If the person has consented to be contacted by the organisation | `true` |
 | **birth_date** | *date* | The day the person who a tribute_fund fundraiser is honoring was born. | `"2012-01-01"` |
+| **company:address:city** | *string* |  | `"Frederiksberg"` |
+| **company:address:country** | *string* |  | `"DK"` |
+| **company:address:postal_code** | *string* |  | `2000` |
+| **company:address:province** | *string* |  | `null` |
+| **company:address:street_line_1** | *string* |  | `null` |
+| **company:employee_count** | *integer* | The number of employees at the company | `2` |
+| **company:registered_name** | *string* | The name of the company from the company registry | `"BETTERNOW WORLDWIDE ApS"` |
+| **company:registration_country_code** | *string* | The country code for the country where the company is registered | `"DK"` |
+| **company:registration_id** | *string* | The ID of the compay from the registry (CVR/Orgnummer/etc.) | `34205566` |
+| **company:sector_code** | *string* | The sector code for the company | `620100` |
+| **company:sector_description** | *string* | A description of the sector code | `"Computerprogrammering"` |
+| **company:updated_from_registry_at** | *date* | When the system last pulled information about the company from the registry | `"2024-11-15T15:27:27+01:00"` |
 | **[cover_media:image:url](#resource-common)** | *uri* | The url for the image. On the BetterNow site, the video takes precedence if both exist. 461x306 pixels | `"https://cnd.example.net/image.jpg"` |
 | **[cover_media:thumb:url](#resource-common)** | *uri* | The url for the cover media that should be displayed in e.g. a card view. 120x80 pixels | `"https://cnd.example.net/image.jpg"` |
 | **cover_media:video:oembed_html** | *string* | The OEmbed HTML to display the video. Could be blank. | `"<iframe width=\\\"480\\\" height=\\\"270\\\" src=\\\"https://www.youtube.com/embed/G1JBOSwjN6Q?feature=oembed\\\" frameborder=\\\"0\\\" allowfullscreen></iframe>"` |
@@ -1062,7 +1090,23 @@ HTTP/1.1 200 OK
   "honoree": "Dorthe Jensen Hansen",
   "birth_date": "2012-01-01",
   "death_date": "2012-01-01",
-  "funeral_date": "2012-01-01"
+  "funeral_date": "2012-01-01",
+  "company": {
+    "registered_name": "BETTERNOW WORLDWIDE ApS",
+    "registration_id": 34205566,
+    "registration_country_code": "DK",
+    "updated_from_registry_at": "2024-11-15T15:27:27+01:00",
+    "sector_code": 620100,
+    "sector_description": "Computerprogrammering",
+    "employee_count": 2,
+    "address": {
+      "street_line_1": null,
+      "city": "Frederiksberg",
+      "postal_code": 2000,
+      "province": null,
+      "country": "DK"
+    }
+  }
 }
 ```
 
@@ -1166,7 +1210,23 @@ HTTP/1.1 200 OK
     "honoree": "Dorthe Jensen Hansen",
     "birth_date": "2012-01-01",
     "death_date": "2012-01-01",
-    "funeral_date": "2012-01-01"
+    "funeral_date": "2012-01-01",
+    "company": {
+      "registered_name": "BETTERNOW WORLDWIDE ApS",
+      "registration_id": 34205566,
+      "registration_country_code": "DK",
+      "updated_from_registry_at": "2024-11-15T15:27:27+01:00",
+      "sector_code": 620100,
+      "sector_description": "Computerprogrammering",
+      "employee_count": 2,
+      "address": {
+        "street_line_1": null,
+        "city": "Frederiksberg",
+        "postal_code": 2000,
+        "province": null,
+        "country": "DK"
+      }
+    }
   }
 ]
 ```
@@ -1326,7 +1386,23 @@ HTTP/1.1 200 OK
   "honoree": "Dorthe Jensen Hansen",
   "birth_date": "2012-01-01",
   "death_date": "2012-01-01",
-  "funeral_date": "2012-01-01"
+  "funeral_date": "2012-01-01",
+  "company": {
+    "registered_name": "BETTERNOW WORLDWIDE ApS",
+    "registration_id": 34205566,
+    "registration_country_code": "DK",
+    "updated_from_registry_at": "2024-11-15T15:27:27+01:00",
+    "sector_code": 620100,
+    "sector_description": "Computerprogrammering",
+    "employee_count": 2,
+    "address": {
+      "street_line_1": null,
+      "city": "Frederiksberg",
+      "postal_code": 2000,
+      "province": null,
+      "country": "DK"
+    }
+  }
 }
 ```
 
@@ -1830,7 +1906,23 @@ HTTP/1.1 200 OK
     "honoree": "Dorthe Jensen Hansen",
     "birth_date": "2012-01-01",
     "death_date": "2012-01-01",
-    "funeral_date": "2012-01-01"
+    "funeral_date": "2012-01-01",
+    "company": {
+      "registered_name": "BETTERNOW WORLDWIDE ApS",
+      "registration_id": 34205566,
+      "registration_country_code": "DK",
+      "updated_from_registry_at": "2024-11-15T15:27:27+01:00",
+      "sector_code": 620100,
+      "sector_description": "Computerprogrammering",
+      "employee_count": 2,
+      "address": {
+        "street_line_1": null,
+        "city": "Frederiksberg",
+        "postal_code": 2000,
+        "province": null,
+        "country": "DK"
+      }
+    }
   }
 ]
 ```
@@ -2168,7 +2260,23 @@ HTTP/1.1 200 OK
     "honoree": "Dorthe Jensen Hansen",
     "birth_date": "2012-01-01",
     "death_date": "2012-01-01",
-    "funeral_date": "2012-01-01"
+    "funeral_date": "2012-01-01",
+    "company": {
+      "registered_name": "BETTERNOW WORLDWIDE ApS",
+      "registration_id": 34205566,
+      "registration_country_code": "DK",
+      "updated_from_registry_at": "2024-11-15T15:27:27+01:00",
+      "sector_code": 620100,
+      "sector_description": "Computerprogrammering",
+      "employee_count": 2,
+      "address": {
+        "street_line_1": null,
+        "city": "Frederiksberg",
+        "postal_code": 2000,
+        "province": null,
+        "country": "DK"
+      }
+    }
   }
 ]
 ```
@@ -2465,7 +2573,23 @@ HTTP/1.1 200 OK
     "honoree": "Dorthe Jensen Hansen",
     "birth_date": "2012-01-01",
     "death_date": "2012-01-01",
-    "funeral_date": "2012-01-01"
+    "funeral_date": "2012-01-01",
+    "company": {
+      "registered_name": "BETTERNOW WORLDWIDE ApS",
+      "registration_id": 34205566,
+      "registration_country_code": "DK",
+      "updated_from_registry_at": "2024-11-15T15:27:27+01:00",
+      "sector_code": 620100,
+      "sector_description": "Computerprogrammering",
+      "employee_count": 2,
+      "address": {
+        "street_line_1": null,
+        "city": "Frederiksberg",
+        "postal_code": 2000,
+        "province": null,
+        "country": "DK"
+      }
+    }
   }
 ]
 ```
@@ -3017,7 +3141,23 @@ HTTP/1.1 200 OK
     "honoree": "Dorthe Jensen Hansen",
     "birth_date": "2012-01-01",
     "death_date": "2012-01-01",
-    "funeral_date": "2012-01-01"
+    "funeral_date": "2012-01-01",
+    "company": {
+      "registered_name": "BETTERNOW WORLDWIDE ApS",
+      "registration_id": 34205566,
+      "registration_country_code": "DK",
+      "updated_from_registry_at": "2024-11-15T15:27:27+01:00",
+      "sector_code": 620100,
+      "sector_description": "Computerprogrammering",
+      "employee_count": 2,
+      "address": {
+        "street_line_1": null,
+        "city": "Frederiksberg",
+        "postal_code": 2000,
+        "province": null,
+        "country": "DK"
+      }
+    }
   }
 ]
 ```
