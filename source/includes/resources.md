@@ -291,6 +291,7 @@ The private details about a donation. Includes Personally Identifieable Informat
 | **[donor:title](#resource-person)** | *string* |  | `"Director of Personal Fundraising"` |
 | **[donor:url](#resource-user)** | *uri* | The URL to retreive private information about the user. A secret key is required for this URL | `"https://api.betternow.org/people/3e9344ff-69be-4ab5-a254-07b067325ebe"` |
 | **donor_ip_address** | *string* |  | `"127.0.0.1"` |
+| **donor_reference** | *string* | A reference entered by the donor | `"Christmas Donation"` |
 | **donor_type** | *string* | <br/> **one of:**`"unknown"` or `"personal"` or `"organisation"` | `"personal"` |
 | **[erp_product_number](#resource-project)** | *string* | A string that you can use to identify the product number to use for a donation in an integrated ERP system. If your ERP system is not integrated with BetterNow this will be null. | `"4000"` |
 | **[event:html_url](#resource-common)** | *uri* | The url to the Event page on BetterNow | `"https://dk.betternow.org/events/copenhagen-marathon-2013"` |
@@ -464,7 +465,8 @@ HTTP/1.1 200 OK
     "utm_content": "example",
     "utm_campaign": "example"
   },
-  "erp_product_number": "4000"
+  "erp_product_number": "4000",
+  "donor_reference": "Christmas Donation"
 }
 ```
 

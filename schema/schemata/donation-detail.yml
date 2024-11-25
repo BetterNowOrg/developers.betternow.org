@@ -124,6 +124,11 @@ definitions:
           - string
   your_reference:
     "$ref": "/schemata/project#/definitions/your_reference"
+  donor_reference:
+    description: A reference entered by the donor
+    example: Christmas Donation
+    type:
+      - string
   custom_form_values:
     "$ref": "/schemata/common#/definitions/custom_form_values"
   payment:
@@ -245,6 +250,8 @@ properties:
     "$ref": "/schemata/donation-detail#/definitions/analytics"
   erp_product_number:
     "$ref":  "/schemata/project#/definitions/erp_product_number"
+  donor_reference:
+    "$ref": "/schemata/donation-detail#/definitions/donor_reference"
 type:
 - object
 id: schemata/donation-detail

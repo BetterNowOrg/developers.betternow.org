@@ -547,6 +547,13 @@
         "your_reference": {
           "$ref": "#/definitions/project/definitions/your_reference"
         },
+        "donor_reference": {
+          "description": "A reference entered by the donor",
+          "example": "Christmas Donation",
+          "type": [
+            "string"
+          ]
+        },
         "custom_form_values": {
           "$ref": "#/definitions/common/definitions/custom_form_values"
         },
@@ -729,6 +736,9 @@
         },
         "erp_product_number": {
           "$ref": "#/definitions/project/definitions/erp_product_number"
+        },
+        "donor_reference": {
+          "$ref": "#/definitions/donation-detail/definitions/donor_reference"
         }
       },
       "type": [
