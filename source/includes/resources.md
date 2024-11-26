@@ -310,6 +310,7 @@ The private details about a donation. Includes Personally Identifieable Informat
 | **middle_name** | *string* | The middle name on the donation (not available in all regions) | `"Middlename"` |
 | **[name_shown](#resource-donation)** | *string* | The name on the donation | `"Joes Truck Stop"` |
 | **payment:acquirer** | *string* | What company acquires the payment | `"clearhaus"` |
+| **payment:methods** | *string* | The payment methods chosen when the donation was created | `"credit_card"` |
 | **payment:payment_id_for_processor** | *string* | the id we send to the payment processor and acquirer | `"12345-slyellei_0"` |
 | **payment:processor_id** | *string* | the payment processor's id for the payment | `"123456789"` |
 | **payment:settled_by_betternow** | *boolean* | If BetterNow transfers the money to you | `false` |
@@ -456,7 +457,8 @@ HTTP/1.1 200 OK
     "payment_id_for_processor": "12345-slyellei_0",
     "settled_by_betternow": false,
     "acquirer": "clearhaus",
-    "type": "invoiced_payment"
+    "type": "invoiced_payment",
+    "methods": "credit_card"
   },
   "analytics": {
     "utm_source": "example",

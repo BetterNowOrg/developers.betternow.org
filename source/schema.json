@@ -596,6 +596,13 @@
               "type": [
                 "string"
               ]
+            },
+            "methods": {
+              "description": "The payment methods chosen when the donation was created",
+              "example": "credit_card",
+              "type": [
+                "string"
+              ]
             }
           }
         },
