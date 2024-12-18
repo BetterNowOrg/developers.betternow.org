@@ -44,6 +44,7 @@ between first publication date and end-date |
 | fundraiser_end_date_reached | The fundraiser has reached its end-date |
 | fundraiser_fifty_percent_goal_reached | The fundraiser has reached 50% of its goal |
 | fundraiser_one_hundred_percent_goal_reached | The fundraiser has reached 100% of its goal |
+| fundraiser_company_profile_updated | The company profile attached to the fundraiser has been updated |
 
 <aside class="warning">
 The <code>end_date</code> and <code>goal</code> can be
