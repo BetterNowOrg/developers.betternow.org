@@ -40,7 +40,7 @@ Here are a few of the real-world integrations that use the API today:
 
 We ♥︎ helping our customers build new integrations. Contact us at <a
 href="mailto:apisupport@betternow.org">apisupport@betternow.org</a> if you have
-any questions, or <a href="https://calendar.app.google/L9ABc3NzkMt3oiEc7">book an appointment with our tech team</a>.
+any questions.
 
 <aside class="success">
 Note that use of the API is governed by the <a
