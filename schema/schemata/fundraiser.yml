@@ -208,6 +208,26 @@ definitions:
             example: DK
             type:
               - :string
+  qr_urls:
+    description: URLs to QR codes for the fundraiser and donation forms
+    type:
+      - object
+    properties:
+      fundraiser_qr_url:
+        description: A QR code in PNG format for the fundraiser page.
+        example: "https://example.org/qr.png"
+        type:
+          - string
+      mobile_donation_qr_url:
+        description: A QR code in PNG format for the mobile donation form. For fundraisers with a Mobilepay Myshop number it is a Myshop url, for fundraisers using vipps epayment it is a Vipps url, otherwise it is our short mobile donation form.
+        example: "https://example.org/qr.png"
+        type:
+          - string
+      standard_donation_qr_url:
+        description: A QR code in PNG format for the standard donation form.
+        example: "https://example.org/qr.png"
+        type:
+          - string
 description: Detailed information about a single Fundraising Page on BetterNow.org
 links:
 - description: Info for existing fundraiser.
@@ -347,6 +367,8 @@ properties:
     "$ref": "/schemata/fundraiser#/definitions/funeral_date"
   company:
     "$ref": "/schemata/fundraiser#/definitions/company"
+  qr_urls:
+    "$ref": "/schemata/fundraiser#/definitions/qr_urls"
 type:
 - object
 id: schemata/fundraiser

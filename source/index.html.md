@@ -272,6 +272,10 @@ curl -n -sS -i -H 'Accept: application/vnd.betternow+json; version=1' \
 
 ## Changelog
 
+2025-03-31:
+
+- added qr_urls object to the Fundraiser Page
+
 2024-10-04:
 
 - added this changelog
