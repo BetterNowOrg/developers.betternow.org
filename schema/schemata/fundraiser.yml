@@ -216,16 +216,19 @@ definitions:
       fundraiser_qr_url:
         description: A QR code in PNG format for the fundraiser page.
         example: "https://example.org/qr.png"
+        format: uri
         type:
           - string
       mobile_donation_qr_url:
         description: A QR code in PNG format for the mobile donation form. For fundraisers with a Mobilepay Myshop number it is a Myshop url, for fundraisers using vipps epayment it is a Vipps url, otherwise it is our short mobile donation form.
         example: "https://example.org/qr.png"
+        format: uri
         type:
           - string
       standard_donation_qr_url:
         description: A QR code in PNG format for the standard donation form.
         example: "https://example.org/qr.png"
+        format: uri
         type:
           - string
 description: Detailed information about a single Fundraising Page on BetterNow.org
