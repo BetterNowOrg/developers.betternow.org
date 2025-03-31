@@ -49,6 +49,20 @@ Agreement</a> and the general <a href="https://intl.betternow.org/terms"
 target="_blank">Terms &amp; Conditions</a>
 </aside>
 
+## Changelog
+
+2025-03-31:
+
+- added qr_urls object to the Fundraiser Page
+
+2024-10-04:
+
+- added this changelog
+- documented the difference between the /donation and /donation-details
+  endpoints
+- clarified documentation on `first_name`, `middle_name`, and `last_name` on the
+  donation
+
 ## Setup
 
 In the **Integrations** section of your charity dashboard, you can create API
@@ -270,16 +284,3 @@ curl -n -sS -i -H 'Accept: application/vnd.betternow+json; version=1' \
 </html>
 ```
 
-## Changelog
-
-2025-03-31:
-
-- added qr_urls object to the Fundraiser Page
-
-2024-10-04:
-
-- added this changelog
-- documented the difference between the /donation and /donation-details
-  endpoints
-- clarified documentation on `first_name`, `middle_name`, and `last_name` on the
-  donation
