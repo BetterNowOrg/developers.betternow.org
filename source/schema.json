@@ -1259,6 +1259,10 @@
             "cultural_event",
             "sponsorable",
             "tribute_fund",
+            "live_stream",
+            "crowdfunding",
+            "door_to_door",
+            "personal",
             "other"
           ]
         },
@@ -1533,22 +1537,25 @@
           ],
           "properties": {
             "fundraiser_qr_url": {
-              "description": "A QR code in PNG format for the fundraiser page.",
+              "description": "A QR code in PNG format for the fundraiser page. Only provided if the fundraiser can receive donations.",
               "example": "https://example.org/qr.png",
+              "format": "uri",
               "type": [
                 "string"
               ]
             },
             "mobile_donation_qr_url": {
-              "description": "A QR code in PNG format for the mobile donation form. For fundraisers with a Mobilepay Myshop number it is a Myshop url, for fundraisers using vipps epayment it is a Vipps url, otherwise it is our short mobile donation form.",
+              "description": "A QR code in PNG format for the mobile donation form. For fundraisers with a Mobilepay Myshop number it is a Myshop url, for fundraisers using vipps epayment it is a Vipps url, otherwise it is our short mobile donation form. Only provided if the fundraiser can receive donations.",
               "example": "https://example.org/qr.png",
+              "format": "uri",
               "type": [
                 "string"
               ]
             },
             "standard_donation_qr_url": {
-              "description": "A QR code in PNG format for the standard donation form.",
+              "description": "A QR code in PNG format for the standard donation form. Only provided if the fundraiser can receive donations.",
               "example": "https://example.org/qr.png",
+              "format": "uri",
               "type": [
                 "string"
               ]

@@ -19,7 +19,7 @@ definitions:
     example: birthday
     type:
       - string
-    enum: ['birthday', 'anniversary', 'in_memory_of', 'sports_event', 'corporate', 'cultural_event', 'sponsorable', 'tribute_fund', 'other']
+    enum: ['birthday', 'anniversary', 'in_memory_of', 'sports_event', 'corporate', 'cultural_event', 'sponsorable', 'tribute_fund', 'live_stream', 'crowdfunding', 'door_to_door', 'personal', 'other']
   donate_url:
     description: The current url to donate via the fundraising page on BetterNow. This can, and does, change. Requests to old urls will be redirect to the current url.
     example: 'https://www.betternow.org/dk/fundraisers/firstname-lastnames-fundraiser/donations/new'

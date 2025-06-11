@@ -968,7 +968,7 @@ Detailed information about a single Fundraising Page on BetterNow.org
 | **[event:id](#resource-common)** | *string* | unique identifier of event | `1234567` |
 | **[event:name](#resource-common)** | *string* | the name of the Event | `"Copenhagen Marathon 2013"` |
 | **[event:url](#resource-common)** | *uri* |  | `"https://api.betternow.org/events/1234567"` |
-| **fundraiser_type** | *string* | The type of the fundraiser on BetterNow<br/> **one of:**`"birthday"` or `"anniversary"` or `"in_memory_of"` or `"sports_event"` or `"corporate"` or `"cultural_event"` or `"sponsorable"` or `"tribute_fund"` or `"other"` | `"birthday"` |
+| **fundraiser_type** | *string* | The type of the fundraiser on BetterNow<br/> **one of:**`"birthday"` or `"anniversary"` or `"in_memory_of"` or `"sports_event"` or `"corporate"` or `"cultural_event"` or `"sponsorable"` or `"tribute_fund"` or `"live_stream"` or `"crowdfunding"` or `"door_to_door"` or `"personal"` or `"other"` | `"birthday"` |
 | **funeral_date** | *date* | The date of the funeral for the person who a tribute_fund fundraiser is honoring. | `"2012-01-01"` |
 | **goal:cents** | *integer* | Numeric amount in cents | `1234500` |
 | **goal:currency** | *string* | 3 character currency code, as specified in ISO 4217<br/> **pattern:** `^([A-Z]{3})$` | `"EUR"` |
@@ -986,9 +986,9 @@ Detailed information about a single Fundraising Page on BetterNow.org
 | **[project:id](#resource-common)** | *string* | Unique identifier of project | `1234567` |
 | **[project:name](#resource-common)** | *string* | The name of the Project | `"HelpNows generelle arbejde"` |
 | **[project:url](#resource-common)** | *uri* |  | `"https://api.betternow.org/projects/1234567"` |
-| **qr_urls:fundraiser_qr_url** | *string* | A QR code in PNG format for the fundraiser page. | `"https://example.org/qr.png"` |
-| **qr_urls:mobile_donation_qr_url** | *string* | A QR code in PNG format for the mobile donation form. For fundraisers with a Mobilepay Myshop number it is a Myshop url, for fundraisers using vipps epayment it is a Vipps url, otherwise it is our short mobile donation form. | `"https://example.org/qr.png"` |
-| **qr_urls:standard_donation_qr_url** | *string* | A QR code in PNG format for the standard donation form. | `"https://example.org/qr.png"` |
+| **qr_urls:fundraiser_qr_url** | *uri* | A QR code in PNG format for the fundraiser page. Only provided if the fundraiser can receive donations. | `"https://example.org/qr.png"` |
+| **qr_urls:mobile_donation_qr_url** | *uri* | A QR code in PNG format for the mobile donation form. For fundraisers with a Mobilepay Myshop number it is a Myshop url, for fundraisers using vipps epayment it is a Vipps url, otherwise it is our short mobile donation form. Only provided if the fundraiser can receive donations. | `"https://example.org/qr.png"` |
+| **qr_urls:standard_donation_qr_url** | *uri* | A QR code in PNG format for the standard donation form. Only provided if the fundraiser can receive donations. | `"https://example.org/qr.png"` |
 | **[recipient:html_url](#resource-common)** | *uri* | The current url to view the organisation page on BetterNow. This can, and does, change. Requests to old urls will be redirect to the current url. | `"https://dk.betternow.org/charities/helpnow"` |
 | **[recipient:id](#resource-common)** | *string* | Unique identifier of organisation | `1234567` |
 | **[recipient:name](#resource-common)** | *string* | The name of the Organisation | `"HelpNow"` |
@@ -1283,7 +1283,7 @@ POST /fundraisers
 | **description** | *string* | The text written by the fundraiser owner. Contains HTML. | `"<p>This is really, <b>REALLY</b> great</p> <br><br>"` |
 | **end_date** | *date* | The end date for a fundraiser. | `"2012-01-01"` |
 | **event_id** | *string* | unique identifier of event | `1234567` |
-| **fundraiser_type** | *string* | The type of the fundraiser on BetterNow<br/> **one of:**`"birthday"` or `"anniversary"` or `"in_memory_of"` or `"sports_event"` or `"corporate"` or `"cultural_event"` or `"sponsorable"` or `"tribute_fund"` or `"other"` | `"birthday"` |
+| **fundraiser_type** | *string* | The type of the fundraiser on BetterNow<br/> **one of:**`"birthday"` or `"anniversary"` or `"in_memory_of"` or `"sports_event"` or `"corporate"` or `"cultural_event"` or `"sponsorable"` or `"tribute_fund"` or `"live_stream"` or `"crowdfunding"` or `"door_to_door"` or `"personal"` or `"other"` | `"birthday"` |
 | **funeral_date** | *date* | The date of the funeral for the person who a tribute_fund fundraiser is honoring. | `"2012-01-01"` |
 | **goal:cents** | *integer* | Numeric amount in cents | `1234500` |
 | **goal:currency** | *string* | 3 character currency code, as specified in ISO 4217<br/> **pattern:** `^([A-Z]{3})$` | `"EUR"` |

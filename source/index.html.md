@@ -51,6 +51,10 @@ target="_blank">Terms &amp; Conditions</a>
 
 ## Changelog
 
+2025-06-11:
+
+- updated the list of valid fundraiser_type values
+
 2025-03-31:
 
 - added qr_urls object to the Fundraiser Page
