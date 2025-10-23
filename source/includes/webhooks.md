@@ -138,7 +138,8 @@ The system retries at exponentially-increasing intervals equal to
 (failure_count^4 + 3) seconds. This means that delivery will be retried 4
 seconds after the first failure, 19 seconds after the second, 84 seconds after
 the third, 259 seconds after the fourth, and so on. When the retry interval hits
-one day the system will attempt sending once daily until it succeeds.
+one day the system will attempt sending once daily until 45 days after the
+notification was created.
 
 ## Responding to a webhook request
 
