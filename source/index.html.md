@@ -51,6 +51,12 @@ target="_blank">Terms &amp; Conditions</a>
 
 ## Changelog
 
+2025-10-23:
+
+- updated webhook notification retry policy: the system will now retry delivery
+for 45 days, after which the notification will be deleted
+- removed Fundraiser Invitation documentation (no longer supported)
+
 2025-06-11:
 
 - updated the list of valid fundraiser_type values
