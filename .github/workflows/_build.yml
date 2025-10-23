@@ -1,0 +1,37 @@
+name: Build Site
+
+on:
+  workflow_call:
+    outputs:
+      build-successful:
+        description: "Whether the build succeeded"
+        value: ${{ jobs.build.outputs.success }}
+
+jobs:
+  build:
+    name: Build Documentation Site
+    runs-on: ubuntu-latest
+    outputs:
+      success: ${{ steps.build.outcome == 'success' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Ruby and install gems
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+        env:
+          BUNDLE_CACHE_PATH: "vendor/cache"
+
+      - name: Build site
+        id: build
+        run: |
+          bin/build
+
+      - name: Verify build artifacts exist
+        run: |
+          test -f build/index.html || (echo "build/index.html not found" && exit 1)
+          test -f source/schema.json || (echo "source/schema.json not found" && exit 1)
+          test -f source/includes/resources.md || (echo "source/includes/resources.md not found" && exit 1)
+          echo "All required build artifacts present"

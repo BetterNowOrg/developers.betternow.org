@@ -1,31 +1,47 @@
 name: Publish to developers.betternow.org
-on: [push]
+on:
+  push:
+    branches:
+      - master
+
 permissions:
   id-token: write
   contents: read
 
 jobs:
   build:
-    name: Build and Deploy
+    name: Build Documentation Site
+    uses: ./.github/workflows/_build.yml
+
+  deploy:
+    name: Deploy to S3
+    needs: build
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
       - name: Setup Ruby and install gems
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
         env:
           BUNDLE_CACHE_PATH: "vendor/cache"
+
       - name: Build site
         run: |
           bin/build
+
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
           role-to-assume: arn:aws:iam::357932486739:role/developer-docs-deployer
           role-session-name: deploydeveloperdocs
           aws-region: eu-west-1
+
       - name: Deploy the site
         run: |
           bin/deploy
