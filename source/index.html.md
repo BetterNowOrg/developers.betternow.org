@@ -5,12 +5,10 @@ language_tabs:
   - shell
 
 toc_footers:
-  - <a href="https://intl.betternow.org/developer-agreement" target="_blank">Developer Agreement</a>
-  - <a href="https://intl.betternow.org/terms" target="_blank">Terms
     &amp; Conditions</a>
-  - <a href="https://intl.betternow.org/developer-agreement" target="_blank">Security</a>
+  - <a href="https://www.betternow.org/trust/security" target="_blank">Security</a>
   - <a href="http://status.betternow.org" target="_blank">System Status</a>
-  - <a href="https://support.betternow.org" target="_blank">BetterNow Charity Support</a>
+  - <a href="https://be.betternow.org/en" target="_blank">BetterNow Charity Support</a>
   - <a href="mailto:apisupport@betternow.org">apisupport@betternow.org</a>
   - <a href="https://www.betternow.org">&copy; BetterNow Worldwide Aps</a>
 
