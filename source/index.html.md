@@ -42,13 +42,6 @@ We ♥︎ helping our customers build new integrations. Contact us at <a
 href="mailto:apisupport@betternow.org">apisupport@betternow.org</a> if you have
 any questions.
 
-<aside class="success">
-Note that use of the API is governed by the <a
-href="https://intl.betternow.org/developer-agreement" target="_blank">Developer
-Agreement</a> and the general <a href="https://intl.betternow.org/terms"
-target="_blank">Terms &amp; Conditions</a>
-</aside>
-
 ## Changelog
 
 2025-10-23:
