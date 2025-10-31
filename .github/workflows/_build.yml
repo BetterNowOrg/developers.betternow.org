@@ -35,3 +35,76 @@ jobs:
           test -f source/schema.json || (echo "source/schema.json not found" && exit 1)
           test -f source/includes/resources.md || (echo "source/includes/resources.md not found" && exit 1)
           echo "All required build artifacts present"
+
+      - name: Validate YAML frontmatter
+        run: |
+          echo "Validating YAML frontmatter in source files..."
+          ruby -e "
+            require 'yaml'
+            errors = []
+            Dir.glob('source/**/*.md').each do |file|
+              content = File.read(file)
+              if content.start_with?('---')
+                # Extract frontmatter
+                parts = content.split(/^---\s*$/, 3)
+                if parts.length >= 3
+                  frontmatter = parts[1]
+                  begin
+                    YAML.load(frontmatter)
+                    puts \"✓ #{file}\"
+                  rescue => e
+                    errors << \"#{file}: #{e.message}\"
+                    puts \"✗ #{file}: #{e.message}\"
+                  end
+                end
+              end
+            end
+            if errors.any?
+              puts \"\nYAML validation failed for #{errors.length} file(s)\"
+              exit 1
+            else
+              puts \"\nAll YAML frontmatter is valid\"
+            end
+          "
+
+      - name: Verify build content
+        run: |
+          echo "Verifying build/index.html contains expected content..."
+
+          # Check file size (should be > 100KB)
+          SIZE=$(wc -c < build/index.html)
+          if [ "$SIZE" -lt 100000 ]; then
+            echo "ERROR: build/index.html is only ${SIZE} bytes (expected > 100KB)"
+            echo "This suggests the build is incomplete or includes were not processed"
+            exit 1
+          fi
+          echo "✓ File size: ${SIZE} bytes"
+
+          # Check that API resources are included
+          RESOURCES=$(grep -c "resource-donation" build/index.html || echo "0")
+          if [ "$RESOURCES" -lt 5 ]; then
+            echo "ERROR: build/index.html missing API resource documentation"
+            echo "Expected multiple occurrences of 'resource-donation', found ${RESOURCES}"
+            exit 1
+          fi
+          echo "✓ API resources included (found ${RESOURCES} references)"
+
+          # Check that webhooks documentation is included
+          if ! grep -q "Webhooks" build/index.html; then
+            echo "ERROR: build/index.html missing webhooks documentation"
+            exit 1
+          fi
+          echo "✓ Webhooks documentation included"
+
+          # Verify specific resources are present
+          EXPECTED_RESOURCES="resource-donation resource-fundraiser resource-project resource-team resource-organisation"
+          for resource in $EXPECTED_RESOURCES; do
+            if ! grep -q "$resource" build/index.html; then
+              echo "ERROR: Missing expected resource: $resource"
+              exit 1
+            fi
+          done
+          echo "✓ All expected API resources present"
+
+          echo ""
+          echo "Build verification passed!"
