@@ -5,7 +5,6 @@ language_tabs:
   - shell
 
 toc_footers:
-    &amp; Conditions</a>
   - <a href="https://www.betternow.org/trust/security" target="_blank">Security</a>
   - <a href="http://status.betternow.org" target="_blank">System Status</a>
   - <a href="https://be.betternow.org/en" target="_blank">BetterNow Charity Support</a>
