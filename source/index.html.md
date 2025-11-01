@@ -248,9 +248,8 @@ curl -n -sS -i -H 'Accept: application/vnd.betternow+json; version=1' \
       // we are seeing issues with your API client
       var yourEmailAddress = "<REPLACE WITH YOUR EMAIL>"
 
-      // You could also use your secret key here, if accessing an endpoint that
-      // requires it.
-      var publishableKey = "<REPLACE WITH YOUR API KEY>";
+      // Only use your publishable key in client-side code
+      var publishableKey = "<REPLACE WITH YOUR PUBLISHABLE API KEY>";
 
       // This is just an example for retrieving a fundraiser. If you would
       // rather use another endpoint, you can change the url used in the
