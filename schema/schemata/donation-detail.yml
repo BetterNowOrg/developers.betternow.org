@@ -185,7 +185,7 @@ definitions:
       utm_campaign:
         type:
           - string
-description: The private details about a donation. Includes Personally Identifieable Information. A secret key is required to access this information.
+description: The private details about a donation. Includes Personal data. A secret key is required to access this information.
 links:
 - description: Info for existing donation.
   href: "/donation-details/{(%2Fschemata%2Fdonation%23%2Fdefinitions%2Fidentity)}"
