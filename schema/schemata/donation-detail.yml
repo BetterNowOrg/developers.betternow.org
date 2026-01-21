@@ -129,6 +129,13 @@ definitions:
     example: Christmas Donation
     type:
       - string
+  form_type:
+    example: online_form
+    type:
+      - string
+    enum:
+      - online_form
+      - door_to_door_form
   custom_form_values:
     "$ref": "/schemata/common#/definitions/custom_form_values"
   payment:
@@ -257,6 +264,8 @@ properties:
     "$ref":  "/schemata/project#/definitions/erp_product_number"
   donor_reference:
     "$ref": "/schemata/donation-detail#/definitions/donor_reference"
+  form_type:
+    "$ref": "/schemata/donation-detail#/definitions/form_type"
 type:
 - object
 id: schemata/donation-detail

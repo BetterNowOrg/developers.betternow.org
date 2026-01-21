@@ -45,6 +45,7 @@ between first publication date and end-date |
 | fundraiser_fifty_percent_goal_reached | The fundraiser has reached 50% of its goal |
 | fundraiser_one_hundred_percent_goal_reached | The fundraiser has reached 100% of its goal |
 | fundraiser_company_profile_updated | The company profile attached to the fundraiser has been updated |
+| fundraiser_trashed | The fundraiser has been deleted/trashed |
 
 <aside class="warning">
 The <code>end_date</code> and <code>goal</code> can be
@@ -61,6 +62,7 @@ times if the end date is changed.
 | team_created_by_system | A team page is created via an integration with a third-party system |
 | team_created_by_user | A team page is created on the web site |
 | team_edited | A team page is edited |
+| team_trashed | The team page has been deleted/trashed |
 
 ### Donation activities
 | Activity Type | Description |

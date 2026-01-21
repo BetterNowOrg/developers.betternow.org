@@ -243,7 +243,7 @@ HTTP/1.1 200 OK
 ## <a name="resource-donation-detail">Donation Details</a>
 
 
-The private details about a donation. Includes Personally Identifieable Information. A secret key is required to access this information.
+The private details about a donation. Includes Personal data. A secret key is required to access this information.
 
 ### Attributes
 
@@ -299,6 +299,7 @@ The private details about a donation. Includes Personally Identifieable Informat
 | **[event:name](#resource-common)** | *string* | the name of the Event | `"Copenhagen Marathon 2013"` |
 | **[event:url](#resource-common)** | *uri* |  | `"https://api.betternow.org/events/1234567"` |
 | **first_name** | *string* | The first name on the donation | `"Firstname"` |
+| **form_type** | *string* | <br/> **one of:**`"online_form"` or `"door_to_door_form"` | `"online_form"` |
 | **[fundraiser:html_url](#resource-common)** | *uri* | The current url to view the organisation page on BetterNow. This can, and does, change. Requests to old urls will be redirect to the current url. | `"https://dk.betternow.org/charities/helpnow"` |
 | **[fundraiser:id](#resource-common)** | *string* | Unique identifier of organisation | `1234567` |
 | **[fundraiser:name](#resource-common)** | *string* | The name of the Organisation | `"HelpNow"` |
@@ -468,7 +469,8 @@ HTTP/1.1 200 OK
     "utm_campaign": "example"
   },
   "erp_product_number": "4000",
-  "donor_reference": "Christmas Donation"
+  "donor_reference": "Christmas Donation",
+  "form_type": "online_form"
 }
 ```
 
@@ -994,7 +996,7 @@ Detailed information about a single Fundraising Page on BetterNow.org
 | **[recipient:name](#resource-common)** | *string* | The name of the Organisation | `"HelpNow"` |
 | **[recipient:url](#resource-common)** | *uri* |  | `"https://api.betternow.org/organisations/1234567"` |
 | **[slug](#resource-common)** | *string* | The current url path component to identify the fundraiser. This can, and does, change.<br/> **pattern:** `^([a-z0-9-]{2,})$` | `"firstname-lastnames-fundraiser-for-helpnow"` |
-| **[state](#resource-common)** | *string* | The state of this fundraiser | `"published"` |
+| **state** | *string* | The state of this fundraiser. Fundraisers in the draft and trashed states are not available via the API.<br/> **one of:**`"draft"` or `"finished"` or `"finished_hidden"` or `"hidden"` or `"published"` or `"trashed"` | `"published"` |
 | **[team:html_url](#resource-common)** | *uri* | The url to the Team page on BetterNow | `"https://dk.betternow.org/teams/team-novo"` |
 | **[team:id](#resource-common)** | *string* | unique identifier of team | `1234567` |
 | **[team:name](#resource-common)** | *string* | the name of the Team | `"Team NOVO"` |

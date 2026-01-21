@@ -53,8 +53,17 @@ definitions:
     description: The monetary goal for this fundraiser
     "$ref": "/schemata/common#/definitions/amount"
   state:
-    description: The state of this fundraiser
-    "$ref": "/schemata/common#/definitions/state"
+    description: The state of this fundraiser. Fundraisers in the draft and trashed states are not available via the API.
+    example: published
+    type:
+      - string
+    enum:
+      - draft
+      - finished
+      - finished_hidden
+      - hidden
+      - published
+      - trashed
   headline:
     description: The headline for this fundraising page
     example: "Firstname Lastname's Fundraiser for HelpNow"

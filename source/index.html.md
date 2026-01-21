@@ -41,6 +41,12 @@ any questions.
 
 ## Changelog
 
+2026-01-21:
+
+- added `form_type` to /donation-details
+- added `fundraiser_trashed` and `team_trashed` webhook notifications
+- added missing documenation of the possible values for fundraiser `state`
+
 2025-10-23:
 
 - updated webhook notification retry policy: the system will now retry delivery

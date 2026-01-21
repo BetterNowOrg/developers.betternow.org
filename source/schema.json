@@ -554,6 +554,16 @@
             "string"
           ]
         },
+        "form_type": {
+          "example": "online_form",
+          "type": [
+            "string"
+          ],
+          "enum": [
+            "online_form",
+            "door_to_door_form"
+          ]
+        },
         "custom_form_values": {
           "$ref": "#/definitions/common/definitions/custom_form_values"
         },
@@ -640,7 +650,7 @@
           }
         }
       },
-      "description": "The private details about a donation. Includes Personally Identifieable Information. A secret key is required to access this information.",
+      "description": "The private details about a donation. Includes Personal data. A secret key is required to access this information.",
       "links": [
         {
           "description": "Info for existing donation.",
@@ -746,6 +756,9 @@
         },
         "donor_reference": {
           "$ref": "#/definitions/donation-detail/definitions/donor_reference"
+        },
+        "form_type": {
+          "$ref": "#/definitions/donation-detail/definitions/form_type"
         }
       },
       "type": [
@@ -1311,8 +1324,19 @@
           "$ref": "#/definitions/common/definitions/amount"
         },
         "state": {
-          "description": "The state of this fundraiser",
-          "$ref": "#/definitions/common/definitions/state"
+          "description": "The state of this fundraiser. Fundraisers in the draft and trashed states are not available via the API.",
+          "example": "published",
+          "type": [
+            "string"
+          ],
+          "enum": [
+            "draft",
+            "finished",
+            "finished_hidden",
+            "hidden",
+            "published",
+            "trashed"
+          ]
         },
         "headline": {
           "description": "The headline for this fundraising page",
