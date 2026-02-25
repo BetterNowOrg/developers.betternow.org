@@ -314,6 +314,7 @@ The private details about a donation. Includes Personal data. A secret key is re
 | **payment:methods** | *string* | The payment methods chosen when the donation was created | `"credit_card"` |
 | **payment:payment_id_for_processor** | *string* | the id we send to the payment processor and acquirer | `"12345-slyellei_0"` |
 | **payment:processor_id** | *string* | the payment processor's id for the payment | `"123456789"` |
+| **payment:secondary_processor_id** | *string* | an optional secondary id for the payment from the processor. Currently only used for payments imported via the Vipps/MobilePay Report API | `"123456789"` |
 | **payment:settled_by_betternow** | *boolean* | If BetterNow transfers the money to you | `false` |
 | **payment:type** | *string* | The payment type | `"invoiced_payment"` |
 | **[project:html_url](#resource-common)** | *uri* | The current url to view the project page on BetterNow. This can, and does, change. Requests to old urls will be redirect to the current url. | `"https://dk.betternow.org/projects/helpnow-projekt"` |
@@ -455,6 +456,7 @@ HTTP/1.1 200 OK
   "custom_form_values": null,
   "payment": {
     "processor_id": "123456789",
+    "secondary_processor_id": "123456789",
     "payment_id_for_processor": "12345-slyellei_0",
     "settled_by_betternow": false,
     "acquirer": "clearhaus",

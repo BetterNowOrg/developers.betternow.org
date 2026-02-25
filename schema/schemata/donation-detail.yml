@@ -147,6 +147,11 @@ definitions:
         example: "123456789"
         type:
           - string
+      secondary_processor_id:
+        description: an optional secondary id for the payment from the processor. Currently only used for payments imported via the Vipps/MobilePay Report API
+        example: "123456789"
+        type:
+          - string
       payment_id_for_processor:
         description: the id we send to the payment processor and acquirer
         example: 12345-slyellei_0
