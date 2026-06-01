@@ -41,6 +41,10 @@ any questions.
 
 ## Changelog
 
+2026-06-01:
+
+- removed outdated/unused /contact-permissions endpoint
+
 2026-02-25:
 
 - added `secondary_processor_id` to payment object in /donation-details
