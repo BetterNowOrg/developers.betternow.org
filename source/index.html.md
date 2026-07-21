@@ -41,6 +41,11 @@ any questions.
 
 ## Changelog
 
+2026-07-21:
+
+- updated sample notification request body for `donation_payment_captured` to
+  include the `private_details_url` attribute of the `donation` resource.
+
 2026-06-01:
 
 - removed outdated/unused /contact-permissions endpoint

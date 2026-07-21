@@ -90,7 +90,8 @@ Here is an example notification request body for a `donation_payment_captured` a
   "resources": {
     "donation": {
       "id": "xxx",
-      "url": "https://api.betternow.org/donations/xxx"
+      "url": "https://api.betternow.org/donations/xxx",
+      "private_details_url": "https://api.betternow.org/donation-detailss/xxx"
     },
     "fundraiser": {
       "id": "xxx",
