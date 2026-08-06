@@ -161,37 +161,33 @@ be aware of the following:
 We encourage you to separate the steps of receiving/storing the webhook
 notification, from taking action on it.
 
-We recommend storing the raw request body & headers and then enqueuing a job
-that processes the notification and updates your system outside of the HTTP
-request/response cycle.
+We recommend verifying the request signature, storing the raw request body &
+headers and then enqueuing a job that processes the notification and updates
+your system outside of the HTTP request/response cycle.
 
 ## Verifying the integrity of the request
 
 When you add a new webhook endpoint, we will generate a shared secret that we
-use to generate a checksum of the request body using [HMAC
-SHA256](https://en.wikipedia.org/wiki/Hash-based_message_authentication_code).
-We will send this checksum with the request in the `BN-HMAC-SHA256` HTTP header.
+use to sign the request and add the headers in the [Standard
+Webhooks](https://www.standardwebhooks.com/) specification to the request.
+
+Example headers:
+
+```
+webhook-id: 8dd92398-3552-4ba1-8e97-bd1e1eeb82a8
+webhook-timestamp: 1786024419
+webhook-signature: v1,K5oZfzN95Z9UVu1EsfQmfVNQhnkZ2pj9o9NDN/H/pI4=
+```
 
 We strongly encourage you to verify the integrity and authenticity of the
-request by computing your own checksum using the shared secret and comparing it
-with the value in the header before processing the request.
+request by using the shared secret with one of the [Standard Webhooks
+libraries](https://github.com/standard-webhooks/standard-webhooks/tree/main/libraries)
+with the value in the header **before** processing the request.
 
-To the right is an example of verifying a webhook request using PHP.
+Note: The webhook body/payload is very similar to, but not fully compliant with
+the Standard Webhooks spec. The headers are spec-compliant.
 
-```php
-<?php
-
-$request_body     = file_get_contents("php://input");
-$request_checksum = $_ENV["HTTP_BN_HMAC_SHA256"];
-$shared_secret    = $_ENV["BETTERNOW_WEBHOOK_SHARED_SECRET"];
-
-$our_checksum = hash_hmac("sha256", $request_body, $shared_secret);
-
-if (hash_equals($our_checksum, $request_checksum)) {
-  // Request is authenticated
-} else {
-  // Request is NOT authenticated
-}
-
-?>
-```
+For legacy implementations, we also send the checksum of the body only (not
+including the id and the timestamp as Standard Webhooks do) with the request in
+the `BN-HMAC-SHA256` HTTP header. We recommend migrating to the Standard
+Webhooks format if your integration still uses this header.

@@ -41,6 +41,10 @@ any questions.
 
 ## Changelog
 
+2026-08-06:
+
+- documented [Standard Webhooks](https://www.standardwebhooks.com/) signing
+
 2026-07-21:
 
 - updated sample notification request body for `donation_payment_captured` to
