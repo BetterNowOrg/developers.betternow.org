@@ -41,6 +41,10 @@ any questions.
 
 ## Changelog
 
+2026-09-15:
+
+- documented new OAuth authentication
+
 2026-08-06:
 
 - documented [Standard Webhooks](https://www.standardwebhooks.com/) signing
@@ -101,6 +105,105 @@ In addition, you can add an email address and a short description for each set
 of keys.
 
 ## Authentication
+
+We currently support two authentication methods, but strongly suggest new
+applications use OAuth (the first method below).
+
+### OAuth Application Authentication
+
+Contact [API support](mailto:apisupport@betternow.org) to register your
+application and receive a Client ID and Client Secret.
+
+Once you have received a Client ID and Client Secret, you can test your
+application credentials and get a list of the resources you have access to and
+what scopes have been granted:
+
+```sh
+curl --fail-with-body --user "$CLIENT_ID:$CLIENT_SECRET" \
+  "https://api.betternow.org/oauth/grants"
+```
+
+Example response:
+
+```json
+[
+  {"anchor":"charity:42","allowed_scopes":["read","donation_details:read","people:read"]},
+  {"anchor":"project:99","allowed_scopes":["read"]}
+]
+```
+
+Use the returned allowlist when choosing scopes. A token must contain exactly
+one anchor scope, such as `charity:42`, plus at least one action scope. Do not
+combine `charity:42` and `project:99` in one token request.
+
+The available action scopes are:
+
+- `read` # returns public information about resources like fundraisers, projects, etc.
+- `donation_details:read`
+- `people:read`
+- `fundraisers:write`
+- `teams:write`
+- `team_memberships:write`
+- `fundraiser_invitations:write`
+- `webhook_endpoints:write`
+
+For applications that just need to mirror some of the publicly available
+information on your BetterNow site, `read` is usually sufficient. For
+applications that need a read-only syncronization of public and non-public data
+to e.g. a CRM system, `read`, `donation_details:read` and `people:read` are
+usually sufficient.
+
+#### Mint a token
+
+Send the Client ID and Client Secret with HTTP Basic authentication. Request
+the anchor and actions as a space-separated `scope` value:
+
+```sh
+TOKEN_RESPONSE=$(curl --fail-with-body --silent --show-error \
+  --user "$CLIENT_ID:$CLIENT_SECRET" \
+  --data "grant_type=client_credentials" \
+  --data-urlencode "scope=charity:42 read donation_details:read people:read" \
+  "https://api.betternow.org/oauth/token")
+```
+
+The response includes an opaque token and its lifetime in seconds:
+
+```json
+{
+  "access_token":"…",
+  "token_type":"Bearer",
+  "expires_in":3600,
+  "scope":"charity:42 read donation_details:read people:read"
+}
+```
+
+Parse and store `access_token` in process memory or an appropriate secret
+cache. Do not persist it in source control or log the full response. There is
+no refresh token for this grant; mint a new access token with the client
+credentials.
+
+Use the token in subsequent requests:
+
+```sh
+curl --fail-with-body --silent --show-error \
+  --header "Authentication: Bearer $ACCESS_TOKEN" \
+  --header "Accept: application/vnd.betternow+json; version=1" \
+  https://api.betternow.org/projects
+```
+
+#### Recover from a 401
+
+On a `401` from a resource endpoint, discard the cached token, mint one fresh
+token, and retry the request once. Do not retry indefinitely. If the new token
+also receives `401`, stop and check the grant discovery response with
+BetterNow: the grant may have been removed, its scopes may have been narrowed,
+the anchor may no longer exist, or the token may have been minted for a
+different anchor.
+
+### Legacy Authentication
+
+**NOTE:** we strongly suggest new applications use OAuth authentication as
+discribed above.
 
 When you create an API user in your charity dashboard, we generate a
 `publishable` key and a `secret` key.
