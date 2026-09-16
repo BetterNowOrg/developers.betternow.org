@@ -30,6 +30,12 @@ The following activities will trigger a notification to your endpoint:
 | --- | --- |
 | user_deleted | The user has been deleted in the BetterNow system |
 
+### Project activities
+| Activity Type | Description |
+| --- | --- |
+| project_created | A new project has been created in the system |
+| project_deleted | A project has been deleted |
+
 ### Fundraiser page activities
 | Activity Type | Description |
 | --- | --- |

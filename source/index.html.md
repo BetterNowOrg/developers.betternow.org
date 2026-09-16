@@ -41,6 +41,10 @@ any questions.
 
 ## Changelog
 
+2026-09-16:
+
+- added `project_created` and `project_deleted` webhook notifications
+
 2026-09-15:
 
 - documented new OAuth authentication
@@ -170,17 +174,19 @@ The response includes an opaque token and its lifetime in seconds:
 
 ```json
 {
-  "access_token":"…",
+  "access_token":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
   "token_type":"Bearer",
   "expires_in":3600,
   "scope":"charity:42 read donation_details:read people:read"
 }
 ```
 
+<aside class="warning">
 Parse and store `access_token` in process memory or an appropriate secret
 cache. Do not persist it in source control or log the full response. There is
 no refresh token for this grant; mint a new access token with the client
 credentials.
+</aside>
 
 Use the token in subsequent requests:
 
